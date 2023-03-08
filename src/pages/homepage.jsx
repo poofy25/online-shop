@@ -1,9 +1,21 @@
+import Navbar from "../components/navbar/navbar"
+
 
 function HomePage() {
+
+let homePageWelcome;
+
+if(localStorage.getItem("userName") === ""){
+   homePageWelcome = "Please Log In !"
+} else {
+    homePageWelcome = `Welcome back , ${localStorage.getItem("userName")}`
+}
+
     return (
-        <div>
-            <h1>Homepage</h1>
-        </div>
+        <>
+        <Navbar/>
+        <h1>{homePageWelcome}</h1>
+        </>
     )
 }
 
