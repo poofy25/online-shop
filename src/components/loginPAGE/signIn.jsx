@@ -2,12 +2,13 @@ import { auth , provider } from "../../firebase/firebase"
 import { signInWithPopup } from "firebase/auth";
 
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function SignIn() {
  let navigate = useNavigate()
+
 const onSingIn = ()=>{
     signInWithPopup(auth , provider).then((result) => {
-
         let email = result.user.email
         let name = result.user.displayName
   
