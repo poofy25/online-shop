@@ -11,7 +11,6 @@ function LoginPage() {
         <>
             <Navbar/>
             <div className="websiteContent">
-            <h1>Login page</h1>
             <LoginMenu/>
             </div>
         </>

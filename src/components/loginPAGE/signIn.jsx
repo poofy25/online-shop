@@ -2,7 +2,8 @@ import { auth , provider } from "../../firebase/firebase"
 import { signInWithPopup } from "firebase/auth";
 
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import './signIn.css'
+import googleIcon from '/src/assets/Icons/googleIcon.png'
 
 function SignIn() {
  let navigate = useNavigate()
@@ -27,8 +28,12 @@ const onSingIn = ()=>{
 
 
   return (
-    <div className="signIn-container">
-       <button onClick={onSingIn}>Sign in with Google</button>
+    <div className="signInContainer">
+      <p>SIGN IN WITH...</p>
+       <button onClick={onSingIn} className="googleBtn">
+        <img src={googleIcon}/>
+        GOOGLE
+        </button>
     </div>
   )
 }

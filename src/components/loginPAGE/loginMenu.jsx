@@ -21,8 +21,8 @@ function LoginMenu() {
   return (
     <div className="loginMenu">
         <div className="loginBtns">
-            <button className="activeBtn" onClick={loginBtnsHandler} container={'SignIn'}>Sign In</button>
-            <button onClick={loginBtnsHandler} container={'SignUp'}>Sign Up</button>
+            <button className="activeBtn" onClick={loginBtnsHandler} container={'SignIn'}>SIGN IN</button>
+            <button onClick={loginBtnsHandler} container={'SignUp'}>SIGN UP</button>
         </div>
         
         <div className="loginMenuContent">
