@@ -4,6 +4,7 @@ import { auth } from "../../firebase/firebase"
 
 import logedOutIcon from '/src/assets/Icons/logedOutProfileIcon.png'
 import logedInIcon from '/src/assets/Icons/logedInProfileIcon.png'
+import companyLogo from '/src/assets/Icons/companyLogo.png'
 let hasOpened = false;
 
 function Navbar() {
@@ -42,7 +43,12 @@ const menuBtnHandler = ()=>{
     <div className="menuContainer">
     </div>
 
-        <div className="companyLogo">Logo</div>
+        <div className="companyLogo">
+          <button onClick={()=>{navigate('/')}}>
+            <img src={companyLogo}/>
+          </button>
+        </div>
+
         <div className="accountBtn">
             <button onClick={()=>{navigate('/login')}}>
               <img src={accountIcon}/>

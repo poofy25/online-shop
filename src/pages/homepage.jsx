@@ -1,14 +1,14 @@
 import Navbar from "../components/navbar/navbar"
-
+import { auth } from "../firebase/firebase";
 
 function HomePage() {
 
 let homePageWelcome;
 
-if(localStorage.getItem("userName") === ""){
+if(auth.currentUser === null){
    homePageWelcome = "Please Log In !"
 } else {
-    homePageWelcome = `Welcome back , ${localStorage.getItem("userName")}`
+    homePageWelcome = `Loged in as ${auth.currentUser.email}. Welcome back, ${auth.currentUser.displayName}`
 }
 
     return (

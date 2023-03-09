@@ -25,34 +25,3 @@ const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 
 export const provider = new GoogleAuthProvider();
-
-
-export const signInWithGoogle = () => {
-  console.log("gay")
-     signInWithPopup(auth , provider).then((result) => {
-
-      let email = result.user.email
-      let name = result.user.displayName
-
-      const userData = {
-        userEmail:email,
-        userName:name
-      }
-      console.log(auth.currentUser)
-      return console.log(userData)
-     }).catch((error) => {
-      console.log(error)
-     })
-}
-
-export const signOutOfGoogle = () =>{
-  auth.signOut()
-	
-  .then(function() {
-     console.log('Signout Succesfull')
-     console.log(auth.currentUser)
-     localStorage.setItem("userName", "")
-  }, function(error) {
-     console.log('Signout Failed')  
-  });
-}
