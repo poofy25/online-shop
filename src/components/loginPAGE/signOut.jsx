@@ -8,9 +8,10 @@ const onSignOut = ()=>{
 	
     .then(function() {
        console.log('Signout Succesfull')
-       console.log(auth.currentUser)
+       
        localStorage.setItem("userName", "")
        navigate('/')
+       console.log(navigate('/'))
     }, function(error) {
        console.log('Signout Failed')  
     });
