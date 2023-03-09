@@ -17,6 +17,11 @@ if(auth.currentUser === null){
   accountIcon = logedInIcon
 }
 
+const accountBtnHandler = ()=>{
+   if(!auth.currentUser) navigate("/login")
+   if(auth.currentUser) navigate("/account")
+}
+
 const menuBtnHandler = ()=>{
 
     if (hasOpened === false){
@@ -50,7 +55,7 @@ const menuBtnHandler = ()=>{
         </div>
 
         <div className="accountBtn">
-            <button onClick={()=>{navigate('/login')}}>
+            <button onClick={accountBtnHandler}>
               <img src={accountIcon}/>
             </button>
         </div>

@@ -28,7 +28,7 @@ const onSingIn = ()=>{
 
   return (
     <div className="signIn-container">
-       <button onClick={onSingIn}>signIn</button>
+       <button onClick={onSingIn}>Sign in with Google</button>
     </div>
   )
 }

@@ -5,7 +5,7 @@ function SignUp() {
 
     return (
       <div className="signUp-container">
-      <button onClick={()=>{console.log(auth.currentUser)}}>checkUser</button>
+      <button onClick={()=>{console.log(auth.currentUser)}}>Sign Up with Google</button>
       </div>
     )
   }
