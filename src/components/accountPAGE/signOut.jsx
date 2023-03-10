@@ -1,5 +1,6 @@
 import { auth } from "../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
+import signOutIcon from "/src/assets/Icons/signOutIcon.png"
 
 function SignOut() {
  const navigate = useNavigate()
@@ -18,9 +19,10 @@ const onSignOut = ()=>{
 
 
     return (
-      <div className="signOut-container">
-      <button onClick={onSignOut}>Sign Out</button>
-      </div>
+      <button onClick={onSignOut} className="signOutBtn">
+         <img src={signOutIcon}/>
+         <p>Sign out</p>
+         </button>
     )
   }
   

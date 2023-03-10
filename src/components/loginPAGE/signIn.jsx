@@ -19,7 +19,7 @@ const onSingIn = ()=>{
         }
         console.log(auth.currentUser)
         localStorage.setItem("userName" , name)
-        navigate('/')
+        navigate('/account')
         return console.log(userData)
        }).catch((error) => {
         console.log(error)

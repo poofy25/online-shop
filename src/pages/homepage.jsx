@@ -5,16 +5,20 @@ function HomePage() {
 
 let homePageWelcome;
 
-if(auth.currentUser === null){
-   homePageWelcome = "Please Log In !"
-} else {
-    homePageWelcome = `Loged in as ${auth.currentUser.email}. Welcome back, ${auth.currentUser.displayName}`
-}
+    console.log(auth.currentUser)
+    if(!auth.currentUser){
+        homePageWelcome = "Please Log In !"
+     } else {
+         homePageWelcome = `Loged in as ${auth.currentUser.email}. Welcome back, ${auth.currentUser.displayName}`
+     }
+
 
     return (
         <>
         <Navbar/>
-        <h1>{homePageWelcome}</h1>
+        <div className="websiteContent">
+        <h1 onClick={()=>{console.log(auth.currentUser)}}>{homePageWelcome}</h1>
+        </div>
         </>
     )
 }
