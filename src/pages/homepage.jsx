@@ -1,26 +1,36 @@
 import Navbar from "../components/navbar/navbar"
-import { auth } from "../firebase/firebase";
+import { auth, user } from "../firebase/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect , useState } from "react";
 
 function HomePage() {
+let [homePageWelcome , setHomePageWelcome] = useState("Please Log In !")
+let [logedUser , setLogedUser] = useState(null)
 
-let homePageWelcome;
+useEffect(()=>{
+    auth.onAuthStateChanged((user)=>{
+        if(user){
+            
+            setLogedUser(user)
+            console.log(logedUser)
+            setHomePageWelcome(`Loged in as ${user.email}. Welcome back, ${user.displayName}`)
+        } else {
+            console.log("no user")
+        }
+    })
+}, [])
 
-    console.log(auth.currentUser)
-    if(!auth.currentUser){
-        homePageWelcome = "Please Log In !"
-     } else {
-         homePageWelcome = `Loged in as ${auth.currentUser.email}. Welcome back, ${auth.currentUser.displayName}`
-     }
+  
 
+return (
+    <>
+    <Navbar/>
+    <div className="websiteContent">
+    <h1 onClick={()=>{console.log(logedUser)}}>{homePageWelcome}</h1>
+    </div>
+    </>
+)
 
-    return (
-        <>
-        <Navbar/>
-        <div className="websiteContent">
-        <h1 onClick={()=>{console.log(auth.currentUser)}}>{homePageWelcome}</h1>
-        </div>
-        </>
-    )
 }
 
 export default HomePage

@@ -18,10 +18,11 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+export const firebase = initializeApp(firebaseConfig);
+const analytics = getAnalytics(firebase);
 
 // Initialize Firebase Authentication and get a reference to the service
-export const auth = getAuth(app);
 
+export const auth = getAuth();
+export const user = auth.currentUser
 export const provider = new GoogleAuthProvider();

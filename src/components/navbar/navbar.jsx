@@ -12,7 +12,6 @@ function Navbar() {
 let navigate = useNavigate()
 
 let accountIcon;
-console.log(`On nav load : ${auth.currentUser}`)
 if(auth.currentUser === null){
   accountIcon = logedOutIcon
 } else {
@@ -20,7 +19,6 @@ if(auth.currentUser === null){
 }
 
 const accountBtnHandler = ()=>{
-  console.log(`Account btn Click : ${auth.currentUser}`)
    if(!auth.currentUser) navigate("/login")
    if(auth.currentUser) navigate("/account")
 }

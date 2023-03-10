@@ -5,10 +5,7 @@ import SignOut from "./signOut"
 import "./accountPage.css"
 
 function AccountMenu() {
- 
-  
-
-
+    
     return (
         <div className="accountMenu">
             <div className="accountHeader">
