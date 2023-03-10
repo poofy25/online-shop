@@ -53,6 +53,7 @@
     align-items: center;
     justify-content: end;
     font-size: clamp(10px , 4vw ,20px);
+    color: rgba(0, 0, 0,0.85);
 }
 .pfpName > p {
     text-align: center;
@@ -79,11 +80,13 @@
     justify-content: start;
     background-color: transparent;
     border: none;
+    color: rgba(0, 0, 0,0.75);
 }
 .signOutBtn > img {
     margin-left: 2.5%;
     height: 50%;
     transform: rotate(180deg);
+    filter:opacity(0.75);
 }
 .signOutBtn > p {
     margin-left: 5%;
