@@ -7,12 +7,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+.emptyCartContainer > img {
+    width: 35%;
+    object-fit: cover;
 }
 
 .emptyCartText{
     font-weight: 700;
     color: rgba(0, 0, 0 , 0.75);
     font-size: clamp(15px , 5.5vw , 30px);
+    margin-bottom: 0.5rem;
 }
 .goShoppingBtn{
     width: 50%;
@@ -23,6 +29,7 @@
     font-weight: 700;
     font-size: clamp(15px , 4.5vw , 30px);
     border-radius: 2px;
+    margin-top: 0.5rem;
 }
 .goShoppingBtn:active {
     background-color: rgba(0,0,0,0.05);
