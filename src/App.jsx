@@ -5,6 +5,7 @@ import './App.css'
 import HomePage from './pages/homepage';
 import LoginPage from './pages/loginpage';
 import AccountPage from './pages/accountpage';
+import CartPage from './pages/cartpage';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={ <HomePage/> } />
         <Route path="/login" element={ <LoginPage/> } />
         <Route path="/account" element={ <AccountPage/> } />
+        <Route path="/cart" element={ <CartPage/> } />
       </Routes>
     </div>
   )

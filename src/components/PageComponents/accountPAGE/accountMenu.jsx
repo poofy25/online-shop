@@ -1,6 +1,6 @@
 
 
-import { auth } from "../../firebase/firebase"
+import { auth } from "../../../firebase/firebase"
 import SignOut from "./signOut"
 import "./accountPage.css"
 

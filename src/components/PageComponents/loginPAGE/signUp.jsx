@@ -1,5 +1,5 @@
 
-import { auth , provider } from "../../firebase/firebase"
+import { auth , provider } from "../../../firebase/firebase"
 import { signInWithPopup } from "firebase/auth";
 
 import { useNavigate } from "react-router-dom";

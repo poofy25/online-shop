@@ -62,7 +62,7 @@ const menuBtnHandler = ()=>{
             </button>
         </div>
         <div className="cartBtn">
-            <button onClick={accountBtnHandler}>
+            <button onClick={()=>{navigate('/cart')}}>
               <img src={cartIcon}/>
             </button>
         </div>

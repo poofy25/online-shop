@@ -1,36 +1,37 @@
 import Navbar from "../components/navbar/navbar"
-import { auth, user } from "../firebase/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import { useEffect , useState } from "react";
+import { auth } from "../firebase/firebase";
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+
 
 function HomePage() {
-let [homePageWelcome , setHomePageWelcome] = useState("Please Log In !")
-let [logedUser , setLogedUser] = useState(null)
+const [user, loading, error] = useAuthState(auth);
 
-useEffect(()=>{
-    auth.onAuthStateChanged((user)=>{
-        if(user){
-            
-            setLogedUser(user)
-            console.log(logedUser)
-            setHomePageWelcome(`Loged in as ${user.email}. Welcome back, ${user.displayName}`)
-        } else {
-            console.log("no user")
-        }
-    })
-}, [])
+ if (user){
+    return (
+        <>
+            <Navbar/>
+              <div className="websiteContent">
+                 <h1 onClick={()=>{console.log(logedUser)}}>
+                     {`Loged in as ${user.email}. Welcome back, ${user.displayName}`}
+                 </h1>
+             </div>
+        </>
+    )
+ } else {
 
-  
-
-return (
-    <>
-    <Navbar/>
-    <div className="websiteContent">
-    <h1 onClick={()=>{console.log(logedUser)}}>{homePageWelcome}</h1>
-    </div>
-    </>
-)
-
+    return (
+        <>
+          <Navbar/>
+              <div className="websiteContent">
+                  <h1 onClick={()=>{console.log(logedUser)}}>
+                     {'Please log in !'}
+                </h1>
+         </div>
+       </>
+    )
+ }
+ 
 }
 
 export default HomePage

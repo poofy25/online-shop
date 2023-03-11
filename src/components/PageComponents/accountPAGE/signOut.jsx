@@ -1,4 +1,4 @@
-import { auth } from "../../firebase/firebase";
+import { auth } from "../../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import signOutIcon from "/src/assets/Icons/signOutIcon.png"
 
