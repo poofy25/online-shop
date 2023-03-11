@@ -1,5 +1,5 @@
 
-import HomeWelcome from "./components/homeWelcome";
+import HomeWelcome from "./components/HomeWelcome";
 import FeaturedList from "./components/FeaturedList";
 
 
