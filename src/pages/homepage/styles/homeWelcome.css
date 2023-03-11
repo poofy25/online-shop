@@ -1,0 +1,44 @@
+.homeWelcomeContainer{
+width: 100%;
+aspect-ratio: 4/5;
+overflow: hidden;
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding-top: 40% ;
+box-sizing: border-box;
+background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(50,50,125,0) 100%);
+}
+.homeWelcomeContainer > img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter:sepia(0.125) , saturate() , contrast(0.85) ;
+    object-fit: cover;
+}
+.homeWelcomeContainer > p {
+    color:  #fff;
+    font-size: clamp(12px, 8vw, 30px);
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+
+}
+
+.homeWelcomeContainer > button {
+    width:  50vw;
+    aspect-ratio: 3/1;
+    color: #FFF;
+    background-color: transparent;
+    border:3px solid #FFF;
+    border-radius: 1px;
+    font-weight: 700;
+    font-size: clamp(15px , 5.5vw , 30px);
+    border-radius: 2px;
+    margin-top: 2rem;
+}

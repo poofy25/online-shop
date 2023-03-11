@@ -1,4 +1,4 @@
-import "../stylesheets/emptyCart.css"
+import "../styles/emptyCart.css"
 import { useNavigate } from "react-router-dom"
 import emptyCartImg from '/src/assets/Images/emptyCartImage.png'
 function EmptyCart() {
