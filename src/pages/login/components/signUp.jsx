@@ -4,7 +4,7 @@ import { signInWithPopup } from "firebase/auth";
 
 import { useNavigate } from "react-router-dom";
 import googleIcon from '/src/assets/Icons/googleIcon.png'
-import "./signUp.css"
+import "../stylesheets/signUp.css"
 
 function SignUp() {
 

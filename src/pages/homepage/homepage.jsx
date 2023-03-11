@@ -1,5 +1,5 @@
-import Navbar from "../components/navbar/navbar"
-import { auth } from "../firebase/firebase";
+import Navbar from "../../components/navbar/navbar"
+import { auth } from "../../firebase/firebase";
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 

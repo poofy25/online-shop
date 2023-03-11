@@ -1,6 +1,5 @@
-import Navbar from "../components/navbar/navbar"
-import EmptyCart from "../components/PageComponents/cartPAGE/emptyCart"
-
+import Navbar from "../../components/navbar/navbar"
+import EmptyCart from "./components/emptyCart"
 
 
 function CartPage() {

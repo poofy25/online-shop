@@ -1,6 +1,6 @@
 import SignIn from "./signIn"
 import SignUp from "./signUp"
-import "./login.css"
+import "../stylesheets/login.css"
 import { useState } from "react"
 
 const LoginComponents = {

@@ -2,7 +2,7 @@ import { auth , provider } from "../../../firebase/firebase"
 import { signInWithPopup } from "firebase/auth";
 
 import { useNavigate } from "react-router-dom";
-import './signIn.css'
+import '../stylesheets/signIn.css'
 import googleIcon from '/src/assets/Icons/googleIcon.png'
 
 function SignIn() {

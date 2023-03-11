@@ -1,8 +1,8 @@
 
 
-import { auth } from "../firebase/firebase"
-import LoginMenu from "../components/PageComponents/loginPAGE/loginMenu";
-import Navbar from "../components/navbar/navbar"
+import { auth } from "../../firebase/firebase"
+import LoginMenu from "./components/loginMenu"
+import Navbar from "../../components/navbar/navbar"
 
 function LoginPage() {
 

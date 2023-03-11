@@ -2,7 +2,7 @@
 
 import { auth } from "../../../firebase/firebase"
 import SignOut from "./signOut"
-import "./accountPage.css"
+import "../stylesheets/accountPage.css"
 
 function AccountMenu() {
     

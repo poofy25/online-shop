@@ -1,12 +1,12 @@
 
 
-import { auth } from "../firebase/firebase"
+import { auth } from "../../firebase/firebase"
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useEffect , useState} from "react"
 import { useNavigate } from "react-router-dom"
 
-import Navbar from "../components/navbar/navbar";
-import AccountMenu from "../components/PageComponents/accountPAGE/accountMenu";
+import Navbar from "../../components/navbar/navbar";
+import AccountMenu from "./components/accountMenu";
 
 function AccountPage() {
  

@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { Routes, Route } from "react-router-dom"
 import './App.css'
 
-import HomePage from './pages/homepage';
-import LoginPage from './pages/loginpage';
-import AccountPage from './pages/accountpage';
-import CartPage from './pages/cartpage';
+import HomePage from './pages/homepage/homepage';
+import LoginPage from './pages/login/loginpage';
+import AccountPage from './pages/account/accountpage';
+import CartPage from './pages/cart/cartpage';
 
 function App() {
 
