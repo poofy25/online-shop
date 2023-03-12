@@ -34,11 +34,11 @@
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     background-color: transparent;
 }
 .searchBarContainer > form > button > img {
-    width: 75%;
+    width: 50%;
     aspect-ratio: 1;
     object-fit: scale-down;
     opacity: 0.75;
