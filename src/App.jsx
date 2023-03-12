@@ -8,11 +8,12 @@ import AccountPage from './pages/account/accountpage';
 import CartPage from './pages/cart/cartpage';
 
 import Navbar from './components/navbar/navbar';
+import Footer from './components/footer/Footer';
 
 function App() {
 
   return (
-    <div className="App">
+    <>
       <Navbar/>
       <Routes>
         <Route path="/" element={ <HomePage/> } />
@@ -20,7 +21,8 @@ function App() {
         <Route path="/account" element={ <AccountPage/> } />
         <Route path="/cart" element={ <CartPage/> } />
       </Routes>
-    </div>
+      <Footer/>
+    </>
   )
 }
 

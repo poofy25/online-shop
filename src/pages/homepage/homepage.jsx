@@ -9,11 +9,13 @@ function HomePage() {
  
     return (
         <>
+        <div className="websiteContent">
         <SearchBar/>
         <HomeWelcome/>
         <FeaturedList/>
         <PromotionsList/>
         <WhyUs/>
+        </div>
         </>
     )
  
