@@ -3,12 +3,13 @@
     height: 5vh;
     background-color: white;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
+    padding-bottom: 2.5%;
 }
 .searchBarContainer > form {
     width: 90%;
-    height: 80%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,7 +38,7 @@
     background-color: transparent;
 }
 .searchBarContainer > form > button > img {
-    width: 90%;
+    width: 75%;
     aspect-ratio: 1;
     object-fit: scale-down;
     opacity: 0.75;
