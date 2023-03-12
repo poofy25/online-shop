@@ -1,6 +1,7 @@
 import "./navbar.css"
 import { useNavigate } from "react-router-dom"
 import { auth } from "../../firebase/firebase"
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 import logedOutIcon from '/src/assets/Icons/logedOutProfileIcon.png'
 import logedInIcon from '/src/assets/Icons/logedInProfileIcon.png'
@@ -10,17 +11,17 @@ let hasOpened = false;
 
 function Navbar() {
 let navigate = useNavigate()
+const [user] = useAuthState(auth)
 
-let accountIcon;
-if(auth.currentUser === null){
-  accountIcon = logedOutIcon
-} else {
+
+let accountIcon = logedOutIcon;
+if(user){
   accountIcon = logedInIcon
 }
 
 const accountBtnHandler = ()=>{
-   if(!auth.currentUser) navigate("/login")
-   if(auth.currentUser) navigate("/account")
+   if(!user) navigate("/login")
+   if(user) navigate("/account")
 }
 
 const menuBtnHandler = ()=>{
