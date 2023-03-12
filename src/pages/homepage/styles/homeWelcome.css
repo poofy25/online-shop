@@ -32,13 +32,12 @@ background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(50,50,125,0) 100%);
 
 .homeWelcomeContainer > button {
     width:  50vw;
-    aspect-ratio: 3/1;
-    color: #FFF;
-    background-color: transparent;
-    border:3px solid #FFF;
+    aspect-ratio: 10/3;
+    color: rgba(0,0,0,0.85);
+    background-color: #FFF;
+    border: none;
     border-radius: 1px;
-    font-weight: 700;
+    font-weight: 900;
     font-size: clamp(15px , 5.5vw , 30px);
-    border-radius: 2px;
     margin-top: 2rem;
 }

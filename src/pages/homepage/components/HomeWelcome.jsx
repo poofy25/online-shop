@@ -9,7 +9,7 @@ function HomeWelcome() {
     return (
         <div className="homeWelcomeContainer">
           <img src={welcomeImg}/>
-          <p>Shop the latest trends <br/> with DilVin</p>
+          <p>Shop the latest trends <br/> with dilVin</p>
           <button>Shop now</button>
         </div>
     )

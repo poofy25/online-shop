@@ -1,0 +1,44 @@
+.searchBarContainer{
+    width: 100%;
+    height: 5vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchBarContainer > form {
+    width: 90%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+}
+.searchBarContainer > form > input {
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 50vw;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0,0,0,0.75);
+}
+.searchBarContainer > form > button {
+    height: 100%;
+    right: 0%;
+    border-radius: 100%;
+    border: none;
+    aspect-ratio: 1;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+.searchBarContainer > form > button > img {
+    width: 90%;
+    aspect-ratio: 1;
+    object-fit: scale-down;
+    opacity: 0.75;
+}
