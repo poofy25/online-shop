@@ -1,7 +1,8 @@
 
+import SearchBar from "./components/SearchBar";
 import HomeWelcome from "./components/HomeWelcome";
 import FeaturedList from "./components/FeaturedList";
-import SearchBar from "./components/SearchBar";
+import PromotionsList from "./components/PromotionsList";
 
 function HomePage() {
  
@@ -10,6 +11,7 @@ function HomePage() {
         <SearchBar/>
         <HomeWelcome/>
         <FeaturedList/>
+        <PromotionsList/>
         </>
     )
  
