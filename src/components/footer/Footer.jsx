@@ -4,7 +4,7 @@ import "./footer.css"
 function Footer() {
   return (
     <footer className="footer">
-      FOOTER
+      © 2023 dalVin
     </footer>
   )
 }
