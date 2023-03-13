@@ -33,7 +33,7 @@ function WhyUs() {
               </div>
               <div className="reason">
                 <img src={pricingIcon}/>
-                <p className="reasonTitle">Competitive pricing</p>
+                <p className="reasonTitle">Pricing</p>
                 <p className="reasonExplication">
                 Our prices are reasonable and competitive
                 without sacrificing quality.
