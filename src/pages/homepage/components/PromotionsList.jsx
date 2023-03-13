@@ -1,7 +1,7 @@
 
 
 import "../styles/promotionsList.css"
-
+import Product from "../../../components/product/Product"
 function PromotionsList() {
 
 
@@ -10,12 +10,12 @@ function PromotionsList() {
             <p>Promotions</p>
             <div className="promotionProductList">
 
-              <div className="promotionProduct"></div>
-              <div className="promotionProduct"></div>
-              <div className="promotionProduct"></div>
-              <div className="promotionProduct"></div>
-              <div className="promotionProduct"></div>
-              <div className="promotionProduct"></div>
+              <div className="promotionProduct"><Product/></div>
+              <div className="promotionProduct"><Product/></div>
+              <div className="promotionProduct"><Product/></div>
+              <div className="promotionProduct"><Product/></div>
+              <div className="promotionProduct"><Product/></div>
+              <div className="promotionProduct"><Product/></div>
 
             </div>
         </div>

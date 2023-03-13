@@ -1,0 +1,25 @@
+.productContainer{
+    width: 100%;
+    height:100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    position: relative;
+}
+.productContainer > img {
+    width: 100%;
+    height: 75%;   
+    object-fit: cover;
+    object-position: top;
+}
+.productContainer > p {
+    z-index: 2;
+    margin-top: 0.5rem;
+    white-space: normal;
+    margin-bottom: 0;
+}
+.productContainer > p:nth-child(3){
+    font-weight: 600;
+}

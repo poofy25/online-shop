@@ -17,7 +17,7 @@
     padding-left: 2vw;
     padding-right: 2vw;
     box-sizing: border-box;
-    height: calc(44vw * 7 / 5);
+    height: calc(44vw * 16/9);
     overflow: auto;
     white-space: nowrap;
     scroll-snap-type: y mandatory;
@@ -35,6 +35,5 @@
 
     width: 44vw;
     scroll-snap-align: center;
-    aspect-ratio: 5/7;
-    background-color: rgba(0, 0, 0 , 0.125);
+    aspect-ratio: 9/16;
 }

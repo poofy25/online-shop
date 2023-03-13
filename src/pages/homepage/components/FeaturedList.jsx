@@ -1,6 +1,7 @@
 
 
 import "../styles/featuredList.css"
+import Product from "../../../components/product/Product"
 
 function FeaturedList() {
 
@@ -10,11 +11,11 @@ function FeaturedList() {
             <p>Featured right now</p>
             <div className="productList">
 
-              <div className="product"></div>
-              <div className="product"></div>
-              <div className="product"></div>
-              <div className="product"></div>
-              <div className="product"></div>
+              <div className="product"><Product/></div>
+              <div className="product"><Product/></div>
+              <div className="product"><Product/></div>
+              <div className="product"><Product/></div>
+              <div className="product"><Product/></div>
 
             </div>
         </div>
