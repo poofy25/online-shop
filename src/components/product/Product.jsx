@@ -6,7 +6,7 @@ function Product() {
 console.log(JsonData)
   return (
     <div className='productContainer'>
-        <img src={JsonData.first.images[0]}/>
+        <img src={JsonData.first['image']}/>
         <p>{JsonData.first.name.slice(0,40)}</p>
         <p>{JsonData.first.price}</p>
     </div>

@@ -7,9 +7,6 @@
         "size":"36-38-40-42-44-46",
         "brand":"Barbour",
         "details":[],
-        "images":[
-            "src/assets/Clothing/First/203881642-1-black.png"
-        ]
-
+        "image":"/src/assets/Clothing/First/203881642-1-black.png"
     }
 }
