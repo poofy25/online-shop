@@ -20,7 +20,7 @@
 
     white-space: normal;
     margin-bottom: 0;
-    font-size: clamp(10px,3.5vw,25px);
+    font-size: clamp(10px,4vw,25px);
 }
 .productContainer > p:nth-child(3){
     font-weight: 600;
