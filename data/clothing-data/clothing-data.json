@@ -1,12 +1,70 @@
 {
-    "first":{
-        "id":1234567890,
-        "name":"Barbour International Parallel jumpsuit in black",
-        "price":"£136.00",
-        "color":"Black",
-        "size":"36-38-40-42-44-46",
-        "brand":"Barbour",
-        "details":[],
-        "image":"https://images.asos-media.com/products/asos-design-lace-trim-tank-top-in-white/12860253-1-white?$n_640w$&wid=513&fit=constrain"
-    }
-}
+    "products": [
+      {
+        "id": 1,
+        "name": "Floral Blouse",
+        "category": "Tops",
+        "description": "A beautiful floral blouse that is perfect for adding a pop of color to your outfit. Features a loose fit and v-neckline.",
+        "price": 39.99,
+        "sizes": ["S", "M", "L"],
+        "colors": ["Blue", "Pink", "Yellow"],
+        "image": "https://www.joebrowns.co.uk/media/catalog/product/W/A/WA295A_1.jpg?quality=90&bg-color=255,255,255&fit=bounds&height=&width="
+      },
+      {
+        "id": 2,
+        "name": "Knit Cardigan",
+        "category": "Sweaters",
+        "description": "A cozy and chic knit cardigan that features a button-down front and ribbed trim. Perfect for layering.",
+        "price": 49.99,
+        "sizes": ["S", "M", "L"],
+        "colors": ["Beige", "Grey", "Black"],
+        "image": "https://cdn.outfitbook.fr/23715-thickbox_default/chunky-knitted-colourblock-cardigan.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Wrap Dress",
+        "category": "Dresses",
+        "description": "A versatile and stylish wrap dress that is perfect for any occasion. Features a flattering wrap silhouette and short sleeves.",
+        "price": 59.99,
+        "sizes": ["S", "M", "L"],
+        "colors": ["Black", "Green", "Red"],
+        "image": "https://cdn.shopify.com/s/files/1/0625/5693/products/Beau_black_1932.jpg?v=1659616374"
+      },
+      {
+        "id": 4,
+        "name": "Off-Shoulder Top",
+        "category": "Tops",
+        "description": "A trendy off-shoulder top that features a smocked neckline and elasticated cuffs. Perfect for a day out with friends.",
+        "price": 29.99,
+        "sizes": ["S", "M", "L"],
+        "colors": ["White", "Black", "Pink"],
+        "image": "https://www.showpo.com/dw/image/v2/BDPQ_PRD/on/demandware.static/-/Sites-sp-master-catalog/default/dw8a6b9fb0/images/pauline-off-shoulder-top-ST22030040/Pauline_Off_Shoulder_Top_in_White_2528ST22030040012529_1.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Faux Leather Jacket",
+        "category": "Jackets",
+        "description": "A sleek and stylish faux leather jacket that features a zippered front and belted waist. Perfect for adding edge to any outfit.",
+        "price": 69.99,
+        "sizes": ["S", "M", "L"],
+        "colors": ["Black", "Brown"],
+        "image": "https://i8.amplience.net/i/jpl/jd_II6103_a?qlt=92&w=600&h=765&v=1&fmt=auto.png"
+      },
+      {
+        "id": 6,
+        "name": "Ruffle Sleeve Top",
+        "category": "Tops",
+        "description": "A feminine and chic ruffle sleeve top that features a round neckline and relaxed fit. Perfect for dressing up or down.",
+        "price": 44.99,
+        "sizes": ["S", "M", "L"],
+        "colors": ["White", "Blue", "Pink"],
+        "image": "https://media3.newlookassets.com/i/newlook/664087801/womens/clothing/tops/justyouroutfit-white-ruffle-mesh-sleeve-top.jpg?strip=true&qlt=80&w=720"
+      }
+    ]
+  }
+  
+  
+  
+  
+  
+  

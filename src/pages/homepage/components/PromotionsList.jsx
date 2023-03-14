@@ -2,6 +2,7 @@
 
 import "../styles/promotionsList.css"
 import Product from "../../../components/product/Product"
+import JsonData from "/data/clothing-data/clothing-data.json"
 function PromotionsList() {
 
 
@@ -10,12 +11,18 @@ function PromotionsList() {
             <p>Promotions</p>
             <div className="promotionProductList">
 
-              <div className="promotionProduct"><Product/></div>
-              <div className="promotionProduct"><Product/></div>
-              <div className="promotionProduct"><Product/></div>
-              <div className="promotionProduct"><Product/></div>
-              <div className="promotionProduct"><Product/></div>
-              <div className="promotionProduct"><Product/></div>
+            {JsonData.products.slice(0,6).map
+            ((item , index) =>{ 
+               console.log(item , index)
+               return(
+                <div className="product" key={item.id}><Product
+                product_name={item.name}
+                product_price={item.price}
+                product_img={item.image}
+                /></div>
+               )
+            }
+            )}
 
             </div>
         </div>

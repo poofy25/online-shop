@@ -10,7 +10,7 @@
 }
 .productContainer > img {
     width: 100%;
-    height: 75%;   
+    height: 80%;   
     object-fit: cover;
     object-position: top;
 }
@@ -19,7 +19,9 @@
     margin-top: 0.5rem;
     white-space: normal;
     margin-bottom: 0;
+    font-size: clamp(10px,4.5vw,25px);
 }
 .productContainer > p:nth-child(3){
     font-weight: 600;
+    font-size: clamp(10px,4.5vw,25px);
 }
