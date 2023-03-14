@@ -5,23 +5,23 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    justify-content: start;
+    justify-content: space-between;
     position: relative;
 }
 .productContainer > img {
     width: 100%;
-    height: 80%;   
+    height: 85%;   
     object-fit: cover;
     object-position: top;
 }
 .productContainer > p {
     z-index: 2;
-    margin-top: 0.5rem;
+    margin: 0;
+
     white-space: normal;
     margin-bottom: 0;
-    font-size: clamp(10px,4.5vw,25px);
+    font-size: clamp(10px,4vw,25px);
 }
 .productContainer > p:nth-child(3){
     font-weight: 600;
-    font-size: clamp(10px,4.5vw,25px);
 }
