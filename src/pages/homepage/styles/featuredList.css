@@ -20,14 +20,17 @@
     box-sizing: border-box;
     width: 100vw;
     margin-bottom: 1rem;
-    overflow: auto;
+    overflow: scroll;
     white-space: nowrap;
-    scroll-snap-type: both proximity;
+    scroll-snap-type: both mandatory;
 
 }
-.productList > div {
+.twoProductsContainer{
     display: inline-block;
     scroll-snap-align: center;
+}
+.product {
+    display: inline-block;
     margin-left: 2vw;
     margin-right: 2vw;
     width: 44vw;
