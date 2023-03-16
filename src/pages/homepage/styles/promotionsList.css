@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 2vh;
+    overflow: hidden;
 }
 .promotionsContainer > p {
    font-weight: 700;
@@ -17,23 +18,28 @@
     padding-left: 2vw;
     padding-right: 2vw;
     box-sizing: border-box;
-    height: calc(44vw * 16/9);
-    overflow: auto;
-    white-space: nowrap;
-    scroll-snap-type: y mandatory;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 4vw;
-    flex-wrap: wrap;
+    width: 100vw;
     margin-bottom: 1rem;
+    overflow: scroll;
+    white-space: nowrap;
+    scroll-snap-type: both mandatory;
+    transition:1s ease-in-out;
+    scroll-behavior: smooth;
 
 }
-.promotionProductList > div {
-
-    width: 44vw;
+.promotionProductList::-webkit-scrollbar {
+    display: none;
+  }
+.twoProductsContainer{
+    display: inline-block;
     scroll-snap-align: center;
+}
+.product {
+    display: inline-block;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    width: 44vw;
+    
     aspect-ratio: 9/16;
+    
 }

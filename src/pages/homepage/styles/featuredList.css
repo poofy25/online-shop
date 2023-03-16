@@ -23,8 +23,13 @@
     overflow: scroll;
     white-space: nowrap;
     scroll-snap-type: both mandatory;
+    transition:1s ease-in-out;
+    scroll-behavior: smooth;
 
 }
+.productList::-webkit-scrollbar {
+    display: none;
+  }
 .twoProductsContainer{
     display: inline-block;
     scroll-snap-align: center;
