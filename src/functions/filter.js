@@ -16,7 +16,7 @@
              for(const key in filters){  //this runs for every key that you want to filter for
                 let isGood = false;
                  if (key === "id"){
-                    if((filters[key]).includes(product[key])){
+                    if((filters[key]).includes(product[key]) ){
                          isGood = true
                         }
                  }

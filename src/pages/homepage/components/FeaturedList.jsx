@@ -4,16 +4,17 @@ import "../styles/featuredList.css"
 import Product from "../../../components/product/Product"
 import JsonData from "/data/clothing-data/clothing-data.json"
 import searchFilter from "../../../functions/filter";
-import { json } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const filterBy = {
     id:[13,29,11,40,44,35]
 }
 
 function FeaturedList() {
+const navigateTo = useNavigate()
+
 let lastProductItem;
 const featuredProductsList = searchFilter(filterBy , JsonData);
-console.log(featuredProductsList)
 
 
     return (
@@ -35,18 +36,10 @@ console.log(featuredProductsList)
                         <div className="twoProductsContainer" key={index + 1}>
                            
                             <div className="product" ><Product
-                            product_name={lastProductItem.name}
-                            product_price={lastProductItem.price}
-                            product_price_discount={lastProductItem?.discount?.price_after_discount}
-                            product_discount_percentage={lastProductItem?.discount?.percentage}
-                            product_img={lastProductItem.image}
+                            product_object = {lastProductItem}
                             /></div>
                             <div className="product" ><Product
-                            product_name={item.name}
-                            product_price={item.price}
-                            product_price_discount={item?.discount?.price_after_discount}
-                            product_discount_percentage={item?.discount?.percentage}
-                            product_img={item.image}
+                            product_object = {item}
                             /></div>
 
                         </div>

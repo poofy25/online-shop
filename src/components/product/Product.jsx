@@ -1,29 +1,35 @@
 
 import './product.css'
-
+import { useNavigate } from 'react-router-dom';
 
 function Product(props) {
+
+  const navigateTo = useNavigate()
+
   let priceElement;
   let discountElement;
-   if(props.product_price_discount){
+  const productData = props.product_object
+   if(productData.discount){
     priceElement = (
       <div className="productPriceContainer">
-        <p className='productPriceDiscountPrice'>{props.product_price_discount}$</p>
-        <p className='productPriceOldPrice discount'>{props.product_price}$</p>
+        <p className='productPriceDiscountPrice'>{productData.discount.price_after_discount}$</p>
+        <p className='productPriceOldPrice discount'>{productData.price}$</p>
       </div>
     )
     discountElement = (
-      <div className="priceDiscountNumber">{props.product_discount_percentage}%</div>
+      <div className="priceDiscountNumber">{productData.discount.percentage}%</div>
     )
    } else {
    priceElement = ( 
       <div className="productPriceContainer">
-       <p className='productPriceOldPrice'>{props.product_price}$</p>
+       <p className='productPriceOldPrice'>{productData.price}$</p>
       </div>
    )
    }
 
-
+   const navigateOnClick = ()=>{
+    navigateTo(`/product/${productData.id}`)
+   }
 
 
 
@@ -31,9 +37,9 @@ function Product(props) {
 
   return (
     <div className='productContainer'>
-        <img src={props.product_img}/>
+        <img src={productData.image} onClick={navigateOnClick}/>
         {discountElement}
-        <p>{props.product_name}</p>
+        <p onClick={navigateOnClick}>{productData.name}</p>
         {priceElement}
     </div>
   )
