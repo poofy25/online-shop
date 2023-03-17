@@ -3,22 +3,17 @@
 import "../styles/featuredList.css"
 import Product from "../../../components/product/Product"
 import JsonData from "/data/clothing-data/clothing-data.json"
+import searchFilter from "../../../functions/filter";
+import { json } from "react-router-dom";
 
-const featuredProductsIDList = [4,1,6,2,3,5];
-const keyValue = "id"
+const filterBy = {
+    id:[13,29,11,40,44,35]
+}
 
 function FeaturedList() {
 let lastProductItem;
-const featuredProductsList = [];
-console.log("1")
-for (let i = 0; i < featuredProductsIDList.length; i++) {
-    for(const productIndex in JsonData.products){
-        if(JsonData.products[productIndex][keyValue] === featuredProductsIDList[i]){
-            featuredProductsList.push(JsonData.products[productIndex])
-        }
-    }
-
-}
+const featuredProductsList = searchFilter(filterBy , JsonData);
+console.log(featuredProductsList)
 
 
     return (
@@ -27,6 +22,7 @@ for (let i = 0; i < featuredProductsIDList.length; i++) {
             <div className="productList">
             {featuredProductsList.map
             ((item , index) =>{ 
+               
                   if (index%2==0){
                     lastProductItem = item
    
@@ -34,18 +30,22 @@ for (let i = 0; i < featuredProductsIDList.length; i++) {
                   }
 
                   if(index%2!==0){
-
+                    
                     return(
                         <div className="twoProductsContainer" key={index + 1}>
                            
                             <div className="product" ><Product
                             product_name={lastProductItem.name}
                             product_price={lastProductItem.price}
+                            product_price_discount={lastProductItem?.discount?.price_after_discount}
+                            product_discount_percentage={lastProductItem?.discount?.percentage}
                             product_img={lastProductItem.image}
                             /></div>
                             <div className="product" ><Product
                             product_name={item.name}
                             product_price={item.price}
+                            product_price_discount={item?.discount?.price_after_discount}
+                            product_discount_percentage={item?.discount?.percentage}
                             product_img={item.image}
                             /></div>
 
