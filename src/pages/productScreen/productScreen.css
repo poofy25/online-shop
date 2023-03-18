@@ -7,13 +7,80 @@
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
-    padding: 5%;
 }
 .productScreen > img {
-    width: 75%;
+    width: 100%;
+    height: 65vh;
+    object-fit: cover;
 }
-.productScreen > p {
-    font-weight: 700;
-    font-size: clamp(10px , 6vw , 30px);
+.productContent {
+    width: 100%;
+    padding: 5%;
+    box-sizing: border-box;
+}
+.productName{
+    font-weight: 600;
+    font-size: clamp(10px , 8vw , 30px);
+    color: rgba(0, 0, 0 , 0.85); 
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.productPercentOff{
+    width: 100%;
+    font-weight: 500;
+    font-size: clamp(10px , 4vw , 30px);
+    margin: 0;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 0, 0,0.85);
+}
+.productPrice{
+    font-weight: 600;
+    font-size: clamp(10px , 8vw , 30px);
     color: rgba(0, 0, 0 , 0.85);
+    margin: 0; 
+}
+.productPriceBeforeDiscount{
+    font-weight: 400;
+    text-decoration: line-through;
+    color: rgba(0, 0, 0 , 0.85);
+    font-size: clamp(10px , 6vw , 30px);
+    opacity: 0.75;
+    margin: 0;
+    margin-left: 5%;
+}
+.productPriceAfterDiscount{
+    font-weight: 600;
+    font-size: clamp(10px , 8vw , 30px);
+    color: rgba(255, 0, 0,0.85);
+    margin: 0; 
+}
+.productColorsContainer{
+    width: 100%;
+}
+
+.productSelectedColor {
+    margin-bottom: 0rem;
+    font-size: clamp(10px , 4vw , 30px);
+}
+.productSelectedColor > span {
+    font-weight: 600;
+}
+
+
+.colorsBtns {
+    width: 100%;
+    padding-top: 5%;
+}
+
+.colorsBtns > button {
+    width: 20%;
+    background-color: transparent;
+    border: 2px solid rgba(0, 0, 0 , 0.5);
+    border-radius: 100%;
+    color: transparent;
+    aspect-ratio: 1;
+    margin-right: 2.5%;
+    padding: 0;
+    box-shadow: none;
 }

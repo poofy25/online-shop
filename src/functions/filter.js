@@ -69,7 +69,7 @@
              return true
         })
         let t2 = performance.now()
-    console.log(`Searched in ${(t2-t1)/1000} seconds`)
+    //console.log(`Searched in ${(t2-t1)/1000} seconds`)
     return filteredArray
 }
 export default searchFilter
