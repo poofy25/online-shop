@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import searchFilter from "../../functions/filter";
 import JsonData from "/data/clothing-data/clothing-data.json"
-import { useEffect , useState } from "react";
+import { useEffect , useState , useMemo} from "react";
 import "./productScreen.css"
 
 
@@ -11,11 +11,9 @@ function ProductPage() {
     const [productData , setProductData] = useState({})
     const [productColor , setProductColor] = useState(productData[0]?.colors[0])
 
-     const filterBy = {
-        id:[productID]
-    }
+
     useEffect(()=>{
-        setProductData(searchFilter(filterBy , JsonData)) 
+        setProductData(searchFilter({id:[productID]} , JsonData))
     },[])
     useEffect(()=>{
         setProductID(Number(params.id))
@@ -33,7 +31,6 @@ function ProductPage() {
             button.style.border="2px solid rgba(0, 0, 0 , 0.5)"
             button.style.boxShadow='none'
         })
-       
         e.target.style.border='2px solid white'
         e.target.style.boxShadow='0px 0px 0px 2px rgba(0, 0, 0,.75)'
     }

@@ -26,13 +26,11 @@ const accountBtnHandler = ()=>{
 
 const menuBtnHandler = ()=>{
 
-    if (hasOpened === false){
+    if (!hasOpened){
       hasOpened = true;
-      console.log("Open");
       document.querySelector(".menuContainer").classList.add("open")
     } else {
       hasOpened = false;
-      console.log("Close")
       document.querySelector(".menuContainer").classList.remove("open")
     }
 }

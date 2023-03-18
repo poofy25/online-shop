@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { Routes, Route } from "react-router-dom"
+import { lazy } from 'react'
+import React from 'react'
 import './App.css'
 
-import HomePage from './pages/homepage/homepage';
-import LoginPage from './pages/login/loginpage';
-import AccountPage from './pages/account/accountpage';
-import CartPage from './pages/cart/cartpage';
-import ProductPage from './pages/productScreen/ProductScreen';
+const HomePage = lazy(()=> import("./pages/homepage/homepage.jsx"))
+const LoginPage = lazy(()=> import("./pages/login/loginpage"))
+const AccountPage = lazy(()=> import("./pages/account/accountpage"))
+const CartPage = lazy(()=> import("./pages/cart/cartpage"))
+const ProductPage = lazy(()=> import("./pages/productScreen/ProductScreen"))
 
 import Navbar from './components/navbar/navbar';
 import Footer from './components/footer/Footer';
@@ -17,11 +19,11 @@ function App() {
     <>
       <Navbar/>
       <Routes>
-        <Route path="/" element={ <HomePage/> } />
-        <Route path="/login" element={ <LoginPage/> } />
-        <Route path="/account" element={ <AccountPage/> } />
-        <Route path="/cart" element={ <CartPage/> } />
-        <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/" element={ <React.Suspense fallback="Loading..."><HomePage/></React.Suspense> } />
+        <Route path="/login" element={ <React.Suspense fallback="Loading..."><LoginPage/> </React.Suspense>} />
+        <Route path="/account" element={ <React.Suspense fallback="Loading..."><AccountPage/></React.Suspense> } />
+        <Route path="/cart" element={ <React.Suspense fallback="Loading..."><CartPage/></React.Suspense> } />
+        <Route path="/product/:id" element={<React.Suspense fallback="Loading..."><ProductPage /></React.Suspense>} />
       </Routes>
       <Footer/>
     </>

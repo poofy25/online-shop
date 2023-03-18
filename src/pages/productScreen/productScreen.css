@@ -12,6 +12,7 @@
     width: 100%;
     height: 65vh;
     object-fit: cover;
+    object-position: center;
 }
 .productContent {
     width: 100%;
