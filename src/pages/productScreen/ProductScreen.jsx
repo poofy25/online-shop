@@ -34,8 +34,8 @@ function ProductPage() {
             button.style.boxShadow='none'
         })
        
-        e.target.style.border='4px solid white'
-        e.target.style.boxShadow='0px 0px 0px 4px rgba(0, 0, 0,.75)'
+        e.target.style.border='2px solid white'
+        e.target.style.boxShadow='0px 0px 0px 2px rgba(0, 0, 0,.75)'
     }
 
 
@@ -59,8 +59,8 @@ function ProductPage() {
                         console.log(index)
                        return( <button key={`product color : ${color}`}
                        style={{backgroundColor:color ,
-                        boxShadow:index===0 ? '0px 0px 0px 4px rgba(0, 0, 0,.75)' : "none" ,
-                        border:index===0 ? '4px solid white' : "2px solid rgba(0, 0, 0 , 0.5)"
+                        boxShadow:index===0 ? '0px 0px 0px 2px rgba(0, 0, 0,.75)' : "none" ,
+                        border:index===0 ? '2px solid white' : "2px solid rgba(0, 0, 0 , 0.5)"
                        }}
                        onClick={choseColorHandler}
                        btncolor={color}
