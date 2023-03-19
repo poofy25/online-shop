@@ -67,7 +67,7 @@
     background-color: white;
     position: absolute;
     max-height: 0;
-    top: 100%;
+    top:calc(100% - 1px);
     left: 0px;
 
     display: flex;
@@ -81,11 +81,10 @@
     transition: 0.5s ease-in-out;
 }
 .productSizesContainer.open .sizesdropdownMenu {
-max-height: max-content;
+    max-height: max-content;
     border-top: none;
     display: flex;
     opacity: 1;
-    transition: 0.5s ease-in-out;
 }
 .sizesdropdownMenu > button {
     width: 100%;
@@ -99,4 +98,7 @@ max-height: max-content;
     color: rgba(0,0,0,0.75);
     border-bottom: 1px solid rgba(0,0,0,0.5);
     border-spacing: 10%;
+}
+.sizesdropdownMenu > button:last-child{
+    border: none;
 }
