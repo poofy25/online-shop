@@ -26,6 +26,7 @@
     position: relative;
     z-index: 5;
     padding-left: 5%;
+    color: rgba(0,0,0,0.75);
 }
 .btnarrow{
     height: 50%;
@@ -67,8 +68,8 @@
     position: absolute;
     max-height: 0;
     top: 100%;
-    left: -1px;
-    transition: 0.5s ease-in-out;
+    left: 0px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,13 +77,15 @@
     opacity: 0;
     border: 1px solid rgba(0,0,0,0.75);
     overflow: hidden;
+    box-sizing: border-box;
+    transition: 0.5s ease-in-out;
 }
 .productSizesContainer.open .sizesdropdownMenu {
-    max-height: 200%;
-
+max-height: max-content;
     border-top: none;
     display: flex;
     opacity: 1;
+    transition: 0.5s ease-in-out;
 }
 .sizesdropdownMenu > button {
     width: 100%;
@@ -94,4 +97,6 @@
     font-size: clamp(10px , 4vw , 30px);
     font-weight: 600;
     color: rgba(0,0,0,0.75);
+    border-bottom: 1px solid rgba(0,0,0,0.5);
+    border-spacing: 10%;
 }
