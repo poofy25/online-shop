@@ -442,7 +442,7 @@
       "price": 79.99,
       "sizes": ["XS", "S", "M", "L"],
       "colors": ["Black", "Gray", "Navy"],
-      "image": "http://cdn.shopify.com/s/files/1/1008/6090/products/American-Tall-Women-WarmUp-AthleticJacket-Black-front.jpg?v=1632255610",
+      "image": "https://cdn.shopify.com/s/files/1/1008/6090/products/American-Tall-Women-WarmUp-AthleticJacket-Black-front.jpg?v=1632255610",
       "discount": {
         "percentage": 20,
         "price_after_discount": 63.99

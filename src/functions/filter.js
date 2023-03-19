@@ -3,14 +3,6 @@
  
  const searchFilter= (filters , data)=>{
 
-   if(Object.keys(filters).length === 0 || filters === null){
-    return console.log("There are no filters")
-   }
-   if(Object.keys(data).length === 0 || data === null){
-    return console.log("There is no data")
-   }
-
-    let t1 = performance.now()
       const filteredArray = data.products.filter((product)=>{ //this runs for every product in DB
           
              for(const key in filters){  //this runs for every key that you want to filter for
@@ -68,8 +60,6 @@
              }
              return true
         })
-        let t2 = performance.now()
-    //console.log(`Searched in ${(t2-t1)/1000} seconds`)
     return filteredArray
 }
 export default searchFilter

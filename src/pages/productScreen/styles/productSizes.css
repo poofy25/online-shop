@@ -1,0 +1,97 @@
+.productSizesContainer{
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 15rem;
+    position: relative;
+}
+.productSizesContainer > p {
+    margin: 0;
+    font-size: clamp(10px , 4vw , 30px);
+}
+.sizesBtn {
+    width: 100%;
+    aspect-ratio: 1/0.125;
+    margin-top: 1rem;
+    background-color: transparent;
+    border: 1px solid rgba(0,0,0,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: clamp(10px , 4vw , 30px);
+    font-weight: 600;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 5;
+    padding-left: 5%;
+}
+.btnarrow{
+    height: 50%;
+    aspect-ratio: 1;
+    position: relative;
+    transition: 0.5s ease-in-out;
+    z-index: 4;
+}
+.leftarrow{
+    background-color: rgba(0,0,0,0.75);
+    width: 60%;
+    height: 15%;
+    position: absolute;
+    left: 0;
+    top: 35%;
+    transform: rotate(45deg);
+    transition: 0.25s ease-in-out;
+}
+.productSizesContainer.open .leftarrow{
+    transform: rotate(-45deg); 
+}
+.productSizesContainer.open .rightarrow{
+    transform: rotate(45deg); 
+}
+.rightarrow{
+    background-color: rgba(0,0,0,0.75);
+    width: 60%;
+    height: 15%;
+    position: absolute;
+    right: 0;
+    top: 35%;
+    transform: rotate(-45deg);
+    transition: 0.25s ease-in-out;
+}
+
+.sizesdropdownMenu{
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    max-height: 0;
+    top: 100%;
+    left: -1px;
+    transition: 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    border: 1px solid rgba(0,0,0,0.75);
+    overflow: hidden;
+}
+.productSizesContainer.open .sizesdropdownMenu {
+    max-height: 200%;
+
+    border-top: none;
+    display: flex;
+    opacity: 1;
+}
+.sizesdropdownMenu > button {
+    width: 100%;
+    text-align: start;
+    padding-left: 5%;
+    aspect-ratio: 1/0.125;
+    background-color: transparent;
+    border: none;
+    font-size: clamp(10px , 4vw , 30px);
+    font-weight: 600;
+    color: rgba(0,0,0,0.75);
+}

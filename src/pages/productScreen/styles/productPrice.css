@@ -1,0 +1,31 @@
+.productPercentOff{
+    width: 100%;
+    font-weight: 400;
+    font-size: clamp(10px , 4vw , 30px);
+    margin: 0;
+    color: rgba(255, 0, 0,0.85);
+}
+.productPriceContainer{
+    display: flex;
+}
+.productPrice{
+    font-weight: 600;
+    font-size: clamp(10px , 8vw , 30px);
+    color: rgba(0, 0, 0 , 0.85);
+    margin: 0; 
+}
+.productPriceBeforeDiscount{
+    font-weight: 400;
+    text-decoration: line-through;
+    color: rgba(0, 0, 0 , 0.85);
+    font-size: clamp(10px , 6vw , 30px);
+    opacity: 0.75;
+    margin: 0;
+    margin-left: 5%;
+}
+.productPriceAfterDiscount{
+    font-weight: 600;
+    font-size: clamp(10px , 6vw , 30px);
+    color: rgba(255, 0, 0,0.85);
+    margin: 0; 
+}

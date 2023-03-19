@@ -1,0 +1,32 @@
+
+.productColorsContainer{
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.productSelectedColor {
+margin: 0;
+    font-size: clamp(10px , 4vw , 30px);
+}
+.productSelectedColor > span {
+    font-weight: 600;
+}
+
+
+.colorsBtns {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.colorsBtns > button {
+    width: 12.5%;
+    background-color: transparent;
+    border: 2px solid rgba(0, 0, 0 , 0.5);
+    border-radius: 100%;
+    color: transparent;
+    aspect-ratio: 1;
+    margin-right: 2.5%;
+    padding: 0;
+    box-shadow: none;
+}

@@ -2,14 +2,17 @@ import { useParams } from "react-router-dom"
 import searchFilter from "../../functions/filter";
 import JsonData from "/data/clothing-data/clothing-data.json"
 import { useEffect , useState , useMemo} from "react";
-import "./productScreen.css"
+import "./styles/productScreen.css"
 
+import ProductPrice from "./components/ProductPrice";
+import ProductColors from "./components/ProductColors";
+import ProductSizes from "./components/ProductSizes";
 
 function ProductPage() {
      let params = useParams();
     const [productID , setProductID] = useState(Number(params.id))
     const [productData , setProductData] = useState({})
-    const [productColor , setProductColor] = useState(productData[0]?.colors[0])
+    
 
 
     useEffect(()=>{
@@ -21,54 +24,18 @@ function ProductPage() {
     useEffect(()=>{
         setProductData(searchFilter({id:[productID]} , JsonData))
     },[productID])
-    useEffect(()=>{
-        setProductColor(productData[0]?.colors[0])
-    },[productData])
-
-    const choseColorHandler = (e)=>{
-        setProductColor(e.target.attributes.btncolor.value)
-        e.target.parentNode.childNodes.forEach(button=>{
-            button.style.border="2px solid rgba(0, 0, 0 , 0.5)"
-            button.style.boxShadow='none'
-        })
-        e.target.style.border='2px solid white'
-        e.target.style.boxShadow='0px 0px 0px 2px rgba(0, 0, 0,.75)'
-    }
-
-
 
     return (
-        <>
         <div className="productScreen">
             <img src={productData[0]?.image}/>
             <div className="productContent">
               <p className="productName">{productData[0]?.name}</p>
-              <p className="productPercentOff">{productData[0]?.discount ? `Save ${productData[0]?.discount.percentage}%` : ""}</p>
-              <div className="productPriceContainer">
-               <p className="productPrice">{productData[0]?.discount ? "" : '$'+productData[0]?.price}</p>
-               <p className="productPriceAfterDiscount">{productData[0]?.discount ? '$'+productData[0]?.discount.price_after_discount : ""}</p>
-               <p className="productPriceBeforeDiscount">{productData[0]?.discount ? "$"+productData[0]?.price : ""}</p>
-              </div>
-              <div className="productColorsContainer">
-                <p className="productSelectedColor">Color  <span>- {productColor}</span></p>
-                <div className="colorsBtns">
-                    {productData[0]?.colors.map((color , index)=>{
-                        console.log(index)
-                       return( <button key={`product color : ${color}`}
-                       style={{backgroundColor:color ,
-                        boxShadow:index===0 ? '0px 0px 0px 2px rgba(0, 0, 0,.75)' : "none" ,
-                        border:index===0 ? '2px solid white' : "2px solid rgba(0, 0, 0 , 0.5)"
-                       }}
-                       onClick={choseColorHandler}
-                       btncolor={color}
-                       >{color}</button> )
-                    })}
-                </div>
-              </div>
-            </div>
+              <ProductPrice productData={productData[0]}/>
+              <ProductColors productData={productData[0]}/>
+              <ProductSizes productData={productData[0]}/>
             
+            </div>
         </div>
-        </>
     )
  
 }
