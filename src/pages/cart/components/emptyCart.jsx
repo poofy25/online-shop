@@ -1,13 +1,17 @@
 import "../styles/emptyCart.css"
 import { useNavigate } from "react-router-dom"
 import emptyCartImg from '/src/assets/Images/emptyCartImage.png'
+import { useContext } from "react"
+import { CartContext } from "../../../context/CartContext"
 function EmptyCart() {
     
+
+    const {value, setValue} = useContext(CartContext)
     const navigate = useNavigate()
    const goShoppingHandler = ()=>{
        navigate("/")
    }
-
+    console.log(value)
 return (
      <div className="emptyCartContainer">
         <img src={emptyCartImg}/>

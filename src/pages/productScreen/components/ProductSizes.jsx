@@ -15,6 +15,7 @@ const handleDropdown = (e)=>{
 }
 const handleSelectSize = (e)=>{
 setSelectedSize(e.target.textContent)
+props.productCartData(prev=>({...prev , size:e.target.textContent}))
 document.querySelector(".productSizesContainer").classList.remove("open")
 }
 

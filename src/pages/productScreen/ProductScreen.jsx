@@ -13,9 +13,17 @@ function ProductPage() {
      let params = useParams();
     const [productID , setProductID] = useState(Number(params.id))
     const [productData , setProductData] = useState({})
-    
-
-
+    const [productCartData , setProductCartData] = useState({
+        name:productData[0]?.name,
+        price:productData[0]?.price,
+        discount:productData[0]?.discount ?
+        {percent:productData[0]?.discount.percent,
+         price_after_discount:productData[0]?.discount.price_after_discount
+        } : null,
+        color:'',
+        size:'',
+        image:productData[0]?.image
+    })
     useEffect(()=>{
         setProductData(searchFilter({id:[productID]} , JsonData))
     },[])
@@ -25,6 +33,17 @@ function ProductPage() {
     useEffect(()=>{
         setProductData(searchFilter({id:[productID]} , JsonData))
     },[productID])
+    useEffect(()=>{
+        setProductCartData({     name:productData[0]?.name,
+            price:productData[0]?.price,
+            discount:productData[0]?.discount ?
+            {percent:productData[0]?.discount.percentage,
+             price_after_discount:productData[0]?.discount.price_after_discount
+            } : null,
+            color:productData[0]?.colors[0],
+            size:'',
+            image:productData[0]?.image})
+    },[productData])
 
     return (
         <div className="productScreen">
@@ -32,9 +51,9 @@ function ProductPage() {
             <div className="productContent">
               <p className="productName">{productData[0]?.name}</p>
               <ProductPrice productData={productData[0]}/>
-              <ProductColors productData={productData[0]}/>
-              <ProductSizes productData={productData[0]}/>
-              <ToCartBtn productData={productData[0]}/>
+              <ProductColors productData={productData[0]} productCartData={setProductCartData}/>
+              <ProductSizes productData={productData[0]} productCartData={setProductCartData}/>
+              <ToCartBtn productData={productData[0]} productCartData={productCartData}/>
             </div>
         </div>
     )

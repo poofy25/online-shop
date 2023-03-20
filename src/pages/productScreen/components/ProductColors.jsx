@@ -6,6 +6,7 @@ const productData = props.productData
 const [productColor , setProductColor] = useState(productData?.colors[0])
 const choseColorHandler = (e)=>{
     setProductColor(e.target.attributes.btncolor.value)
+    props.productCartData(prev=>({...prev , color:e.target.attributes.btncolor.value}))
     e.target.parentNode.childNodes.forEach(button=>{
         button.style.border="2px solid rgba(0, 0, 0 , 0.5)"
         button.style.boxShadow='none'
