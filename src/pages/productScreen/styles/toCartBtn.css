@@ -1,0 +1,13 @@
+.toCartBtn{
+    background-color: rgba(0,0,0);
+    color: white;
+    font-weight: 600;
+    font-size: clamp(10px , 4vw , 30px);
+    width: 100%;
+    aspect-ratio: 1/0.125;
+    margin-top: 1rem;
+    margin-bottom: 15vh;
+    box-sizing: border-box;
+    padding: 0;
+    border: none;
+}  

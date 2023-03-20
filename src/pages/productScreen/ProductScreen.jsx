@@ -7,6 +7,7 @@ import "./styles/productScreen.css"
 import ProductPrice from "./components/ProductPrice";
 import ProductColors from "./components/ProductColors";
 import ProductSizes from "./components/ProductSizes";
+import ToCartBtn from "./components/ToCartBtn";
 
 function ProductPage() {
      let params = useParams();
@@ -33,7 +34,7 @@ function ProductPage() {
               <ProductPrice productData={productData[0]}/>
               <ProductColors productData={productData[0]}/>
               <ProductSizes productData={productData[0]}/>
-            
+              <ToCartBtn productData={productData[0]}/>
             </div>
         </div>
     )
