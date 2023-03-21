@@ -17,14 +17,13 @@ function ToCartBtn(props) {
             document.querySelector(".productSizesContainer").classList.add("open")
         }
     } else {
-        console.log(value)
+
         if (value.lenght === 0){
             setValue([productCartData])
         } else {
     setValue([productCartData , ...value])
         }
-    console.log("Context Value :")
-   console.log(value)
+
     }
   }
 

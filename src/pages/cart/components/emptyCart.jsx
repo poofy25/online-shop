@@ -11,7 +11,6 @@ function EmptyCart() {
    const goShoppingHandler = ()=>{
        navigate("/")
    }
-    console.log(value)
 return (
      <div className="emptyCartContainer">
         <img src={emptyCartImg}/>

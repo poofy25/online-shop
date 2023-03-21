@@ -22,7 +22,8 @@ function ProductPage() {
         } : null,
         color:'',
         size:'',
-        image:productData[0]?.image
+        image:productData[0]?.image,
+        amount:1
     })
     useEffect(()=>{
         setProductData(searchFilter({id:[productID]} , JsonData))
@@ -42,7 +43,9 @@ function ProductPage() {
             } : null,
             color:productData[0]?.colors[0],
             size:'',
-            image:productData[0]?.image})
+            image:productData[0]?.image,
+            amount:1
+        })
     },[productData])
 
     return (
