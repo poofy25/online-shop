@@ -44,7 +44,9 @@ function ProductPage() {
             color:productData[0]?.colors[0],
             size:'',
             image:productData[0]?.image,
-            amount:1
+            amount:1,
+            uniqueID:Date.now().toString(36) + Math.random().toString(36).substring(2)
+
         })
     },[productData])
 

@@ -1,11 +1,16 @@
 
 import EmptyCart from "./components/emptyCart"
 import CartProduct from "./components/cartProduct"
-import { useContext } from "react"
+import { useState , useEffect } from "react"
 import { CartContext } from "../../context/CartContext"
+
 function CartPage() {
-    const {value, setValue} = useContext(CartContext)
-if (value.length <= 0 ) {
+
+    const [LSData , setLSData ] = useState(true)
+  console.log(LSData)
+  console.log(JSON.parse(localStorage.getItem('cartProducts')))
+
+if (JSON.parse(localStorage.getItem('cartProducts')) === null || JSON.parse(localStorage.getItem('cartProducts')).length === 0) {
     return (
         <>
             <div className="websiteContent">
@@ -15,24 +20,24 @@ if (value.length <= 0 ) {
             </div>
         </>
     )
-} else {
+}
+
     return (
         <>
         <div className="websiteContent">
 
-            {value.map((productData , index)=>{
+            {JSON.parse(localStorage.getItem('cartProducts')).map((productData , index)=>{
+                console.log(productData , index)
                 return(
-                  <CartProduct cartProductData={productData} key={index} productIndex={index}/>
-                    )
-            })}
-
+                 <>
+                 <p key={index + "key"}>Product Name: {productData.name}</p>
+                  <CartProduct cartProductData={productData} key={index} productIndex={index} updateLS={setLSData} LSData={LSData}/>
+                  
+                </>
+            )})}
         </div>
     </>
     )
-}
-
-return (<>nothing</>)
-
  
 }
 

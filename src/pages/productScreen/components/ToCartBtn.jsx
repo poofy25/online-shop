@@ -18,12 +18,16 @@ function ToCartBtn(props) {
         }
     } else {
 
-        if (value.lenght === 0){
-            setValue([productCartData])
-        } else {
-    setValue([productCartData , ...value])
-        }
-
+     let localStorageCartProducts
+     
+   if (localStorage.getItem('cartProducts') === null) {
+      localStorageCartProducts = []
+   } else {
+    console.log(localStorage.cartProducts)
+       localStorageCartProducts = JSON.parse(localStorage.getItem('cartProducts'))
+   }
+     localStorageCartProducts.push(productCartData)
+      localStorage.setItem('cartProducts' , JSON.stringify(localStorageCartProducts))
     }
   }
 
