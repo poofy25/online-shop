@@ -1,98 +1,79 @@
 import "../styles/cartProduct.css"
-import { useContext ,useState , useEffect } from "react"
-import { CartContext } from "../../../context/CartContext"
+import { useState , useEffect } from "react"
+
+
+
+
+
 function CartProduct(props) {
- 
-    const [productAmount , setProductAmount] = useState(JSON.parse(localStorage.cartProducts)[props.productIndex].amount)
-    const [cartProductData , setCartProductData] = useState(JSON.parse(localStorage.cartProducts)[props.productIndex])
-
-    
-  
-    
-    const increaseAmount = ()=>{
-        setProductAmount(prevAmount => prevAmount + 1)
-    }
-    const decreaseAmount = ()=>{
-        if(productAmount > 0) setProductAmount(prevAmount => prevAmount - 1)
-    }
-    
-    useEffect(()=>{
-        setCartProductData(currentData => ({...currentData , amount:productAmount}))
-    },[productAmount])
-    useEffect(()=>{
-        let localStorageCartData = JSON.parse(localStorage.getItem('cartProducts'))
-        localStorageCartData[props.productIndex] = cartProductData
-        localStorage.setItem('cartProducts' , JSON.stringify(localStorageCartData))
-
-    if(productAmount === 0 && cartProductData.amount ===0){
- 
-        const test = JSON.parse(localStorage.getItem('cartProducts')).filter((product)=>{
-            return product.uniqueID !== cartProductData.uniqueID
-        })
-        props.updateLS(!props.LSData)
-        localStorage.setItem('cartProducts',JSON.stringify(test))
-        props.updateLS(!props.LSData)
-        console.log('Deleted product :' , cartProductData)
-
-    }
-
-
-     },[cartProductData])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    let productData = props.productData
+    const [productAmount , setAmount] = useState(productData.amount)
      
+   const removeProductFromCart = (removedProduct)=>{
+        const FilteredArray = JSON.parse(localStorage.getItem('cartProducts')).filter((product)=>{
+            return product.uniqueID !== removedProduct.uniqueID
+        })
+        localStorage.setItem('cartProducts',JSON.stringify(FilteredArray))
+        console.log(FilteredArray)
+       props.updateLS(JSON.parse(localStorage.getItem('cartProducts')))
+       
+   }
 
+   const handleAmountChange = (e)=>{
+    
+      if (e.target.textContent === '-'){
+        if (productAmount - 1 > 0){
+        setAmount(prev => prev - 1)
+        } else {
+            console.log('Delete function')
+            removeProductFromCart(productData)
+        }
+      } else if (e.target.textContent === '+'){
+        setAmount(prev => prev + 1)
+      }
 
+   }
+   //This runs when the cart is remaped
+   useEffect(()=>{
+    setAmount(productData.amount)
+   },[props.LSData])
 
+   //This updates the local storage when item amount is updated
+   useEffect(()=>{
+    productData = {...productData , amount:productAmount}
+    let localStorageCartData = JSON.parse(localStorage.getItem('cartProducts'))
+        localStorageCartData[props.productIndex] = productData
+    localStorage.setItem('cartProducts' , JSON.stringify(localStorageCartData))
 
+   },[productAmount])
 
-
-
-if (productAmount === 0 && cartProductData.amount ===0) {
-    return (<p>Deleted product</p>)
-} else return (
+return (
      <div className="productCartContainer">
-         <img src={props.cartProductData.image}/>
+         <img src={productData.image}/>
          <div className="cartProductDetails">
-            <p className="cartProductName">{props.cartProductData.name}</p>
-            <p className="cartProductPrice">${props.cartProductData.price}</p>
+            <p className="cartProductName">{productData.name}</p>
+            <p className="cartProductPrice">${productData.price}</p>
             <span>
                 <span className="cartProductSize">
                   <p>Size:&nbsp;</p>
-                  <p>{props.cartProductData.size}</p>
+                  <p>{productData.size}</p>
                 </span>
 
                 <span className="cartProductColor">
                   <p>Color:&nbsp;</p>
-                  <p>{props.cartProductData.color}</p>
+                  <p>{productData.color}</p>
                 </span>
             </span>
             <div className="productCountContainer">
-             <button onClick={decreaseAmount}>-</button>
+             <button onClick={handleAmountChange}>-</button>
              <div className="productAmmount">
                 {productAmount}
              </div>
-             <button onClick={increaseAmount}>+</button>
+             <button onClick={handleAmountChange}>+</button>
             </div>
-            {props.productIndex}
          </div>
      </div>
 )
-
-
 }
 
 export default CartProduct

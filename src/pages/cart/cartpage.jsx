@@ -3,13 +3,12 @@ import EmptyCart from "./components/emptyCart"
 import CartProduct from "./components/cartProduct"
 import { useState , useEffect } from "react"
 import { CartContext } from "../../context/CartContext"
+import './styles/cartPage.css'
 
 function CartPage() {
 
-    const [LSData , setLSData ] = useState(true)
-  console.log(LSData)
-  console.log(JSON.parse(localStorage.getItem('cartProducts')))
-
+    const [LSData , setLSData ] = useState(JSON.parse(localStorage.getItem('cartProducts')))
+     console.log("Rerendered Page")
 if (JSON.parse(localStorage.getItem('cartProducts')) === null || JSON.parse(localStorage.getItem('cartProducts')).length === 0) {
     return (
         <>
@@ -25,16 +24,12 @@ if (JSON.parse(localStorage.getItem('cartProducts')) === null || JSON.parse(loca
     return (
         <>
         <div className="websiteContent">
-
-            {JSON.parse(localStorage.getItem('cartProducts')).map((productData , index)=>{
-                console.log(productData , index)
+            <div className="cartPage">
+            {LSData.map((productData , index)=>{
                 return(
-                 <>
-                 <p key={index + "key"}>Product Name: {productData.name}</p>
-                  <CartProduct cartProductData={productData} key={index} productIndex={index} updateLS={setLSData} LSData={LSData}/>
-                  
-                </>
+                  <CartProduct productData={productData} key={index} productIndex={index} updateLS={setLSData} LSData={LSData}/>
             )})}
+           </div>
         </div>
     </>
     )

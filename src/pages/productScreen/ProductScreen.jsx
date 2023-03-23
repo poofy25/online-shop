@@ -45,7 +45,7 @@ function ProductPage() {
             size:'',
             image:productData[0]?.image,
             amount:1,
-            uniqueID:Date.now().toString(36) + Math.random().toString(36).substring(2)
+
 
         })
     },[productData])

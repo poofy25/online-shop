@@ -7,9 +7,9 @@ import { CartContext } from "../../../context/CartContext"
 function ToCartBtn(props) {
  
    const {value , setValue} = useContext(CartContext)
-   const productCartData = props.productCartData
+   const productCartData = ({...props?.productCartData , uniqueID:`${props?.productCartData.name}-${props?.productCartData.color}-${props?.productCartData.size}`})
    
-  const clickHandler = ()=>{
+  const clickHandler = (e)=>{
     if(props.productCartData.size === ''){
         if(document.querySelector(".productSizesContainer").classList.contains("open")){
             document.querySelector(".productSizesContainer").classList.remove("open")
@@ -17,23 +17,34 @@ function ToCartBtn(props) {
             document.querySelector(".productSizesContainer").classList.add("open")
         }
     } else {
-
+      e.target.childNodes[0].classList.add('cartBtnAnimation')
      let localStorageCartProducts
      
    if (localStorage.getItem('cartProducts') === null) {
       localStorageCartProducts = []
    } else {
-    console.log(localStorage.cartProducts)
        localStorageCartProducts = JSON.parse(localStorage.getItem('cartProducts'))
    }
-     localStorageCartProducts.push(productCartData)
+    
+ //This checks if the item is already in the cart
+     if(localStorageCartProducts.filter((product, index)=>{
+            if (product?.uniqueID === productCartData?.uniqueID){
+                console.log(localStorageCartProducts[index])
+                localStorageCartProducts[index].amount += 1
+            }
+            return product?.uniqueID === productCartData?.uniqueID
+     }).length > 0
+        ){console.log('found pair')} else {
+     localStorageCartProducts.unshift(productCartData)
+     }
+
       localStorage.setItem('cartProducts' , JSON.stringify(localStorageCartProducts))
     }
   }
 
     return (
      <button className="toCartBtn" onClick={clickHandler}>
-      Add to cart
+        <div className=""></div>
      </button>
     )
  
