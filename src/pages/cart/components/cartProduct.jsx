@@ -44,7 +44,7 @@ function CartProduct(props) {
     let localStorageCartData = JSON.parse(localStorage.getItem('cartProducts'))
         localStorageCartData[props.productIndex] = productData
     localStorage.setItem('cartProducts' , JSON.stringify(localStorageCartData))
-
+    props.updateLS(JSON.parse(localStorage.getItem('cartProducts')))
    },[productAmount])
 
 return (
@@ -52,7 +52,7 @@ return (
          <img src={productData.image}/>
          <div className="cartProductDetails">
             <p className="cartProductName">{productData.name}</p>
-            <p className="cartProductPrice">${productData.price}</p>
+            <p className="cartProductPrice">${productData.discount ? productData.discount.price_after_discount : productData.price}</p>
             <span>
                 <span className="cartProductSize">
                   <p>Size:&nbsp;</p>
