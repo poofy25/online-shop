@@ -53,7 +53,7 @@ if (JSON.parse(localStorage.getItem('cartProducts')) === null || JSON.parse(loca
                 <div className="checkoutContainer">
                     <p className="checkoutItemsAmount">Items: <span>{cartItemsAmountCalc()}</span></p>
                     <p className="checkoutAmount">Subtotal: <span>${cartAmountCalc()}</span></p>
-                    <button className="checkoutBtn">Checkout</button>
+                    <button className="checkoutBtn">CHECKOUT</button>
                 </div>
             {LSData.map((productData , index)=>{
                 return(
