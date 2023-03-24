@@ -60,6 +60,8 @@
     height: 100%;
     aspect-ratio: 1;
     object-fit: scale-down;
+    filter:opacity(0.4) drop-shadow(0 0 0 rgb(255, 0, 0)) brightness(10);
+  
 }
 .cartProductPrice{
     margin: 0;
@@ -70,7 +72,7 @@
     display: flex;
     width: 100%;
     justify-content: start;
-
+    color:rgba(0,0,0,0.5);
     
 }
 .cartProductSize{
@@ -99,11 +101,11 @@
 }
 
 .productCountContainer{
-    width: 40%;
+    width: 50%;
     aspect-ratio: 1/0.25;
     display: flex;
     align-items: center;
-    justify-content:center;
+    justify-content:start;
     margin-top: 1rem;
    
 }
@@ -113,7 +115,7 @@
     border: 1px solid rgb(128,128,128);
     background-color: transparent;
     font-weight: 500;
-    font-size: clamp(0.6rem , 4vw , 1.75rem);
+    font-size: clamp(0.6rem , 3.5vw , 1.75rem);
     transition: 0.25s ease-in-out;
     color: rgba(0,0,0,0.75);
     padding: 0;
