@@ -41,7 +41,7 @@
     justify-content: center;
     z-index: 1;
     background-color: rgba(0, 255, 0,0.6);
-    transition: all 0.5s ease-in-out, 1s cubic-bezier(0.93, 0.11, 0.98, 0.79) opacity ;
+    transition: all 0.25s ease-in-out, 1.25s cubic-bezier(0.93, 0.11, 0.98, 1) opacity ;
 }
 .toCartBtn:active .cartBtnAnimation{
     opacity: 1;

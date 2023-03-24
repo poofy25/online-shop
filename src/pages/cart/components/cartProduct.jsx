@@ -15,6 +15,7 @@ function CartProduct(props) {
         })
         localStorage.setItem('cartProducts',JSON.stringify(FilteredArray))
         console.log(FilteredArray)
+        document.querySelector('.navCartNotification').textContent = FilteredArray.length
        props.updateLS(JSON.parse(localStorage.getItem('cartProducts')))
        
    }
@@ -51,11 +52,12 @@ return (
      <div className="productCartContainer">
          <img src={productData.image}/>
          <div className="cartProductDetails">
-            <span className="cartProductNameContainer">
+
               <p className="cartProductName">{productData.name}</p>
-              <button className="cartProductTrashBtn"><img src={trashIcon}/></button>
-            </span>
-            <span className="sizeAndColorContainer">
+
+              <button className="cartProductTrashBtn" onClick={()=>{removeProductFromCart(productData)}}><img src={trashIcon}/></button>
+              
+              <span className="sizeAndColorContainer">
                 <span className="cartProductSize">
                   <p>Size:&nbsp;</p>
                   <p>{productData.size}</p>
@@ -65,16 +67,19 @@ return (
                   <p>Color:&nbsp;</p>
                   <p>{productData.color}</p>
                 </span>
-            </span>
-            <p className="cartProductPrice">${productData.discount ? productData.discount.price_after_discount : productData.price}</p>
+              </span>
+              <p className="cartProductPrice">
+                ${productAmount*(productData.discount ? productData.discount.price_after_discount : productData.price)}
+              {productAmount > 1 ? <span> &nbsp; | &nbsp; ${productData.discount ? productData.discount.price_after_discount : productData.price} ea.</span> : <></>}
+              </p>
             
-            <div className="productCountContainer">
+              <div className="productCountContainer">
              <button onClick={handleAmountChange}>-</button>
              <div className="productAmmount">
                 {productAmount}
              </div>
              <button onClick={handleAmountChange}>+</button>
-            </div>
+              </div>
          </div>
      </div>
 )

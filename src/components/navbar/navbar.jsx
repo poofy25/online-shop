@@ -2,6 +2,7 @@ import "./navbar.css"
 import { useNavigate } from "react-router-dom"
 import { auth } from "../../firebase/firebase"
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useEffect } from "react";
 
 import logedOutIcon from '/src/assets/Icons/logedOutProfileIcon.png'
 import logedInIcon from '/src/assets/Icons/logedInProfileIcon.png'
@@ -35,9 +36,6 @@ const menuBtnHandler = ()=>{
     }
 }
 
-
-
-
   return (
     <div className="Navbar">
         <button className='menuButton' onClick={menuBtnHandler}>
@@ -60,11 +58,14 @@ const menuBtnHandler = ()=>{
               <img src={accountIcon}/>
             </button>
         </div>
+
         <div className="cartBtn">
             <button onClick={()=>{navigate('/cart')}}>
+              <p className="navCartNotification">{JSON.parse(localStorage.getItem('cartProducts')).length}</p>
               <img src={cartIcon}/>
             </button>
         </div>
+
         </div>
         
     </div>

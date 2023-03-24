@@ -1,9 +1,8 @@
-import { useState , useRef } from 'react'
+
 import { Routes, Route } from "react-router-dom"
 import { lazy } from 'react'
 import React from 'react'
 import './App.css'
-import { CartContext } from './context/CartContext'
 
 const HomePage = lazy(()=> import("./pages/homepage/homepage.jsx"))
 const LoginPage = lazy(()=> import("./pages/login/loginpage"))
@@ -16,12 +15,11 @@ import Footer from './components/footer/Footer';
 
 function App() {
 
-const [value , setValue] = useState([])
 
 
   return (
     <>
-                <CartContext.Provider value={{value , setValue}}>
+
       <Navbar/>
       <Routes>
         <Route path="/" element={ <React.Suspense fallback="Loading..."><HomePage/></React.Suspense> } />
@@ -32,7 +30,7 @@ const [value , setValue] = useState([])
       </Routes>
                
       <Footer/>
-      </CartContext.Provider>
+     
     </>
   )
 }

@@ -1,12 +1,11 @@
 
 import "../styles/toCartBtn.css"
 import { useContext, useState } from "react"
-import { CartContext } from "../../../context/CartContext"
+
 
 
 function ToCartBtn(props) {
- 
-   const {value , setValue} = useContext(CartContext)
+
    const productCartData = ({...props?.productCartData , uniqueID:`${props?.productCartData.name}-${props?.productCartData.color}-${props?.productCartData.size}`})
    
   const clickHandler = (e)=>{
@@ -39,6 +38,9 @@ function ToCartBtn(props) {
      }
 
       localStorage.setItem('cartProducts' , JSON.stringify(localStorageCartProducts))
+    
+      document.querySelector('.navCartNotification').textContent = localStorageCartProducts.length
+
     }
   }
 

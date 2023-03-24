@@ -11,6 +11,7 @@
     padding-top: 1rem;
     margin-bottom: 1rem;
     border-top: 1px solid rgba(0,0,0,0.25);
+    position: relative;
 }
 .productCartContainer > img {
    display: flex;
@@ -29,14 +30,6 @@
     justify-content: start;
     flex-direction: column;
 }
-.cartProductNameContainer{
-    width: 100%;
-    height: clamp(0.6rem , 4.5vw , 1.75rem);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-}
 .cartProductName{
     width: 80%;
     max-width: 90%;
@@ -46,27 +39,37 @@
     
     font-weight: 600;
     font-size: clamp(0.6rem , 3.5vw , 1.75rem);
+    margin-bottom: 0.5rem;
 }
 .cartProductTrashBtn{
-    height: 100%;
+    height: 15%;
     aspect-ratio: 1;
     overflow: hidden;
     background-color: transparent;
     border: none;
     padding: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
 }
 .cartProductTrashBtn > img {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     aspect-ratio: 1;
     object-fit: scale-down;
-    filter:opacity(0.4) drop-shadow(0 0 0 rgb(255, 0, 0)) brightness(10);
+    filter:opacity(0.3) drop-shadow(0 0 0 rgb(255, 0, 0)) brightness(10);
   
 }
 .cartProductPrice{
     margin: 0;
     font-weight: 600;
     font-size: clamp(0.6rem , 3.5vw , 1.75rem);
+    width: 100%;
+}
+.cartProductPrice > span {
+    font-weight: 400;
+    font-size: clamp(0.6rem , 3vw , 1.75rem);
+    color:rgba(0,0,0,0.5);
 }
 .sizeAndColorContainer {
     display: flex;
