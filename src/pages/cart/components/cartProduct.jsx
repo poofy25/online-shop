@@ -52,7 +52,7 @@ return (
          <img src={productData.image}/>
          <div className="cartProductDetails">
             <p className="cartProductName">{productData.name}</p>
-            <span>
+            <span className="sizeAndColorContainer">
                 <span className="cartProductSize">
                   <p>Size:&nbsp;</p>
                   <p>{productData.size}</p>
