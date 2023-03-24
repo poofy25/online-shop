@@ -52,7 +52,6 @@ return (
          <img src={productData.image}/>
          <div className="cartProductDetails">
             <p className="cartProductName">{productData.name}</p>
-            <p className="cartProductPrice">${productData.discount ? productData.discount.price_after_discount : productData.price}</p>
             <span>
                 <span className="cartProductSize">
                   <p>Size:&nbsp;</p>
@@ -64,6 +63,8 @@ return (
                   <p>{productData.color}</p>
                 </span>
             </span>
+            <p className="cartProductPrice">${productData.discount ? productData.discount.price_after_discount : productData.price}</p>
+            
             <div className="productCountContainer">
              <button onClick={handleAmountChange}>-</button>
              <div className="productAmmount">
