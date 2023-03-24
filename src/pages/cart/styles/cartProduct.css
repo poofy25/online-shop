@@ -3,7 +3,7 @@
     aspect-ratio: 1/0.375;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items:start;
     justify-content: start;
     overflow: hidden;
     background-color: white;
