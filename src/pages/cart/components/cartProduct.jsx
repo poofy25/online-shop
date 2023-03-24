@@ -69,7 +69,7 @@ return (
                 </span>
               </span>
               <p className="cartProductPrice">
-                ${productAmount*(productData.discount ? productData.discount.price_after_discount : productData.price)}
+                ${(productAmount*(productData.discount ? productData.discount.price_after_discount : productData.price)).toFixed(2)}
               {productAmount > 1 ? <span> &nbsp; | &nbsp; ${productData.discount ? productData.discount.price_after_discount : productData.price} ea.</span> : <></>}
               </p>
             
