@@ -1,6 +1,6 @@
 import "../styles/cartProduct.css"
 import { useState , useEffect } from "react"
-
+import trashIcon from '/src/assets/Icons/trashIcon.png'
 
 
 
@@ -51,7 +51,10 @@ return (
      <div className="productCartContainer">
          <img src={productData.image}/>
          <div className="cartProductDetails">
-            <p className="cartProductName">{productData.name}</p>
+            <span className="cartProductNameContainer">
+              <p className="cartProductName">{productData.name}</p>
+              <button className="cartProductTrashBtn"><img src={trashIcon}/></button>
+            </span>
             <span className="sizeAndColorContainer">
                 <span className="cartProductSize">
                   <p>Size:&nbsp;</p>
