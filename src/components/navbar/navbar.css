@@ -107,12 +107,12 @@ height: 100%;
     aspect-ratio: 1;
 
 }
-.cartBtn > button > p {
+.navCartNotification {
     position: absolute;
-    background-color: red;
-    width: 60%;
+    background-color: rgb(255, 25, 25);
+    width: 50%;
     padding: 0;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     right: -30%;
@@ -124,4 +124,7 @@ height: 100%;
     border-radius: 100%;
     font-size: clamp(0.5rem , 3.5vw , 1rem);
     box-shadow: 2px 2px 6px 0px rgba(0, 0, 0,0.125);
+}
+.navCartNotification.active{
+    display: flex;
 }

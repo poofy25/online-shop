@@ -35,7 +35,9 @@ function ProductPage() {
         setProductData(searchFilter({id:[productID]} , JsonData))
     },[productID])
     useEffect(()=>{
-        setProductCartData({     name:productData[0]?.name,
+        setProductCartData({
+            id:productData[0]?.id,
+            name:productData[0]?.name,
             price:productData[0]?.price,
             discount:productData[0]?.discount ?
             {percent:productData[0]?.discount.percentage,
@@ -45,7 +47,6 @@ function ProductPage() {
             size:'',
             image:productData[0]?.image,
             amount:1,
-
 
         })
     },[productData])

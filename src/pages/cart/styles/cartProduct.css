@@ -56,8 +56,7 @@
     width: 90%;
     height: 90%;
     aspect-ratio: 1;
-    object-fit: scale-down;
-    filter:opacity(0.3) drop-shadow(0 0 0 rgb(255, 0, 0)) brightness(10);
+    filter:opacity(0.5);
   
 }
 .cartProductPrice{
@@ -138,6 +137,6 @@
     border-left:none ;
     border-right:none ;
     font-weight: 500;
-    font-size: clamp(0.6rem , 4vw , 1.75rem);
+    font-size: clamp(0.6rem , 3.5vw , 1.75rem);
     color: rgba(0,0,0,0.75);
 }

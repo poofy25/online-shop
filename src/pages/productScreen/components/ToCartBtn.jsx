@@ -38,8 +38,8 @@ function ToCartBtn(props) {
      }
 
       localStorage.setItem('cartProducts' , JSON.stringify(localStorageCartProducts))
-    
-      document.querySelector('.navCartNotification').textContent = localStorageCartProducts.length
+      localStorage.setItem('cartNotification' , true)
+      document.querySelector('.navCartNotification').classList.add('active')
 
     }
   }

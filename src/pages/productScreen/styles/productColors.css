@@ -3,11 +3,12 @@
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    font-size: clamp(10px , 4vw , 30px);
 }
 
 .productSelectedColor {
 margin: 0;
-    font-size: clamp(10px , 4vw , 30px);
+
 }
 .productSelectedColor > span {
     font-weight: 600;

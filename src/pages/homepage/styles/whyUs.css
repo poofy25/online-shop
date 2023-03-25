@@ -7,8 +7,9 @@
     margin-top: 2vh;
 }
 .whyUsContainer > p {
-   font-weight: 700;
+   font-weight: 600;
    font-size: clamp(10px , 6vw , 30px);
+   margin: 1rem;
    color: rgba(0, 0, 0 , 0.85);
    
 }
@@ -44,12 +45,12 @@
     object-fit: cover;
 }
 .reasonTitle {
-    font-weight: 700;
-    font-size: clamp(10px, 4vw, 25px);
+    font-weight: 600;
+    font-size: clamp(0.6rem, 4vw, 1.75rem);
     color: rgba(0, 0, 0 , 0.85);
 }
 .reasonExplication{
-    font-size: clamp(10px, 3.5vw, 25px); 
+    font-size: clamp(0.4rem, 3.5vw, 1.5rem); 
     color: rgba(0, 0, 0 , 0.75);
     margin: 0;
 }

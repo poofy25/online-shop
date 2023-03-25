@@ -1,11 +1,12 @@
 import "../styles/cartProduct.css"
 import { useState , useEffect } from "react"
 import trashIcon from '/src/assets/Icons/trashIcon.png'
-
+import { useNavigate } from "react-router-dom"
 
 
 
 function CartProduct(props) {
+    let nagivate = useNavigate()
     let productData = props.productData
     const [productAmount , setAmount] = useState(productData.amount)
      
@@ -15,7 +16,6 @@ function CartProduct(props) {
         })
         localStorage.setItem('cartProducts',JSON.stringify(FilteredArray))
         console.log(FilteredArray)
-        document.querySelector('.navCartNotification').textContent = FilteredArray.length
        props.updateLS(JSON.parse(localStorage.getItem('cartProducts')))
        
    }
@@ -48,12 +48,15 @@ function CartProduct(props) {
     props.updateLS(JSON.parse(localStorage.getItem('cartProducts')))
    },[productAmount])
 
+   const navigateToProduct = ()=>{
+     nagivate(`/product/${productData.id}`)
+   }
 return (
      <div className="productCartContainer">
-         <img src={productData.image}/>
+         <img src={productData.image} onClick={navigateToProduct}/>
          <div className="cartProductDetails">
 
-              <p className="cartProductName">{productData.name}</p>
+              <p className="cartProductName" onClick={navigateToProduct}>{productData.name}</p>
 
               <button className="cartProductTrashBtn" onClick={()=>{removeProductFromCart(productData)}}><img src={trashIcon}/></button>
               

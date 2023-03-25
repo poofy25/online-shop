@@ -8,8 +8,9 @@
     overflow: hidden;
 }
 .promotionsContainer > p {
-   font-weight: 700;
-   font-size: clamp(10px , 6vw , 30px);
+   font-weight: 600;
+   font-size: clamp(10px , 5vw , 30px);
+   margin: 1rem;
    color: rgba(0, 0, 0 , 0.85);
    
 }

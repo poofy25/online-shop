@@ -2,13 +2,14 @@
 import EmptyCart from "./components/emptyCart"
 import CartProduct from "./components/cartProduct"
 import { useState , useEffect } from "react"
-import { CartContext } from "../../context/CartContext"
 import './styles/cartPage.css'
 
 function CartPage() {
 
     const [LSData , setLSData ] = useState(JSON.parse(localStorage.getItem('cartProducts')))
-     console.log("Rerendered Page")
+    localStorage.setItem('cartNotification' , false)
+    
+    console.log("Rerendered Page")
 
 
     const cartAmountCalc = ()=>{
@@ -44,6 +45,7 @@ if (JSON.parse(localStorage.getItem('cartProducts')) === null || JSON.parse(loca
         </>
     )
 }
+document.querySelector('.navCartNotification').classList.remove('active')
 
     return (
         <>

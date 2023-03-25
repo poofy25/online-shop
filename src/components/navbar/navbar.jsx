@@ -36,6 +36,13 @@ const menuBtnHandler = ()=>{
     }
 }
 
+useEffect(()=>{
+  if (localStorage.getItem('cartNotification') === 'true') 
+  document.querySelector('.navCartNotification').classList.add('active')
+},[])
+
+
+
   return (
     <div className="Navbar">
         <button className='menuButton' onClick={menuBtnHandler}>
@@ -61,7 +68,7 @@ const menuBtnHandler = ()=>{
 
         <div className="cartBtn">
             <button onClick={()=>{navigate('/cart')}}>
-              <p className="navCartNotification">{JSON.parse(localStorage.getItem('cartProducts')).length}</p>
+              <div className="navCartNotification"></div>
               <img src={cartIcon}/>
             </button>
         </div>
