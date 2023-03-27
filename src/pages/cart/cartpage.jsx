@@ -2,15 +2,19 @@
 import EmptyCart from "./components/emptyCart"
 import CartProduct from "./components/cartProduct"
 import { useState , useEffect } from "react"
+import { useAuthState } from "react-firebase-hooks/auth"
+import { auth } from "../../firebase/firebase"
+import {doc , setDoc } from "firebase/firestore";
+import { serverTimestamp } from "firebase/firestore"
+import { db } from "../../firebase/firebase"
 import './styles/cartPage.css'
 
 function CartPage() {
-
+    const [user] = useAuthState(auth)
     const [LSData , setLSData ] = useState(JSON.parse(localStorage.getItem('cartProducts')))
     localStorage.setItem('cartNotification' , false)
-    
-    console.log("Rerendered Page")
 
+    
 
     const cartAmountCalc = ()=>{
         let totalAmount = 0
@@ -28,7 +32,33 @@ function CartPage() {
     }
 
 
+useEffect(()=>{
+     return()=> {
 
+        
+            if (user){
+              
+               const userRef = doc(db , `users/${user.uid}`);
+              async function writeData(){
+                  const docData = {
+                  cartItems: LSData,
+                  updatedAt:serverTimestamp()
+                  };
+                
+              try {
+               await setDoc(userRef , docData , {merge:true})
+              console.log("written" , LSData)
+              } catch (e) {
+                console.error("Error adding document: ", e);
+              }
+             
+            }
+             writeData()
+              };
+             
+        console.log('unmounted')
+    }
+},[])
 
 
 
