@@ -11,19 +11,21 @@ import './styles/cartPage.css'
 
 function CartPage() {
     const [user] = useAuthState(auth)
+
     const [LSData , setLSData ] = useState(JSON.parse(localStorage.getItem('cartProducts')))
-    localStorage.setItem('cartNotification' , false)
+
 
     
-
-    const cartAmountCalc = ()=>{
+    //Calcuates total product price
+    const cartTotalPrice = ()=>{
         let totalAmount = 0
         for(const productIndex in LSData){
            totalAmount += (LSData[productIndex].amount * (LSData[productIndex].discount ? LSData[productIndex].discount.price_after_discount : LSData[productIndex].price))
         }
         return totalAmount.toFixed(2)
     }
-    const cartItemsAmountCalc = ()=>{
+    //Calcuates total products
+    const cartTotalItems = ()=>{
         let itemsAmount = 0
         for(const productIndex in LSData){
            itemsAmount += LSData[productIndex].amount
@@ -31,39 +33,42 @@ function CartPage() {
         return itemsAmount
     }
 
-
+//Saves user data when component unmounts
 useEffect(()=>{
+    localStorage.setItem('cartNotification' , false)
+    document.querySelector('.navCartNotification').classList.remove('active')
      return()=> {
-
-        
-            if (user){
+    
+            // if user is logged in and items in the cart where changed
+            if (user && localStorage.getItem('cartProducts') !== JSON.stringify(LSData)){
               
-               const userRef = doc(db , `users/${user.uid}`);
-              async function writeData(){
+            const userRef = doc(db , `users/${user.uid}`);
+            async function writeDataToDb(){
+
                   const docData = {
-                  cartItems: LSData,
+                  cartItems: JSON.parse(localStorage.getItem('cartProducts')),
                   updatedAt:serverTimestamp()
                   };
                 
-              try {
-               await setDoc(userRef , docData , {merge:true})
-              console.log("written" , LSData)
-              } catch (e) {
-                console.error("Error adding document: ", e);
-              }
+                 try {
+                   await setDoc(userRef , docData , {merge:true})
+                 } catch (e) {
+                   console.error("Error adding document: ", e);
+                 }
              
             }
-             writeData()
-              };
-             
-        console.log('unmounted')
-    }
+
+            writeDataToDb()
+
+            };
+            
+     }
 },[])
 
 
 
 
-
+//if there are no items in cart
 if (JSON.parse(localStorage.getItem('cartProducts')) === null || JSON.parse(localStorage.getItem('cartProducts')).length === 0) {
     return (
         <>
@@ -75,16 +80,16 @@ if (JSON.parse(localStorage.getItem('cartProducts')) === null || JSON.parse(loca
         </>
     )
 }
-document.querySelector('.navCartNotification').classList.remove('active')
 
-    return (
+//If there are items in cart
+return (
         <>
         <div className="websiteContent">
             <div className="cartPage">
                 <p className="cartPageHeader">Your shopping cart</p>
                 <div className="checkoutContainer">
-                    <p className="checkoutItemsAmount">Items: <span>{cartItemsAmountCalc()}</span></p>
-                    <p className="checkoutAmount">Subtotal: <span>${cartAmountCalc()}</span></p>
+                    <p className="checkoutItemsAmount">Items: <span>{cartTotalItems()}</span></p>
+                    <p className="checkoutAmount">Subtotal: <span>${cartTotalPrice()}</span></p>
                     <button className="checkoutBtn">CHECKOUT</button>
                 </div>
             {LSData.map((productData , index)=>{
@@ -94,7 +99,7 @@ document.querySelector('.navCartNotification').classList.remove('active')
            </div>
         </div>
     </>
-    )
+)
  
 }
 

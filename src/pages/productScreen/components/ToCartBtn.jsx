@@ -32,12 +32,11 @@ function ToCartBtn(props) {
  //This checks if the item is already in the cart
      if(localStorageCartProducts.filter((product, index)=>{
             if (product?.uniqueID === productCartData?.uniqueID){
-                console.log(localStorageCartProducts[index])
                 localStorageCartProducts[index].amount += 1
             }
             return product?.uniqueID === productCartData?.uniqueID
      }).length > 0
-        ){console.log('found pair')} else {
+        ){} else {
      localStorageCartProducts.unshift(productCartData)
      }
 
@@ -57,7 +56,6 @@ function ToCartBtn(props) {
          
        try {
         await setDoc(userRef , docData , {merge:true})
-       console.log("written")
        } catch (e) {
          console.error("Error adding document: ", e);
        }

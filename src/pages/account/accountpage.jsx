@@ -3,7 +3,6 @@
 import { auth } from "../../firebase/firebase"
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from "react-router-dom"
-
 import AccountMenu from "./components/accountMenu";
 
 function AccountPage() {
@@ -16,6 +15,7 @@ function AccountPage() {
             return(
             <div>
                 <div className="websiteContent">
+
                   <AccountMenu/>
                 </div>
             </div>
