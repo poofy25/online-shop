@@ -8,6 +8,8 @@ import logedOutIcon from '/src/assets/Icons/logedOutProfileIcon.png'
 import logedInIcon from '/src/assets/Icons/logedInProfileIcon.png'
 import companyLogo from '/src/assets/Icons/companyLogo.png'
 import cartIcon from '/src/assets/Icons/cartIcon.png'
+
+import SearchBar from "./SearchBar";
 let hasOpened = false;
 
 function Navbar() {
@@ -30,27 +32,54 @@ const menuBtnHandler = ()=>{
     if (!hasOpened){
       hasOpened = true;
       document.querySelector(".menuContainer").classList.add("open")
+      document.querySelector(".menuButton").classList.add("active")
+      document.body.style.overflow = "hidden"
     } else {
       hasOpened = false;
       document.querySelector(".menuContainer").classList.remove("open")
+      document.querySelector(".menuButton").classList.remove("active")
+      document.body.style.overflow = "auto"
     }
 }
 
 useEffect(()=>{
   if (localStorage.getItem('cartNotification') === 'true') 
   document.querySelector('.navCartNotification').classList.add('active')
+  const navBar = document.querySelector('.Navbar')
+  let lastScrollHeight = 0
+  window.addEventListener('scroll', (e)=>{
+ 
+
+    if(document.documentElement.scrollTop > navBar.offsetHeight * 1.5 && !navBar.classList.contains('NavbarActive') && lastScrollHeight < document.documentElement.scrollTop){
+     console.log(navBar.classList.contains('NavbarActive') , 'damn')
+     navBar.classList.add('NavbarActive')
+    }
+     
+    if (lastScrollHeight > document.documentElement.scrollTop && navBar.classList.contains('NavbarActive')){
+      console.log(navBar.classList.contains('NavbarActive'))
+      navBar.classList.remove('NavbarActive')
+    }
+    lastScrollHeight = document.documentElement.scrollTop
+  })
+
+  return ()=>{
+  }
+
 },[])
 
 
 
   return (
     <div className="Navbar">
+      <div className="navBarTop">
         <button className='menuButton' onClick={menuBtnHandler}>
         <div className="menuButtonRow1"></div>
         <div className="menuButtonRow2"></div>
         <div className="menuButtonRow3"></div>
         </button>
     <div className="menuContainer">
+      <div className="menuContainerShadow" onClick={menuBtnHandler}></div>
+      <div className="menuContainerContent"></div>
     </div>
 
         <div className="companyLogo">
@@ -74,7 +103,8 @@ useEffect(()=>{
         </div>
 
         </div>
-        
+      </div>
+        <SearchBar/>
     </div>
   )
 }

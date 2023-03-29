@@ -1,18 +1,34 @@
 
 .Navbar{
     display: flex;
+    position:fixed;
+    top: 0;
+    flex-direction: column;
+    align-items: center;
+
+    box-sizing: border-box;
+    width: 100%;
+
+    background-color: #FFF;
+    z-index: 10;
+    transition: 0.25s ease-in-out;
+}
+.NavbarActive{
+    top: -15vh;
+}
+.navBarTop{
+    display: flex;
+    width: 100%;
     position: relative;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    box-sizing: border-box;
+    height: 100%;
     padding-left: 5vw;
     padding-right: 5vw;
-    box-sizing: border-box;
-    width: 100%;
     height: 7.5vh;
-    background-color: #FFF;
 }
-
 
 .menuButton{
     border: none;
@@ -32,7 +48,26 @@
     width: 100%;
     height: 10%;
     background-color: rgba(0, 0, 0 , 1);
+    transition: 0.25s ease-in-out;
 }
+
+.menuButton.active .menuButtonRow2 {
+ transform: translateX(-200%);
+ opacity: 0;
+}
+.menuButton.active .menuButtonRow1 {
+    transform: rotate(45deg) translate(25% , 200%)
+}
+.menuButton.active .menuButtonRow3 {
+    transform: rotate(-45deg) translate(25% , -200%)
+}
+
+
+
+
+
+
+
 
 .menuContainer{
     background-color:  white;
@@ -41,17 +76,32 @@
     box-sizing: border-box;
     position: absolute;
     width: 75vw;
-    
     height: 100vh;
     top: 0;
     left: 0;
     transform: translate(-100%);
-    transition: transform 0.25s ease-in-out , box-shadow 0.25s ease-in-out 0.25s ;
+    transition: transform 0.25s ease-in-out;
 }
-
+.menuContainerShadow{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0 , 0.5);
+    z-index: -1;
+    transition: 0.25s ease-in-out;
+}
+.menuContainerContent{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1;
+}
 .menuContainer.open {
     transform: translate(0);
-    box-shadow: 26vw 0px 0px 0px rgba(0, 0, 0 ,0.5);
+}
+.menuContainer.open .menuContainerShadow{
+    width: 100vw;
 }
 
 

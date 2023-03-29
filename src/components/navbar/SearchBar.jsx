@@ -1,6 +1,6 @@
 
 
-import "../styles/searchBar.css"
+import "./searchBar.css"
 import searchIcon from '/src/assets/Icons/searchIcon.png'
 
 function SearchBar() {

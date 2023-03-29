@@ -52,6 +52,7 @@ function ProductPage() {
     },[productData])
 
     return (
+        <div className="websiteContent">
         <div className="productScreen">
             <img src={productData[0]?.image}/>
             <div className="productContent">
@@ -61,6 +62,7 @@ function ProductPage() {
               <ProductSizes productData={productData[0]} productCartData={setProductCartData}/>
               <ToCartBtn productData={productData[0]} productCartData={productCartData}/>
             </div>
+        </div>
         </div>
     )
  
