@@ -51,12 +51,10 @@ useEffect(()=>{
  
 
     if(document.documentElement.scrollTop > navBar.offsetHeight * 1.5 && !navBar.classList.contains('NavbarActive') && lastScrollHeight < document.documentElement.scrollTop){
-     console.log(navBar.classList.contains('NavbarActive') , 'damn')
      navBar.classList.add('NavbarActive')
     }
      
     if (lastScrollHeight > document.documentElement.scrollTop && navBar.classList.contains('NavbarActive')){
-      console.log(navBar.classList.contains('NavbarActive'))
       navBar.classList.remove('NavbarActive')
     }
     lastScrollHeight = document.documentElement.scrollTop
@@ -66,8 +64,6 @@ useEffect(()=>{
   }
 
 },[])
-
-
 
   return (
     <div className="Navbar">
