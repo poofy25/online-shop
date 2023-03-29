@@ -56,10 +56,10 @@
  opacity: 0;
 }
 .menuButton.active .menuButtonRow1 {
-    transform: rotate(45deg) translate(25% , 210%)
+    transform: rotate(45deg) translate(20% , 250%)
 }
 .menuButton.active .menuButtonRow3 {
-    transform: rotate(-45deg) translate(25% , -210%)
+    transform: rotate(-45deg) translate(20% , -250%)
 }
 
 
