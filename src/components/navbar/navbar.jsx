@@ -47,16 +47,22 @@ useEffect(()=>{
   document.querySelector('.navCartNotification').classList.add('active')
   const navBar = document.querySelector('.Navbar')
   let lastScrollHeight = 0
+  let lastScrollUp = 0;
+  let lastScrollDown = 0
   window.addEventListener('scroll', (e)=>{
- 
 
-    if(document.documentElement.scrollTop > navBar.offsetHeight * 1.5 && !navBar.classList.contains('NavbarActive') && lastScrollHeight < document.documentElement.scrollTop){
-     navBar.classList.add('NavbarActive')
+    if (lastScrollHeight > document.documentElement.scrollTop ){
+      lastScrollUp = document.documentElement.scrollTop
     }
-     
-    if (lastScrollHeight > document.documentElement.scrollTop && navBar.classList.contains('NavbarActive')){
+    if ( lastScrollHeight < document.documentElement.scrollTop) {
+      lastScrollDown = document.documentElement.scrollTop
+    }
+    if (lastScrollDown - lastScrollUp >= navBar.offsetHeight && lastScrollHeight > document.documentElement.scrollTop && navBar.classList.contains('NavbarActive')){
       navBar.classList.remove('NavbarActive')
     }
+    if(lastScrollDown - lastScrollUp >= navBar.offsetHeight && lastScrollHeight < document.documentElement.scrollTop  && document.documentElement.scrollTop > navBar.offsetHeight ){
+      navBar.classList.add('NavbarActive')
+     }
     lastScrollHeight = document.documentElement.scrollTop
   })
 

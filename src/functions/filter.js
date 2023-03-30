@@ -53,6 +53,13 @@
                        
                     })
                  }
+                 if (key === "name"){
+
+                     if((product[key].toLowerCase()).indexOf((filters[key].toLowerCase())) !=-1? true: false){
+                        isGood = true
+                     }
+                    
+                 }
 
 
                 if(!isGood) return false
