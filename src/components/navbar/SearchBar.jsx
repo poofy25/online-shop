@@ -2,28 +2,35 @@
 
 import "./searchBar.css"
 import searchIcon from '/src/assets/Icons/searchIcon.png'
-import { useState } from "react"
-import searchFilter from "../../functions/filter"
-import JsonData from "/data/clothing-data/clothing-data.json"
-
+import { useLocation } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { useEffect , useState } from "react"
 function SearchBar() {
-
+const navigateTo = useNavigate()
+const location = useLocation();
 let searchTerm = ''
 const searchValue = ()=>{
-
-    searchTerm = document.querySelector('.navBarSearchInput').value
-    if(searchTerm !== ''){
-   console.log(searchTerm)
-   console.log(searchFilter({name:document.querySelector('.navBarSearchInput').value} , JsonData))
- }
+    searchTerm = document.querySelector('.navBarSearchInput').value 
+    if(searchTerm !== ''){   
+ navigateTo(`/catalog/${searchTerm}`)
+    }
 }
+
+useEffect(() => {
+
+    if(location.pathname.indexOf('/catalog') === -1){
+        document.querySelector('.navBarSearchInput').value = ''
+        searchTerm = ''
+    }
+
+  }, [location]);
 
     return (
         <div className="searchBarContainer">
-            <form>
-                <input className="navBarSearchInput" type="text" placeholder="Search for products..."/>
-                <button onClick={searchValue}><img src={searchIcon}/></button>
-             </form>
+            <div>
+                <input className="navBarSearchInput" type="text" placeholder="Search for products..." onFocus={(e)=>{e.target.value = ''}}/>
+                <button onClick={searchValue} type="submit"><img src={searchIcon}/></button>
+             </div>
         </div>
     )
 }

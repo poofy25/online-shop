@@ -7,7 +7,7 @@
     justify-content: center;
     padding-bottom: 1vh;
 }
-.searchBarContainer > form {
+.searchBarContainer > div {
     width: 90%;
     height: 100%;
     display: flex;
@@ -16,7 +16,7 @@
     position: relative;
     box-sizing: border-box;
 }
-.searchBarContainer > form > input {
+.searchBarContainer > div > input {
     padding-left: 5%;
     padding-right: 5%;
     border-radius: 50vw;
@@ -25,7 +25,7 @@
     height: 100%;
     border: 1px solid rgba(0,0,0,0.75);
 }
-.searchBarContainer > form > button {
+.searchBarContainer > div > button {
     height: 100%;
     right: 0%;
     border-radius: 100%;
@@ -37,7 +37,7 @@
     justify-content: end;
     background-color: transparent;
 }
-.searchBarContainer > form > button > img {
+.searchBarContainer > div > button > img {
     width: 50%;
     aspect-ratio: 1;
     object-fit: scale-down;

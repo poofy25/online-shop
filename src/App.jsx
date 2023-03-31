@@ -3,13 +3,12 @@ import { Routes, Route } from "react-router-dom"
 import { lazy } from 'react'
 import React from 'react'
 import './App.css'
-
 const HomePage = lazy(()=> import("./pages/homepage/homepage.jsx"))
 const LoginPage = lazy(()=> import("./pages/login/loginpage"))
 const AccountPage = lazy(()=> import("./pages/account/accountpage"))
 const CartPage = lazy(()=> import("./pages/cart/cartpage"))
 const ProductPage = lazy(()=> import("./pages/productScreen/ProductScreen"))
-
+const CatalogPage = lazy(()=> import("./pages/catalog/Catalog"))
 import Navbar from './components/navbar/navbar';
 import Footer from './components/footer/Footer';
 
@@ -27,6 +26,7 @@ function App() {
         <Route path="/account" element={ <React.Suspense fallback="Loading..."><AccountPage/></React.Suspense> } />
         <Route path="/cart" element={ <React.Suspense fallback="Loading..."><CartPage/></React.Suspense> } />
         <Route path="/product/:id" element={<React.Suspense fallback="Loading..."><ProductPage /></React.Suspense>} />
+        <Route path="/catalog/:searchValue" element={<React.Suspense fallback="Loading..."><CatalogPage /></React.Suspense>} />
       </Routes>
                
       <Footer/>
