@@ -5,6 +5,8 @@ import "../styles/catalogProducts.css"
 function CatalogProducts(props) {
 
       const searchData = props.searchData
+     
+if(searchData){
 
     return (
         <>
@@ -25,6 +27,9 @@ function CatalogProducts(props) {
         </div>
         </>
     )
+} else {
+    return (<p>damn</p>)
+}
  
 }
 
