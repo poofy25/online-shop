@@ -27,6 +27,8 @@ function App() {
         <Route path="/cart" element={ <React.Suspense fallback="Loading..."><CartPage/></React.Suspense> } />
         <Route path="/product/:id" element={<React.Suspense fallback="Loading..."><ProductPage /></React.Suspense>} />
         <Route path="/catalog/:searchValue" element={<React.Suspense fallback="Loading..."><CatalogPage /></React.Suspense>} />
+        <Route path="/catalog/" element={<React.Suspense fallback="Loading..."><CatalogPage /></React.Suspense>} />
+
       </Routes>
                
       <Footer/>

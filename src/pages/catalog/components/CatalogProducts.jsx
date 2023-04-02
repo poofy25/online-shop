@@ -16,7 +16,7 @@ if(searchData){
         {searchData.length > 0 ? (searchData.map((item,index) =>{ 
                
             return(
-                <div className="product" key={index}><Product
+                <div className="catalogProduct" key={index}><Product
                 product_object = {item}
                 /></div>
             )

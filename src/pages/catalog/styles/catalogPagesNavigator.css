@@ -2,18 +2,26 @@
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+    background-color: white;
+    padding-bottom: 4vh;
 }
 .catalogPagesNavigatorContainer > button {
     width: 10%;
-    aspect-ratio: 1;
+    aspect-ratio: 1/1.25;
     color: black;
+    background-color: transparent;
+    border: none;
+    font-size: 1.25rem;
+    font-weight: 600;
 }
-.catalogPagesNavigatorContainer > div {
-    width: 10%;
-    aspect-ratio: 1;
-    text-align: center;
-    display: flex;
-    justify-content: center;
+.catalogPagesNavigatorContainer > button:first-child , .catalogPagesNavigatorContainer > button:last-child {
     font-size: 1.5rem;
-    align-items: center;
+    color: white;
+    background-color: rgba(0,0,0,0.85);
+}
+.deactivateMovingBtn{
+    opacity: 0.25;
+}
+.deactivateNumberedBtn{
+    opacity: 0.25;
 }

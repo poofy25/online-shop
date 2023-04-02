@@ -54,11 +54,15 @@
                     })
                  }
                  if (key === "name"){
-
+                  
+                    if(filters[key]){
                      if((product[key].toLowerCase()).indexOf((filters[key].toLowerCase())) !=-1? true: false){
                         isGood = true
                      }
-                    
+                  }
+                  else{
+                     isGood = true
+                  }
                  }
 
 

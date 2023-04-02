@@ -11,7 +11,7 @@ const location = useLocation();
 let searchTerm = ''
 const searchValue = ()=>{
     searchTerm = document.querySelector('.navBarSearchInput').value 
-    if(searchTerm !== ''){   
+    if(searchTerm !== 'qwe'){   
  navigateTo(`/catalog/${searchTerm}`)
     }
 }
@@ -28,7 +28,7 @@ useEffect(() => {
     return (
         <div className="searchBarContainer">
             <div>
-                <input className="navBarSearchInput" type="text" placeholder="Search for products..." onFocus={(e)=>{e.target.value = ''}}/>
+                <input className="navBarSearchInput" type="text" placeholder="Search for products..." onFocus={(e)=>{e.target.value = ''}} defaultValue={''}/>
                 <button onClick={searchValue} type="submit"><img src={searchIcon}/></button>
              </div>
         </div>
