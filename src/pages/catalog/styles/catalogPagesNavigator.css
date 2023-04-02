@@ -16,6 +16,7 @@
     border: none;
     font-size: 1rem;
     font-weight: 600;
+    padding: 0;
 }
 .catalogPagesNavigatorContainer > button:first-child , .catalogPagesNavigatorContainer > button:last-child {
     font-size: 1.25rem;
