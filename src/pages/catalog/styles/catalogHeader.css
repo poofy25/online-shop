@@ -1,0 +1,83 @@
+.catalogHeader{
+    width: 100%;
+    height: 15vh;
+    background-color: white;
+    display: flex;
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(0,0,0,0.85);
+    overflow: hidden;
+}
+.catalogCategoryName {
+
+    margin-top: 0.5rem;
+    width: 100%;
+    height: 5vh;
+    overflow: hidden;
+
+}
+.catalogCategoryName > p {
+    font-size: clamp(1rem , 6vw , 1.5rem);
+    width: 100%;
+    padding-left: 5vw;
+    margin: 0;
+    text-align: left;
+}
+.catalogCategories{
+    width: 100%;
+    overflow: scroll;
+    display: flex;
+    flex-wrap: nowrap;
+    height: 7.55vh;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+}
+.catalogCategories > button {
+    height: 100%;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid rgba(0,0,0,0.25);
+    color: rgba(0,0,0,0.85);
+    font-size: clamp(1rem , 4vw , 1.5rem);
+}
+.catalogCategories > button:first-child{
+    margin-left: 5vw;
+}
+.catalogCategories > button:last-child{
+    margin-right: 5vw;
+}
+
+.catalogFilterAndAmountContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 5vh;
+    overflow: hidden;
+    padding: 0px 5vw 0px 5vw;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin: 0.5rem 0px 0.5rem 0px;
+    align-items: center;
+}
+.catalogProductAmount > p {
+ margin: 0;
+}
+.catalogFilter{
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    padding: 0;
+    justify-content: space-between;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.catalogFilter > img {
+    height: 80%;
+    aspect-ratio: 1;
+}

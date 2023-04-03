@@ -33,8 +33,6 @@ function CatalogPagesNavigator(props) {
     
     }
 
-
-
     return (
          <div className="catalogPagesNavigatorContainer">
 

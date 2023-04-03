@@ -12,7 +12,6 @@ if(searchData){
         <>
         
         <div className="catalogProductsContainer">
-        <p>Results for: {props.searchValue}</p>
         {searchData.length > 0 ? (searchData.map((item,index) =>{ 
                
             return(

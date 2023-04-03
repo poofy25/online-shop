@@ -6,17 +6,16 @@ import { useEffect , useState } from "react"
 import { useParams } from "react-router-dom"
 import CatalogProducts from "./components/CatalogProducts"
 import CatalogPagesNavigator from "./components/CatalogPagesNavigator"
+import CatalogHeader from "./components/CatalogHeader"
 function CatalogPage() {
 
 
     const params = useParams();
     const [rawSearchData , setRawSearchData] = useState(searchFilter({name:params.searchValue} , JsonData))
-    //const [searchData , setSearchData] = useState([])
     const [searchDataRendering , setSearchDataRendering] = useState([])
     const searchData = []
     const [page , setPage] = useState (1)
     let pagesNumber;
-    let pageNumber;
 
    useEffect(()=>{
       setRawSearchData(searchFilter({name:params.searchValue} , JsonData))
@@ -57,12 +56,13 @@ function CatalogPage() {
 
     }
     setSearchDataRendering(searchData)
+    setPage(1)
    },[rawSearchData])
-
 
     return (
         <>
         <div className="websiteContent">
+          <CatalogHeader searchData={searchDataRendering[page-1]} searchValue={params.searchValue} rawSearchData={rawSearchData}/>
           <CatalogProducts searchData={searchDataRendering[page-1]} searchValue={params.searchValue} catalogPage={page} />
           <CatalogPagesNavigator catalogPage={page} searchData={searchDataRendering} setCatalogPage={setPage}/>
         </div>
