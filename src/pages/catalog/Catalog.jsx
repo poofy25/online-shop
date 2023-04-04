@@ -1,7 +1,6 @@
 
 import searchFilter from "../../functions/filter"
 import JsonData from "/data/clothing-data/clothing-data.json"
-import Product from "../../components/product/Product"
 import { useEffect , useState } from "react"
 import { useParams } from "react-router-dom"
 import CatalogProducts from "./components/CatalogProducts"
@@ -11,7 +10,8 @@ function CatalogPage() {
 
 
     const params = useParams();
-    const [rawSearchData , setRawSearchData] = useState(searchFilter({name:params.searchValue} , JsonData))
+    const [filters , setFilters] = useState({name:params.name})
+    const [rawSearchData , setRawSearchData] = useState((searchFilter(filters , JsonData)))
     const [searchDataRendering , setSearchDataRendering] = useState([])
     const searchData = []
     const [page , setPage] = useState (1)
@@ -20,6 +20,13 @@ function CatalogPage() {
    useEffect(()=>{
       setRawSearchData(searchFilter({name:params.searchValue} , JsonData))
    },[params])
+
+   useEffect(()=>{
+    if(searchFilter(filters , JsonData) !== rawSearchData){
+        setRawSearchData(searchFilter(filters , JsonData))
+    }
+   },[filters])
+
 
    useEffect(()=>{
     
@@ -62,7 +69,7 @@ function CatalogPage() {
     return (
         <>
         <div className="websiteContent">
-          <CatalogHeader searchData={searchDataRendering[page-1]} searchValue={params.searchValue} rawSearchData={rawSearchData}/>
+          <CatalogHeader searchData={searchDataRendering[page-1]} searchValue={params.searchValue} rawSearchData={rawSearchData} setFilters={setFilters} filters={filters}/>
           <CatalogProducts searchData={searchDataRendering[page-1]} searchValue={params.searchValue} catalogPage={page} />
           <CatalogPagesNavigator catalogPage={page} searchData={searchDataRendering} setCatalogPage={setPage}/>
         </div>
