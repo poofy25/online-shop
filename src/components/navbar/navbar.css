@@ -46,7 +46,7 @@
 
 .menuButton > div {
     width: 100%;
-    height: 10%;
+    height: 6%;
     background-color: rgba(0, 0, 0 , 1);
     transition: 0.25s ease-in-out;
 }
@@ -56,10 +56,10 @@
  opacity: 0;
 }
 .menuButton.active .menuButtonRow1 {
-    transform: rotate(45deg) translate(20% , 240%)
+    transform: rotate(45deg) translate(33% , 240%)
 }
 .menuButton.active .menuButtonRow3 {
-    transform: rotate(-45deg) translate(20% , -240%)
+    transform: rotate(-45deg) translate(33% , -240%)
 }
 
 

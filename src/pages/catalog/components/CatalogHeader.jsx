@@ -2,10 +2,10 @@
 
 import filterIcon from '/src/assets/Icons/filterIcon.png'
 import "../styles/catalogHeader.css"
-import JsonData from "/data/clothing-data/clothing-data.json"
-import searchFilter from '../../../functions/filter'
+import { useEffect } from 'react';
 
 const categories = [
+    'All Categories',
     'Shirts',
     'Dresses',
     'Jeans',
@@ -16,29 +16,43 @@ const categories = [
     "Leggings",
     "Trousers"
 ]
-let prevClickedCategoryBtn = null;
+let prevClickedCategoryBtn = null
 
 function CatalogHeader(props) {
-
-    const searchValue = props.searchValue
     const rawSearchData = props.rawSearchData
-
     
     const categorySelector = (e)=>{
+        let categorySelected = e.target.textContent === 'All Categories'? '*' : e.target.textContent
         if(prevClickedCategoryBtn !== e.target){
         prevClickedCategoryBtn !== null ? prevClickedCategoryBtn.classList.remove('selectedCategoryBtn') : null
-        e.target.classList.add('selectedCategoryBtn')
-        prevClickedCategoryBtn = e.target
-        props.setFilters(prevFilters => ({...prevFilters , category:e.target.textContent }))
+            e.target.classList.add('selectedCategoryBtn')
+            prevClickedCategoryBtn = e.target
+            props.setFilters(prevFilters => ({...prevFilters , category:categorySelected }))
+        } else if (prevClickedCategoryBtn === e.target && !e.target.classList.contains('selectedCategoryBtn')){
+            e.target.classList.add('selectedCategoryBtn')
+            prevClickedCategoryBtn = e.target
+            props.setFilters(prevFilters => ({...prevFilters , category:categorySelected }))
         }
     }
    
+
+    useEffect(()=>{
+        prevClickedCategoryBtn = document.querySelector('.selectedCategoryBtn');
+    },[])
+
+
     return (
          <div className="catalogHeader">
-            <div className="catalogCategoryName"><p>Women {props.filters.category}</p></div>
+            <div className="catalogCategoryName">
+                <p>Women {props.filters.category === '*'? 'Clothing' : props.filters.category}</p>
+                {!props.filters.name ? console.log(props.filters) : <p className='catalogHeaderSearchValue'>Search result for: {props.filters.name}</p>}
+            </div>
             <div className="catalogCategories">
                {categories.map((category , index)=>{
-               return <button key={index} onClick={categorySelector}>{category}</button>
+                if (index === 0){
+                return <button className="selectedCategoryBtn" key={index} onClick={categorySelector}>{category}</button>
+                }
+                return <button key={index} onClick={categorySelector}>{category}</button>
                })}
             </div>
             <div className="catalogFilterAndAmountContainer">

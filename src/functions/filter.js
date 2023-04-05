@@ -13,7 +13,7 @@
                         }
                  }
                  if (key === "category"){
-                    if(product[key] === filters[key]){
+                    if(product[key] === filters[key] || filters[key] === '*'){
                          isGood = true
                         }
                  }

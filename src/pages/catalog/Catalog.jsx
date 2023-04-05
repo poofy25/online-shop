@@ -10,7 +10,7 @@ function CatalogPage() {
 
 
     const params = useParams();
-    const [filters , setFilters] = useState({name:params.name})
+    const [filters , setFilters] = useState({name:params.searchValue , category:'*'})
     const [rawSearchData , setRawSearchData] = useState((searchFilter(filters , JsonData)))
     const [searchDataRendering , setSearchDataRendering] = useState([])
     const searchData = []
@@ -18,7 +18,9 @@ function CatalogPage() {
     let pagesNumber;
 
    useEffect(()=>{
+   // console.log(params)
       setRawSearchData(searchFilter({name:params.searchValue} , JsonData))
+      setFilters(prevFilters => ({...prevFilters , name:params.searchValue }))
    },[params])
 
    useEffect(()=>{

@@ -5,7 +5,7 @@
     display: flex;
     align-items: start;
     justify-content: center;
-    padding-bottom: 1vh;
+    padding-bottom: 0.5rem;
 }
 .searchBarContainer > div {
     width: 90%;
