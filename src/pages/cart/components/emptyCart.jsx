@@ -7,7 +7,7 @@ function EmptyCart() {
     
     const navigate = useNavigate()
    const goShoppingHandler = ()=>{
-       navigate("/")
+       navigate("/catalog")
    }
 return (
      <div className="emptyCartContainer">

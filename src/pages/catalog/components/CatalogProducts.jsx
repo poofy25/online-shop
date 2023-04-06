@@ -4,8 +4,7 @@ import Product from "../../../components/product/Product"
 import "../styles/catalogProducts.css"
 function CatalogProducts(props) {
 
-      const searchData = props.searchData
-     
+      const searchData = props.catalogData.searchData[props.catalogData.catalogPage - 1]
 if(searchData){
 
     return (

@@ -2,11 +2,14 @@
 
 import "../styles/homeWelcome.css"
 import welcomeImg from '/src/assets/Images/homePageMobileWelcome.png'
-
+import { useNavigate } from "react-router-dom"
 
 function HomeWelcome() {
+const navigateTo = useNavigate()
 
-
+    const clickHandler = ()=>{
+      navigateTo('/catalog/')
+    }
     return (
         <div className="homeWelcomeContainer">
           <img
@@ -14,7 +17,7 @@ function HomeWelcome() {
           className="homeIMG"
           />
           <p>Shop the latest trends <br/> with dilVin</p>
-          <button>Shop now</button>
+          <button onClick={clickHandler}>Shop now</button>
         </div>
     )
 }
