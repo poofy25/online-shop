@@ -3,6 +3,8 @@
 import filterIcon from '/src/assets/Icons/filterIcon.png'
 import "../styles/catalogHeader.css"
 import { useEffect } from 'react';
+import useParamsNavigate from '../../../hooks/useParamsNavigate';
+import { useLocation, useNavigate , createSearchParams } from 'react-router-dom';
 
 const categories = [
     'All Categories',
@@ -20,19 +22,23 @@ let prevClickedCategoryBtn = null
 
 function CatalogHeader(props) {
     const catalogData = props.catalogData
-    const setCatalogData = props.setCatalogData
+
+    const location = useLocation()
+
+
+    const params = Object.fromEntries(new URLSearchParams(location.search));
     
+    const useNavParams = useParamsNavigate()
     const categorySelector = (e)=>{
         let categorySelected = e.target.textContent === 'All Categories'? '*' : e.target.textContent
+        const newParams = {category:categorySelected}
         if(prevClickedCategoryBtn !== e.target){
         prevClickedCategoryBtn !== null ? prevClickedCategoryBtn.classList.remove('selectedCategoryBtn') : null
             e.target.classList.add('selectedCategoryBtn')
             prevClickedCategoryBtn = e.target
-            setCatalogData({...catalogData , filters:{...catalogData.filters , category:categorySelected}})
-        } else if (prevClickedCategoryBtn === e.target && !e.target.classList.contains('selectedCategoryBtn')){
-            e.target.classList.add('selectedCategoryBtn')
-            prevClickedCategoryBtn = e.target
-            setCatalogData({...catalogData , filters:{...catalogData.filters , category:categorySelected}})
+            useNavParams(newParams , true)
+          //  navigateTo({pathname:location.pathname, search:`?${createSearchParams(newParams)}`})
+            
         }
     }
    
@@ -40,7 +46,6 @@ function CatalogHeader(props) {
     useEffect(()=>{
         prevClickedCategoryBtn = document.querySelector('.selectedCategoryBtn');
     },[])
-
 
     return (
          <div className="catalogHeader">
@@ -50,10 +55,9 @@ function CatalogHeader(props) {
             </div>
             <div className="catalogCategories">
                {categories.map((category , index)=>{
-                if (index === 0){
-                return <button className="selectedCategoryBtn" key={index} onClick={categorySelector}>{category}</button>
-                }
-                return <button key={index} onClick={categorySelector}>{category}</button>
+                if (index === 0 && !params.category) return <button className="selectedCategoryBtn" key={index} onClick={categorySelector}>{category}</button>
+                if(category === params.category) return <button className="selectedCategoryBtn" key={index} onClick={categorySelector}>{category}</button>
+                return  <button key={index} onClick={categorySelector}>{category}</button>
                })}
             </div>
             <div className="catalogFilterAndAmountContainer">

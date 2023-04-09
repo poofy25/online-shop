@@ -5,13 +5,13 @@ import "../styles/catalogProducts.css"
 function CatalogProducts(props) {
 
       const searchData = props.catalogData.searchData[props.catalogData.catalogPage - 1]
-if(searchData){
+      if(searchData){
 
     return (
         <>
         
         <div className="catalogProductsContainer">
-        {searchData.length > 0 ? (searchData.map((item,index) =>{ 
+        {props.catalogData.searchData.length > 0 ? (searchData.map((item,index) =>{ 
                
             return(
                 <div className="catalogProduct" key={index}><Product

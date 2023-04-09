@@ -2,17 +2,19 @@
 
 import "./searchBar.css"
 import searchIcon from '/src/assets/Icons/searchIcon.png'
-import { useLocation } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate , createSearchParams } from 'react-router-dom';
 import { useEffect , useState } from "react"
+import useParamsNavigate from "../../hooks/useParamsNavigate";
 function SearchBar() {
-const navigateTo = useNavigate()
-const location = useLocation();
-let searchTerm = ''
+
+    const location = useLocation()
+    const useParamsNav = useParamsNavigate()
+    let searchTerm = ''
+
 const searchValue = ()=>{
     searchTerm = document.querySelector('.navBarSearchInput').value 
-    if(searchTerm !== 'qwe'){   
- navigateTo(`/catalog/${searchTerm}`)
+    if(searchTerm !== ''){   
+        useParamsNav({name:searchTerm} , true)
     }
 }
 

@@ -7,6 +7,7 @@ function CatalogPagesNavigator(props) {
     const catalogData = props.catalogData
     const setCatalogData = props.setCatalogData
 
+
     const backwardsHandler = ()=>{
         if (catalogData.catalogPage > 1){
              setCatalogData({...catalogData , catalogPage:catalogData.catalogPage - 1})
@@ -16,12 +17,14 @@ function CatalogPagesNavigator(props) {
     }
     const forwardsHandler = ()=>{
         if(catalogData.catalogPage < catalogData.searchData.length){
+
             setCatalogData({...catalogData , catalogPage:catalogData.catalogPage + 1})
         document.documentElement.scrollTop = 0
         }
     }
     const numberedBtnsHandler = (e)=>{
         if(e.target.textContent != catalogData.catalogPage){
+            
         setCatalogData({...catalogData , catalogPage:Number(e.target.textContent)})
         document.documentElement.scrollTop = 0
         }

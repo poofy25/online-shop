@@ -1,12 +1,22 @@
 
 import searchFilter from "../../functions/filter"
 import JsonData from "/data/clothing-data/clothing-data.json"
-import { useEffect , useState } from "react"
+import { useEffect , useState , useRef } from "react"
 import { useParams } from "react-router-dom"
+import { useNavigate  , useLocation} from "react-router-dom"
 import CatalogProducts from "./components/CatalogProducts"
 import CatalogPagesNavigator from "./components/CatalogPagesNavigator"
 import CatalogHeader from "./components/CatalogHeader"
-function getPagination(rawData , updateFunc){
+
+const availableFilters = [
+    'name',
+    'category',
+    'price',
+    'color',
+    'size'
+]
+
+function getPagination(rawData){
     let pagesNumber;
     const searchData = []
     if (rawData.length > 10){
@@ -45,42 +55,44 @@ function getPagination(rawData , updateFunc){
 }
 
 function CatalogPage() {
+   const navigateTo = useNavigate()
    const params = useParams();
-
+  const location = useLocation()
+  
     const [catalogData , setCatalogData] = useState({
        filters:{
          name:params.searchValue ,
          category:'*'
        },
        rawSearchData:searchFilter({name:params.searchValue , category:'*'}, JsonData),
-       searchData:[],
+       searchData:getPagination(searchFilter({name:params.searchValue , category:'*'}, JsonData)),
        catalogPage:1
     })
-    console.log(catalogData)
 
-   useEffect(()=>{
-    setCatalogData({
-        ...catalogData,
-        rawSearchData:searchFilter({...catalogData.filters , name:params.searchValue},JsonData),
-        searchData:getPagination(searchFilter({...catalogData.filters , name:params.searchValue}, JsonData)),
-        catalogPage:1,
-    })
-   },[catalogData.filters])
+  useEffect(()=>{
+    if(location.search){
 
-
-
-   useEffect(()=>{
-
-      setCatalogData({
-         ...catalogData,
-         filters:{...catalogData.filters , name:params.searchValue},
-         rawSearchData:searchFilter({...catalogData.filters , name:params.searchValue}, JsonData),
-         searchData:getPagination(searchFilter({...catalogData.filters , name:params.searchValue}, JsonData)),
-         catalogPage:1
-        })
+        const params = Object.fromEntries(new URLSearchParams(location.search));
+        const searchFilters = {}
+        for(const key in params){
+            for(const i in availableFilters){
+                if(key === availableFilters[i]){
+                    console.log(availableFilters[i],params[key])
+                    searchFilters[key] = params[key]
+                    break
+                }
+            }
+        }
       
-   },[params])
-
+        setCatalogData({
+           ...catalogData,
+           filters:{...catalogData.filters , ...searchFilters},
+           rawSearchData:searchFilter({...catalogData.filters , ...searchFilters},JsonData),
+            searchData:getPagination(searchFilter({...catalogData.filters , ...searchFilters}, JsonData)),
+            catalogPage:1,
+        })
+    }
+  },[location.search])
 
     return (
         <>
