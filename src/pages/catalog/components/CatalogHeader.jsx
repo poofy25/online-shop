@@ -20,25 +20,35 @@ const categories = [
 ]
 let prevClickedCategoryBtn = null
 
+const searchCategoryBtn = (category , btns)=>{
+    for (var i = 0; i < btns.length; i++) {
+        if (btns[i].textContent == category) {
+          return btns[i]
+        }
+      }
+      return 'nothing'
+}
+
+
+
 function CatalogHeader(props) {
-    const catalogData = props.catalogData
-
-    const location = useLocation()
-
-
+    const catalogData = props.catalogData;
+    const useNavParams = useParamsNavigate();
+    const location = useLocation();
     const params = Object.fromEntries(new URLSearchParams(location.search));
-    
-    const useNavParams = useParamsNavigate()
+    let newParams;
+    let categorySelected;
+
+
+   
     const categorySelector = (e)=>{
-        let categorySelected = e.target.textContent === 'All Categories'? '*' : e.target.textContent
-        const newParams = {category:categorySelected}
         if(prevClickedCategoryBtn !== e.target){
-        prevClickedCategoryBtn !== null ? prevClickedCategoryBtn.classList.remove('selectedCategoryBtn') : null
+            categorySelected = e.target.textContent === 'All Categories'? '*' : e.target.textContent;
+            newParams = {category:categorySelected};
+            prevClickedCategoryBtn !== null ? prevClickedCategoryBtn.classList.remove('selectedCategoryBtn') : null
             e.target.classList.add('selectedCategoryBtn')
             prevClickedCategoryBtn = e.target
-            useNavParams(newParams , true)
-          //  navigateTo({pathname:location.pathname, search:`?${createSearchParams(newParams)}`})
-            
+            useNavParams(newParams , true)            
         }
     }
    
@@ -46,6 +56,15 @@ function CatalogHeader(props) {
     useEffect(()=>{
         prevClickedCategoryBtn = document.querySelector('.selectedCategoryBtn');
     },[])
+    useEffect(()=>{
+        //UPDATES prevClickedCategoryBtn WHEN URL SEARCH PARAMS CHANGE
+        const categoryBtns = document.querySelector('.catalogCategories').childNodes
+        if(params.category){
+           prevClickedCategoryBtn = searchCategoryBtn(params.category !== '*' ? params.category : 'All Categories'  , categoryBtns);
+        }else{
+            prevClickedCategoryBtn = searchCategoryBtn('All Categories'  , categoryBtns)
+        }
+    },[params])
 
     return (
          <div className="catalogHeader">

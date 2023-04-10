@@ -15,7 +15,7 @@ const availableFilters = [
     'color',
     'size'
 ]
-
+//Returns an array with multiple arrays as pages content
 function getPagination(rawData){
     let pagesNumber;
     const searchData = []
@@ -70,19 +70,20 @@ function CatalogPage() {
     })
 
   useEffect(()=>{
-    if(location.search){
-
-        const params = Object.fromEntries(new URLSearchParams(location.search));
-        const searchFilters = {}
-        for(const key in params){
+    const params = Object.fromEntries(new URLSearchParams(location.search));
+    // SEARCHES FOR AVAILABLE FILTERS IN THE URL  
+    const searchFilters = {}  
+    for(const key in params){
             for(const i in availableFilters){
                 if(key === availableFilters[i]){
-                    console.log(availableFilters[i],params[key])
                     searchFilters[key] = params[key]
                     break
                 }
             }
         }
+    //If search parameters aretn empty
+    if(Object.keys(searchFilters).length !== 0){
+        
       
         setCatalogData({
            ...catalogData,
@@ -91,6 +92,18 @@ function CatalogPage() {
             searchData:getPagination(searchFilter({...catalogData.filters , ...searchFilters}, JsonData)),
             catalogPage:1,
         })
+    } else {
+        //Runs if search params are empty
+        setCatalogData({
+            filters:{
+              name:params.searchValue ,
+              category:'*'
+            },
+            rawSearchData:searchFilter({name:params.searchValue , category:'*'}, JsonData),
+            searchData:getPagination(searchFilter({name:params.searchValue , category:'*'}, JsonData)),
+            catalogPage:1
+         })
+        navigateTo('/catalog')
     }
   },[location.search])
 
