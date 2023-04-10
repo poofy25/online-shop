@@ -2,10 +2,10 @@
 
 import filterIcon from '/src/assets/Icons/filterIcon.png'
 import "../styles/catalogHeader.css"
-import { useEffect } from 'react';
+import { useEffect , useRef } from 'react';
 import useParamsNavigate from '../../../hooks/useParamsNavigate';
-import { useLocation, useNavigate , createSearchParams } from 'react-router-dom';
-
+import { useLocation} from 'react-router-dom';
+import CatalogFilters from './CatalogFilters';
 const categories = [
     'All Categories',
     'Shirts',
@@ -38,6 +38,7 @@ function CatalogHeader(props) {
     const params = Object.fromEntries(new URLSearchParams(location.search));
     let newParams;
     let categorySelected;
+    const filtersBtn = useRef(null)
 
 
    
@@ -82,12 +83,12 @@ function CatalogHeader(props) {
             <div className="catalogFilterAndAmountContainer">
                 <div className="catalogProductAmount">
                     <p>{catalogData.rawSearchData.length} Products</p></div>
-                <button className="catalogFilter">
+                <button className="catalogFilter" ref={filtersBtn}>
                     <img src={filterIcon} />
                     Filter
                     </button>
             </div>
-
+           <CatalogFilters filtersBtn={filtersBtn}/>
          </div>
     )
  

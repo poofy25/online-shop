@@ -45,10 +45,10 @@ function CatalogPagesNavigator(props) {
             <button onClick={backwardsHandler} className={`movingBtns ${catalogData.catalogPage === 1 ? 'deactivateMovingBtn' : ''}`}>{'<'}</button>
             <button onClick={numberedBtnsHandler} className='numberedBtns'>{1}</button>
             {catalogData.searchData.length < 4 ? 
-           catalogData.searchData.map((array , i)=>{
-            if(i === 0 || catalogData.searchData.length === 1) return
-            return <button onClick={numberedBtnsHandler} className='numberedBtns' key={i}>{i+1}</button>
-           })
+               catalogData.searchData.map((array , i)=>{
+                 if(i === 0 || catalogData.searchData.length === 1) return
+                 return <button onClick={numberedBtnsHandler} className='numberedBtns' key={i}>{i+1}</button>
+                })
             :
             catalogData.searchData.map((array , i)=>{
                 if(catalogData.searchData.length === 1 || i === catalogData.searchData.length-1) return
