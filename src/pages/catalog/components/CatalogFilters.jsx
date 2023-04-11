@@ -27,16 +27,26 @@ function CatalogFilters(props) {
 
     return (
          <div className="catalogFilters" ref={catalogFilterElement}>
-         <div className="catalogFiltersShadow" onClick={()=>{setFilterSwich(false)}} ></div>
-         <div className="catalogFilterHeader">
+           <div className="catalogFiltersShadow" onClick={()=>{setFilterSwich(false)}} ></div>
+           <div className="catalogFilterHeader">
             <p>Filter</p>
             <button onClick={()=>{setFilterSwich(false)}}>
                 <div></div>
                 <div></div>
             </button>
-         </div>
+           </div>
          
-         
+           <div className="catalogFilterOptions">
+             <div className="catalogFilterColor">
+                <div className="catalogFilterColorHeader">
+                  <p>Color</p>
+                  <button>
+                      <div></div>
+                      <div></div>
+                  </button>
+                </div>
+             </div>
+           </div>
          </div>
     )
  
