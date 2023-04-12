@@ -85,7 +85,7 @@
       "description": "A fun and trendy graphic tee that's perfect for casual wear.",
       "price": 24.99,
       "sizes": ["S", "M", "L", "XL"],
-      "colors": ["Black", "White", "Grey"],
+      "colors": ["Black", "White", "Gray"],
       "image": "https://cottonon.com/dw/image/v2/BBDS_PRD/on/demandware.static/-/Sites-catalog-master-women/default/dw2e4187f8/2055921/2055921-04-2.jpg?sw=640&sh=960&sm=fit",
       "discount": null
     },
@@ -121,7 +121,7 @@
       "description": "A casual henley shirt that's perfect for a day out with friends.",
       "price": 29.99,
       "sizes": ["S", "M", "L", "XL"],
-      "colors": ["Black", "Grey", "Navy"],
+      "colors": ["Black", "Gray", "Navy"],
       "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81Hj04VK+YL._AC_UX385_.jpg",
       "discount": {
         "percentage": 20,
@@ -135,7 +135,7 @@
       "description": "A classic hoodie that's perfect for everyday wear.",
       "price": 49.99,
       "sizes": ["S", "M", "L", "XL"],
-      "colors": ["Black", "Grey", "Navy"],
+      "colors": ["Black", "Gray", "Navy"],
       "image": "https://cdn.def-shop.com/pic530x705/1/urban-classics-hoodie-black-476468.jpg",
       "discount": {
         "percentage": 10,
@@ -149,7 +149,7 @@
       "description": "A comfortable and stylish zip-up hoodie that's perfect for layering.",
       "price": 59.99,
       "sizes": ["S", "M", "L", "XL"],
-      "colors": ["Black", "Grey", "Navy"],
+      "colors": ["Black", "Gray", "Navy"],
       "image": "https://i5.walmartimages.com/asr/df87d6f5-1f05-45fb-900e-555f7e1695f2_1.19a82fedd781957e758ae416ded2d1da.jpeg",
       "discount": null
     },
@@ -160,7 +160,7 @@
       "description": "A warm and cozy pullover hoodie that's perfect for chilly days.",
       "price": 69.99,
       "sizes": ["S", "M", "L", "XL"],
-      "colors": ["Black", "Grey", "Navy"],
+      "colors": ["Black", "Gray", "Navy"],
       "image": "https://world.benetton.com/dw/image/v2/BBSF_PRD/on/demandware.static/-/Sites-ucb-master/default/dwc0e6b2b4/images/Full_Card_v/Benetton_22A_3OJAD200C_100_F_Full_Card_v.jpg?sw=960&sh=1280",
       "discount": {
         "percentage": 15,
@@ -174,7 +174,7 @@
       "description": "A soft and comfortable fleece hoodie that's perfect for lounging around.",
       "price": 39.99,
       "sizes": ["S", "M", "L", "XL"],
-      "colors": ["Black", "Grey", "Navy"],
+      "colors": ["Black", "Gray", "Navy"],
       "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUWFRgVFRUZGRgaHBwaGRgcGBoaHBwcHB4cGRwaGiMcIC4nHB4rIRoaJjgmKy8xNTU1HCc7QDszPy40NTEBDAwMEA8QHxISHzEkJSs2NjY0NDU0NDE0NjQ0NDQ9NDc1NDQ0NDQ0NDQ1NDQ2NDQ0NDQ0NDY0NDQ0NDQ0NDQ0NP/AABEIARMAtwMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABQYDBAcCAQj/xABEEAACAQICBQgHBQcCBwEAAAABAgADEQQhBRIxQVEGImFxgZGhsQcTMkLB0fAUYnKCoiNSkrLC4fEVMzRDU2Nzg9Il/8QAGQEBAAMBAQAAAAAAAAAAAAAAAAECAwQF/8QAIhEBAAICAgIDAQEBAAAAAAAAAAECAxEhMRJBIlFhBIEj/9oADAMBAAIRAxEAPwDs0REBERAREQEREBERA+REqGk/SJo+ixT1pquMitJS9vzez+qExG1viUPG+lLBIEsKrM21AgUqOLFiF7ASeqWTQnKHD4ofsn5wFyhyYDjbeOkXEjyg8ZhMxESUEREBERAREQEREBERAREQEREBERA+T4xttn2UP0r6c9RhRQU2fEEr0imti57bhepjImdRtMRudKRy/wCW74t2w+HYrhgbMwNjWttJP7nBd4zO4Co4FEBCgTHhqOsVUe8fAZmXLk7ohSA1hnOXJm8YdmLBtWNK4FvVqxHOdzbL3VFr9pJ7pJYN2oBGVyjrmrDKx4f2PzE6P/pCOgDIGG642dXCVXlByL1rtTcq37jHmnqO6ZVzffDW2H6nbpXI/lCMZR1iAtRbLUUbL7mX7rbejMZ2vLDPz/yG02+DxirVJVSfV1Af3Sfa/KbNfhfjP0BO2lvKHBkr4y+xES6hERAREQEREBERAREQEREBERA8k2n535a6b+14p6oN0/26Q3ai3535jduozsXpExzUsDVKmzPq0wehjZv0604ZToAsNbJRlltPQOndMMt9cN8NN8tjRWFy1z026LBv7906ByaVNRQrA2A2SrNTK0iVW59lVHkOoX8ZI6JwbVELtTVSoUqUJVjxBz3dk5LfLl3U+MadFoMBI7SGLpXPPBI22zAPSRsmHCVfW4fWIu1jcX2lfnaR+jaeIGQVAmsLABlJUi5JzIBBuLaufESs8xoiNTtQOXNHVr6w3qrdhuDbtHjOx+jvSxxOBpOxuyg02O25Q6oJ6Suqe2c59IOFUertYEBrdQtcdWfgJafQ2hTD10OwVrjqZE+U6f57cRDm/pr3Lo0RE63GREQEREBERAREQEREBERARExVKiqpZiAoBJJNgAMySTsECk+lPEJ9mSmx5zOGC3F7KDc9VyB2zlNCmzPlbLffJRJjlppP7VjGZGJRQFQ2PsgX2HZmW2225zVwVQIQWGsBzgg3kZ3PG3cJwZrbtL0MNfGrzgcYVxOo2xLADhcBu+X7FVAKTHYLG85Th6rNii7nOpzwd23YOr4ToFTEuKdwuvbaoIB8ZnkrEab0ncf6mOTNT9kMxmx5t898sGuLG3dK3ojGFUBXD2vb2WW+e/PK/bJhmJBLc3tBkdItG55c75dYw1MQmHUCwzY7yWViB0AZHpv0S4ejzEqlSpSNgXsR1qNg61II6pzTFY0VsW1ZTzfWc08VBCKe1ReWpWNN6NVTYFVueDIAR4eRl5tNLVlnNfOsxPt2WJp6Nxgq01qL7wz6DvHYZuT0ImJjcPOmNTp9iIkoIiICIiAiIgIiICIiB8lP9IeOKUVQe+Te+zm2IB45nWtv1ZbKjhQSxAAFySbAAbyd05lyz0+ld0p0AHK62qzZLnYM536otYbyTlxmOW0RX9a4a+VlQpaPd9UAELtZt/WeJmLStM01Zjk782mozsoyB8z2dMmKqVLqq87WNgx2H71tgHRnIvG4Vnqc8lm2AdHwnn1tM25ejaNVQuPS1PD6vtrrm/RdSvxlq0LpPWChxZthB2HqkWdHP69dYZAlQNoFpbRodSqkDMS17RqIkpXXKewXqVXWAF7SrekTTL06ASmdX1xKlt+rYlrcL5C/AmWfC4SygSt8uNGrWVL5WbVVuBOzvsBGPU3iFcs/GZc5wNSxAGwsLflN/lLSMW+p93IdAZRbyMquk9D4jDtrFdZRsZeGzMbQc5K6I0kG1lNiraoB4EjI9VwAes8JtmxzHLPDkieHafR8rfZdZtjOxXqAC+YMtMjOTur9mo6uz1aEdqgm/Te8k51441WIcWSd2mX2IiXUIiICIiAiIgIiIHyY6tQKCSbAAkk5AAZkk7hMkqnLLHexhg1i4L1P/GpAAPAMxA6laRM6hMRuVG5X8qWxLlEfVoLsUNZnt77AAm3AbttryFw6EnWtYHrvlkoHC31mZvYrDo9QuEKU6aC6JYM7i9xlsF8rnhlxm5o6gKoKkhGASwAHNL8/VF/u2FxwM4MlbWtqOZduO1axueGfBIUAJIF8l691uNs++aujMOyI4c3cOwZyMzb2W6rWIGzObvKXRJdBVpHVrUrlDfaN6NxBt3iYsBVerh6dRxqM4cqhPOKoQH7Be/Ud06MOCMcc8ywy5pvP4lmwYKIxGRsNbdrDaOuTFGgCMpm5MUwaTI63ViLBrEHL+15uVdD6udI9hPh0zHLgmLTavLfHniaxW3EtP1NhI7SOBSsnqSc3ZQttoIYHWHVa/ZJf/T6zHnD9Q+Bm9o/RKUzrHN7WvwG+3zlKYbzaONR+rXy1is87n8UdqOstnAuLhhYWuDqsOwgyuaT0Ph/tFNQNX1xdTqgCzBC6uP4bEb7y3Yqky1KhOxnZlA/dIHxue2V00/WaQpA3ApI7k7gbBACfzk9k9DW45cO5ieF65C69Ol6iowZkLFWF7MpNzt2ENrZXO2Wyc8WswcMhtqnIjjs+h0y7aMxoqrfYwtrD49RiIiI1CJ3M7lvRESUEREBERAREQERED5KHyhwoFd2uS7pe53AX1UHAAZ5cTtMvhlB0zWJxDMd7FOjm83t2SNJiUZh0uzqwH7VBUU2A5y811t0XU9sj9DVLYt0I/wCVTYHpUsh7reM3cSxRWYAlqLCoALklDk6jjzSxA42mhiKiJjqTA5OjgHcwcI67PwufzRqDayYkcxu7baVvlbomp6nDNRYrUoBnW3FyCR0g6oBGyWetS1wqj3mUHqJAJ7rzY0kQXItkMreJ8bx7ETyT5SJiaKU0tTr07F6R5p1hvUH3dttu68vmFra6htnEcCNonNNNcmEqkOhNOquaVEOqQR0jyklyK5SVVrHBY0WqkXp1di1QMs+D27/MOgXmhpfF6iWBzbITeJlQ0vj2eoQgBIyBbNFHE2zY9EDNWZGph3spUWzyuu4jp6pD4BA4cprWLqdZstoa4AOaqNRLDfnPdHCs7Xdi5F8yRYfhAyXsz65v4KmAlfV2q67uKJ/9EyOkvlOgE+c39BVitUDcwt27fh4zTYaoveMFUs6ngw8wZZC7REQgiIgIiICIiAiIgeHYAEnYBc9k5xj31lD2z1tfxJt4y96aq6tCo33SO/L4ylVEuig8B5QNeswFSm9ua4KHLLPcZT9K0DSxFBbn9lUKLmM6Tq5T+GzLLZXoO9N6Y9sc9Cf3hmAfrfKdynxuvUw7rlrqjfmD2Km+8HWB64S6ZoI67r0AnuyHnMeIN2LcST3zX5JuSajn3KYHfcn+UTIj3ykR2PQkdpvRoqIHUWqUzr02GRuNwPVl2yTUT2okjabTDNhUf36jLT/MTYsPy3eR2paygWHkPn858RBzE/6ZNQC2ROqaYA3exfbMtj23z+UiB8erqiyjOb2j6eqtQH2iqs36reRmrTS2e/pkjgaeTnilu69vMxbohD499UADaZ4pvs438pg0nVtWCnbq5dU9UHOsFGzZ9dskdEBn2Y6RuoPEA+EyQgiIgIiICIiAiIgQfK6pq4Z+kqPEH4SsVGOop6pP8uHthrcXUeDH4Su0WvS42J2cOiEsji9iNozHHtnM+WClKqAZBa7Mv4XCVT+s1J0ym3N+ts5vy6cfaUW/uhj3kC/ZeB0Lkg96WKb7i5flqeM94epwN92U1OQv/DYo/cUeDn4z1QO0W8JEdyJOk8zqZq0u/p6psLJHhxZhntDAjbe2rbz8Z76Z4faOs/0T0RA9qe6SGAPtD7jf0/ORyGbuCPP/APW/mm2RbohVce2ti3OdqaKnQW9snsDqOybeAe7HPZltvITE4+xdyMyWa2w5nmr5DZJbRqFKK3zNsz07T4kyR0LR7XpofujwFptSN0DU1qCdFx4mSUIIiICIiAiIgIiIFX5dE+pQDfUHk0rejGuGW0sXLv8A2qf4/geErOAbMH66IS2kPNt5TnXL+nq4umd7UFY9tSqB4ATotdLMCBkeG4/XnKD6VRq45V/6dCiluoM39UC4cgM8Jivwp/K090sspj5Af8DiDuOqPAj4iZaK5nz+ZkR7EgjZDomddk1qJy+vlNhZI81mzHWfJZmEwVzzkz947vurls6ZnED7bfNvDHnFuFJ/NLeRmoRcTLSqka4/7X8zFZE9EKPpSkftDiwKghwu8swB7gTJXR+LFjTe4BzByyM0tKYfXxDXZwAqZLZRcje2RvsmxR0PRABKsTxJLHxyO7bJF75LG1NlJBIckZ7iBn5ydlZ5IaOCB3sufNUhQptkTe3TbulmhBERAREQEREBERArfLcD7OvHXW3aGlQ0cem/fn5dEu3K+gWwzEe6Q39J8GMoeBqapz8YSnqdPWKWNiHQg7Rkwvfsv9Ccz9Lb/wD6dXoWmP0KfjOlUntawuNuRnK/SRUL46q1iNYpl+RYFy5GaRUYD1KodctdnvtN1tl+EKOybYrkMoBzZgNm6xJ7bCQvJIWwyn8XgSPgJI4TnYgbLKpY9Zso8zGhN0UuxBP19AzOVtv8pgwxJbftA7Pq82a22BgxLc5PxP4Ip+U2kS4BufCadc89Otz+ibOGfdAyOp47uExjEWcqdrIQvTqnXPgvjMrf2mrXwquVLD2Tle9t20b9kra3jWZTWvlaIaCUgXaofe1dXIjIADM7ybeW2bhW1vrsm89MapBzy2bpGYRWYMtrlX1EttZWVWVesa1uwGZYs03nUtsuGKRuFs5Mk+qIOwMbdw+u2TU1MBhRTQIDe209Pym3N3OREQEREBERAREQNfGUA6Oh2MpXvFpy2hdWsdxIPf8A5nWpzbT1D1eJcW2nXF9nOF/PygbNBuqc95d4XVxJc2sUDC3VqC/TcS+YaxAuo8ZCcv8AAa+Eaoo51MXPShI1h2EBvynjCWvybGrhaZI2prj83OPxmbQpyeofeYqv4UvfxLd00NG4jVwAYC5VMx1DLyEksGoVKaA3sBcjedpPf5wLBhV9nx6znM9W99nxmvh2zE3dXb9dECNqvz0/Of0D5zPT3H6z85p1T+0To1+HC3ym3hzxtIG1r9OyCbG/19XmFzwnyk9yQR0g/D4yQxNbu85ZNCaPRVVxcsRfO2THJrWHRbqldalv2/VjLLoTEAoE3gX7CTfuPmJlixRTf21y5Zvr6S0RE1YkREBERAREQEREBKfy5wvsVR0o38y/1S4SM5QYX1lB1G0DWHWufiLjtgUjA1LgX7pu1aKujI4BVwVYcQwsR3GRWCext9f5ko1W1gAb8N/gPOEq5ojAFKRw75ka6HdrAEqDlxA8Zh0ZYgXGezLYNx8R4SR0oSjq5GbDaNmTbOJysNm+R1DVV3GqRdiynoYC4yyIvfLpgTtJ8gRu6u+b9Gr09cjEqA7+v6MzozDMZjqGz5wNfEvZ77gtU+JzmZGA2TVxJu46VqDtNzNpEY7jxveB7NS/1/fKeqdQXB+HynhKZG0gcP7989awIsSYG3r9MkdBsfWADcM+7ORCHj9dEl9BNaoOm48IFpiIhBERAREQEREBERAREQOZaapfZ67AqdXWuu32TmMt9r27JnoV9bq8ZZuV2AD0dcDnU+d06vvDq39kp+FqWyt3cYS0+UxcNTIF0sevWJF7/p7jNSlVvkUEslegKiFMuI6CPq3bINK1IMVZ1BGRUmxHWL3ED3SQ7u+bdIHjunijUp/vrfrH0Jm9Yhy1xAwPznQbcn8iPnM32e2y46L5dNuExMQKyrcX1HNr7jrW8BMtTSVFcmqoOjXW/deIQ9qDv+vmZkRTw/zNIacoe6xfqQ+drDvmB+UaDYAPxML/AKdbzlorafSJtWPaZCneJu4BmDLqg31lt3yrrpd3OTKAd+0/GZtG1H+0Ycl2P7RRa9hmwXYJaMc+1ZyR6dYifJ9ma5ERAREQEREBERAREQMbqCCCLgixHEGcmOkaauwW5s7KFtduaxUhs7KRqkZ77zqWkcQKdKpUN7IjMbGxsqk5XyByn5/5NVyWfXJLtZySblmuSxJ3klrkyt5mKzaPS2OIm8Vn26PgH1xnkNw295+tkgOVnJtahNZQQ1ueMzrACwIGfOAHaB0ZyGAqi9xv/wAGSzvdb32Znq3zhrmvFt7ejbBSa+OnJDhaJ2VEP5QR5T42ET/tnqUXlm0zgRTqMvqQ6nnKQwvY9BG7PfILEvTv/tMp2Z2t5ie1SYtWLR7eNeJraaz6MHRVddiqBRqG57QbdO7tnlEUgMSRs6PgLbbTBXroEIGV8rEX2EHuymtSxOs2d26yFXxOfZIjezXCWV6Q9pyTwAv8pmR092ketrgddlF/GfMGhI9tU/Al/FgbyQpYUXv6xv1L5AS+1GPDh2Nwn8K2ts4ktJfRob19A7AK1InLg63uTn2TBTogbWLbNpJ85JULh6Zt76bcvfBkTKHWJ9nyfZyOoiIgIiICIiAiIgIiIFV9I+JZNHYgqRdgqfldlRrdOqzThWFqlHVwdhzHEHI+E696X8RbDUkB9uqCekKrHzKzlP2a4vNIjddKeWrbhaMNpLV542LYnpU7GHRLBTqlaq3zSotwfvA84dGRXx4TneG0iaZAdSQAV7DtBB2iWXQukkrU1pa41lIKNwIyGtfMXFweszzsmKay9bHnreOJ5Smmzqauq+YBVhlusVOfEHwMqOKdmJ1m2ngPgJZNIuWUa6kOMr5WZc8x0fOR+gdH+vxNJCOazAsOKjnN+lTPT/mnWKPx5X9Mf9pQ/LjQgwtPCC7CrWV6lS5I1RzNVANgtdrnaTvtYSH0cLD+2cvnp2p2rYRuKVF/hZD/AFSjYQ5AyazvlW3HCdw7bPlJGih8OEisI+z675NYT67ZpMsmzTQju6eib2Cplq1ADfUTu1hfwvMITZJbk3Q18XT4IHc9g1R4sJWZ4TEcujxETmdBERAREQEREBERAREQOUemGverhkvkq1HI/EVUH9JlPwyXyk36UK+vpAqP+XSRLdJ1n/rEj8DTva82pHDC3b1/pysMxtmJOTqawYXFrbCR5SeoLM1WwBN8voSdRJEzHSOxB5vOOQyudw+MsPo2wuvXqViLBFCKLb3Nyb8bKf4pUsfVvkNg2CdS5A4D1WDQkWaoTUOVvayX9IWTfVa6gru1typfp1pAphG3h6q3/EqH+kTmWCa23jnOt+nGhfCUG/drgdjU3+KicjwhvYb5WnTSybwxFx4bJYMNK/hEOUn8GL26JpLJKUd15ZuRNC9Ss591VQfmJZh+lZWqYAl35GUNWgW/fdm7BZB/L4zO86qmkfJYoiJi3IiICIiAiIgIiICIiBxzlhhUbSNckXN0zud1NOmfcHhE4cN5+cRNqsbdpGjh1ts8TPFagttm/iYiIEXUwaXPN3cT852LDoFRQBYAAAdAGURGX0tT2qXpSoK+BIYXHrEO0jjwnJcNo+nf2f1N859iUqtKboYJObzfE/OS9DCpw38T84iayybaUV4eJ4y/aCQDD0gB7on2JnfpenaQiImbQiIgIiIH/9k=",
       "discount": null
     },
@@ -185,7 +185,7 @@
       "description": "A stylish and unique graphic hoodie that's perfect for making a statement.",
       "price": 49.99,
       "sizes": ["S", "M", "L", "XL"],
-      "colors": ["Black", "Grey", "Navy"],
+      "colors": ["Black", "Gray", "Navy"],
       "image": "https://pa.namshicdn.com/product/A4/96866W/v3/1-zoom-desktop.jpg",
       "discount": {
         "percentage": 20,
@@ -313,7 +313,7 @@
       "description": "A pair of flared jeans that add a touch of retro style to your wardrobe.",
       "price": 54.99,
       "sizes": ["25", "26", "27", "28", "29", "30"],
-      "colors": ["Blue", "Dark Blue"],
+      "colors": ["Blue", "Navy"],
       "image": "https://www.liujo.com/dw/image/v2/BDNR_PRD/on/demandware.static/-/Sites-liujo-master-catalog/default/dw2fbf92e2/images/8057590623722---UF2154D466978251-I-AF-N-R-1-N.jpg?sw=742&sh=1032",
       "discount": {
         "percentage": 20,
@@ -455,7 +455,7 @@
       "description": "These high-waisted leggings are made from a soft and stretchy fabric that moves with you. Perfect for yoga, running, or any other workout.",
       "price": 34.99,
       "sizes": ["S", "M", "L", "XL"],
-      "colors": ["Black", "Navy", "Burgundy"],
+      "colors": ["Black", "Navy"],
       "image": "https://img.huffingtonpost.com/asset/5a58ee891f00009a00db8738.png?ops=scalefit_960_noupscale",
       "discount": {
         "percentage": 10,

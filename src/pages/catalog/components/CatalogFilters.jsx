@@ -2,6 +2,7 @@
 import "../styles/catalogFilters.css"
 import { useState , useEffect , useRef } from "react"
 
+import CatalogFilterColorOption from "./CatalogFilterColorOption"
 
 function CatalogFilters(props) {
  
@@ -37,15 +38,11 @@ function CatalogFilters(props) {
            </div>
          
            <div className="catalogFilterOptions">
-             <div className="catalogFilterColor">
-                <div className="catalogFilterColorHeader">
-                  <p>Color</p>
-                  <button>
-                      <div></div>
-                      <div></div>
-                  </button>
-                </div>
-             </div>
+             <CatalogFilterColorOption/>
+             <CatalogFilterColorOption/>
+             <CatalogFilterColorOption/>
+             <CatalogFilterColorOption/>
+             <CatalogFilterColorOption/>
            </div>
          </div>
     )

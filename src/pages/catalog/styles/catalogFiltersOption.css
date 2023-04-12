@@ -1,0 +1,71 @@
+
+.catalogFilterColor{
+    width: 100%;
+    border-bottom:1px solid rgba(0, 0, 0 , 0.25);
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.catalogFilterColorHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 7.5vh;
+}
+.catalogFilterColorHeader > p {
+    margin: 0;
+    font-size: clamp(1rem , 4vw , 1.5rem);
+
+}
+.catalogFilterColorHeader.active > p{
+    font-weight: 600;
+ }
+
+.filterArrowBtn{
+    height: 40%;
+    aspect-ratio: 1;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    padding: 0;
+    transition: 0.5s ease-in-out;
+
+}
+.catalogFilterColorHeader.active .filterArrowBtn{
+   transform: rotate(180deg);
+}
+.filterArrowBtn > div{
+    width: 60%;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+}
+.filterArrowBtn > div:first-child{
+
+    transform: rotate(-45deg);
+    right: 0;
+
+
+}
+.filterArrowBtn > div:last-child{
+
+    transform: rotate(45deg);
+    left: 0;
+}
+
+.catalogFilterColorContent{
+    width: 100%;
+    height: max-content;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+
+}
+.catalogFilterColorHeader.active ~ .catalogFilterColorContent{
+  max-height: 25vh;
+  width: 100%;
+  position: relative;
+  overflow: auto;
+  margin-bottom: 1rem;
+}
