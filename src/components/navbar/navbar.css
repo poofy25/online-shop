@@ -7,7 +7,7 @@
     align-items: center;
 
     box-sizing: border-box;
-    width: 100%;
+    width: 100vw;
 
     background-color: #FFF;
     z-index: 10;

@@ -33,39 +33,40 @@ function CatalogFilter(props) {
 
      useEffect(()=>{
        if(filterSwich){
-         catalogFilterElement.current.classList.add('active')
+         catalogFilterElement.current.classList.add('on')
          document.body.style.overflow = "hidden"
          setOptionSelected(null)
        }else{
-        catalogFilterElement.current.classList.remove('active')
+        catalogFilterElement.current.classList.remove('on')
         document.body.style.overflow = "auto"
        }
      },[filterSwich])
      useEffect(()=>{
-      console.log(optionSelected)
+      if(optionSelected !== null){
+        document.querySelector('.catalogFiltersSecond').classList.add('Active')
+        document.querySelector('.catalogFiltersFirst').classList.remove('Active')
+      }
+
+      if(optionSelected === null){
+        document.querySelector('.catalogFiltersSecond').classList.remove('Active')
+        document.querySelector('.catalogFiltersFirst').classList.add('Active')
+      }
+
      },[optionSelected])
 
+
+
+
+
     return (
-         <div className="catalogFilters" ref={catalogFilterElement}>
-           <div className="catalogFiltersShadow" onClick={()=>{setFilterSwich(false)}} ></div>
+      <div className="catalogFilterMenu"  ref={catalogFilterElement}>
+        <div className="catalogFiltersContainer">
+         <div className="catalogFiltersFirst">
            <div className="catalogFilterHeader">
-           {optionSelected !== null ? 
-           <>
-             <button onClick={()=>setOptionSelected(null)}>
-               <div></div>
-               <div></div>
-             </button>
-             <p onClick={()=>setOptionSelected(null)}>{(optionSelected.name).toUpperCase()}</p>
-           </>
-           :
-            <p>FILTER</p>}
+            <p>FILTER</p>
            </div>
          
-          {optionSelected !== null ? 
-          <div className="catalogFilterOptions">
-            {optionSelected.element}
-          </div>
-          : 
+  
           <div className="catalogFilterOptions">
             {FilterOptions.map((option , index)=>{
               return(
@@ -73,11 +74,66 @@ function CatalogFilter(props) {
               )
             })}
            </div>
-          }
+    
            <CatalogFilterViewItemsBtn closeFilterMenu={setFilterSwich}/>
          </div>
+          <div className="catalogFiltersSecond">
+            <div className="catalogFilterHeader">
+              <button onClick={()=>setOptionSelected(null)}>
+                <div></div>
+                <div></div>
+              </button>
+              <p onClick={()=>setOptionSelected(null)}>{(optionSelected?.name)?.toUpperCase()}</p>
+            </div>
+
+            <div className="catalogFilterOptions">
+              {optionSelected?.element}
+            </div>
+
+        
+            <CatalogFilterViewItemsBtn closeFilterMenu={setFilterSwich}/>
+          </div>
+        </div>
+        <div className="catalogFiltersShadow" onClick={()=>{setFilterSwich(false)}} ></div>
+        </div>
     )
  
 }
 
 export default CatalogFilter
+
+
+/*
+    <div className="catalogFiltersFirst">
+           <div className="catalogFilterHeader">
+            <p>FILTER</p>
+           </div>
+         
+  
+          <div className="catalogFilterOptions">
+            {FilterOptions.map((option , index)=>{
+              return(
+                <CatalogFilterOption key={index} name={option.name} element={option.element} setOptionSelected={setOptionSelected}/>
+              )
+            })}
+           </div>
+    
+           <CatalogFilterViewItemsBtn closeFilterMenu={setFilterSwich}/>
+         </div>
+
+          <div className="catalogFiltersSecond">
+              <div className="catalogFilterHeader">
+
+            <button onClick={()=>setOptionSelected(null)}>
+              <div></div>
+              <div></div>
+            </button>
+              <p onClick={()=>setOptionSelected(null)}>{(optionSelected?.name)?.toUpperCase()}</p>
+              </div>
+              <div className="catalogFilterOptions">
+              {optionSelected?.element}
+              </div>
+
+        
+          <CatalogFilterViewItemsBtn closeFilterMenu={setFilterSwich}/>
+        </div>*/
