@@ -1,0 +1,9 @@
+.filterOptionContaianer {
+    background-color: white;
+    transform: translate(100%);
+    transition: 0.5s ease-in-out;
+}
+.filterOptionContaianer.active{
+transform: translate(0%);
+transition: 0.5s ease-in-out;
+}

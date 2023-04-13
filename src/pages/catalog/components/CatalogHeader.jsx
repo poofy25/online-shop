@@ -85,7 +85,7 @@ function CatalogHeader(props) {
                     <p>{catalogData.rawSearchData.length} Products</p></div>
                 <button className="catalogFilter" ref={filtersBtn}>
                     <img src={filterIcon} />
-                    Filter
+                      Filter
                     </button>
             </div>
            <CatalogFilter filtersBtn={filtersBtn}/>

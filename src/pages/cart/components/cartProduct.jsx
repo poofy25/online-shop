@@ -15,7 +15,6 @@ function CartProduct(props) {
             return product.uniqueID !== removedProduct.uniqueID
         })
         localStorage.setItem('cartProducts',JSON.stringify(FilteredArray))
-        console.log(FilteredArray)
        props.updateLS(JSON.parse(localStorage.getItem('cartProducts')))
        
    }
@@ -26,7 +25,6 @@ function CartProduct(props) {
         if (productAmount - 1 > 0){
         setAmount(prev => prev - 1)
         } else {
-            console.log('Delete function')
             removeProductFromCart(productData)
         }
       } else if (e.target.textContent === '+'){
