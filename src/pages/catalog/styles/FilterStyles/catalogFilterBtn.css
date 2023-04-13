@@ -1,39 +1,48 @@
 
-.catalogFilterColor{
+.catalogFilterBtn{
     width: 100%;
-    border-bottom:1px solid rgba(0, 0, 0 , 0.25);
+    right: 0;
+    position: relative;
     height: auto;
     overflow: hidden;
+    background-color: white;
+
     box-sizing: border-box;
+    display: flex;
+    justify-content: end;
+    padding-left: 5%;
 }
-.catalogFilterColorHeader{
+.catalogFilterBtnContainer{
+
+    padding-right: 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    position: relative;
+    right: 0;
+    width:95%;
     height: 7.5vh;
+    border-bottom:1px solid rgba(0, 0, 0 , 0.25);
 }
-.catalogFilterColorHeader > p {
+.catalogFilterBtnContainer > p {
     margin: 0;
     font-size: clamp(1rem , 4vw , 1.5rem);
 
 }
-.catalogFilterColorHeader.active > p{
+.catalogFilterBtnContainer.active > p{
     font-weight: 600;
  }
 
 .filterArrowBtn{
-    height: 40%;
+    height: 30%;
     aspect-ratio: 1;
     background-color: transparent;
     border: none;
     position: relative;
     padding: 0;
     transition: 0.5s ease-in-out;
+    transform: rotate(-90deg);
 
-}
-.catalogFilterColorHeader.active .filterArrowBtn{
-   transform: rotate(180deg);
 }
 .filterArrowBtn > div{
     width: 60%;
@@ -52,20 +61,4 @@
 
     transform: rotate(45deg);
     left: 0;
-}
-
-.catalogFilterColorContent{
-    width: 100%;
-    height: max-content;
-    max-height: 0;
-    overflow: hidden;
-    transition: 0.5s ease-in-out;
-
-}
-.catalogFilterColorHeader.active ~ .catalogFilterColorContent{
-  max-height: 25vh;
-  width: 100%;
-  position: relative;
-  overflow: auto;
-  margin-bottom: 1rem;
 }

@@ -5,7 +5,7 @@ import "../styles/catalogHeader.css"
 import { useEffect , useRef } from 'react';
 import useParamsNavigate from '../../../hooks/useParamsNavigate';
 import { useLocation} from 'react-router-dom';
-import CatalogFilters from './CatalogFilters';
+import CatalogFilter from './FilterComponents/CatalogFilter';
 const categories = [
     'All Categories',
     'Shirts',
@@ -88,7 +88,7 @@ function CatalogHeader(props) {
                     Filter
                     </button>
             </div>
-           <CatalogFilters filtersBtn={filtersBtn}/>
+           <CatalogFilter filtersBtn={filtersBtn}/>
          </div>
     )
  

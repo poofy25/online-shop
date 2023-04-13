@@ -1,0 +1,19 @@
+.viewItemsContainer{
+    height: 10vh;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.viewItemsContainer > button {
+    width: 90%;
+    height: 70%;
+    background-color: rgba(0,0,0,0.85);
+    color: white;
+    font-size: clamp(1rem,4vw,1.5rem);
+    font-weight: 600;
+    border: none;
+}

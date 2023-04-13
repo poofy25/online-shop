@@ -1,10 +1,11 @@
 
-import "../styles/catalogFilters.css"
+import "/src/pages/catalog/styles/FilterStyles/catalogFilter.css"
 import { useState , useEffect , useRef } from "react"
 
-import CatalogFilterColorOption from "./CatalogFilterColorOption"
+import CatalogFilterOption from "./CatalogFilterBtn"
+import CatalogFilterViewItemsBtn from "./CatalogFilterViewItemsBtn"
 
-function CatalogFilters(props) {
+function CatalogFilter(props) {
  
      const FilterBtn = props.filtersBtn.current
      const catalogFilterElement = useRef(null)
@@ -30,23 +31,20 @@ function CatalogFilters(props) {
          <div className="catalogFilters" ref={catalogFilterElement}>
            <div className="catalogFiltersShadow" onClick={()=>{setFilterSwich(false)}} ></div>
            <div className="catalogFilterHeader">
-            <p>Filter</p>
-            <button onClick={()=>{setFilterSwich(false)}}>
-                <div></div>
-                <div></div>
-            </button>
+            <p>FILTER</p>
            </div>
          
            <div className="catalogFilterOptions">
-             <CatalogFilterColorOption/>
-             <CatalogFilterColorOption/>
-             <CatalogFilterColorOption/>
-             <CatalogFilterColorOption/>
-             <CatalogFilterColorOption/>
+             <CatalogFilterOption name='Brand'/>
+             <CatalogFilterOption name='Category'/>
+             <CatalogFilterOption name='Color'/>
+             <CatalogFilterOption name='Size'/>
+             <CatalogFilterOption name='Price'/>
            </div>
+           <CatalogFilterViewItemsBtn closeFilterMenu={setFilterSwich}/>
          </div>
     )
  
 }
 
-export default CatalogFilters
+export default CatalogFilter
