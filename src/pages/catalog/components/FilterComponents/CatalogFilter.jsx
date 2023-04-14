@@ -79,11 +79,21 @@ function CatalogFilter(props) {
          </div>
           <div className="catalogFiltersSecond">
             <div className="catalogFilterHeader">
-              <button onClick={()=>setOptionSelected(null)}>
+              <button onClick={()=>{
+                 document.querySelector('.catalogFiltersSecond').classList.remove('Active')
+                 document.querySelector('.catalogFiltersFirst').classList.add('Active')
+               setTimeout(()=>{setOptionSelected(null)},500)
+                 
+                }}>
                 <div></div>
                 <div></div>
               </button>
-              <p onClick={()=>setOptionSelected(null)}>{(optionSelected?.name)?.toUpperCase()}</p>
+              <p onClick={()=>{
+                 document.querySelector('.catalogFiltersSecond').classList.remove('Active')
+                 document.querySelector('.catalogFiltersFirst').classList.add('Active')
+               setTimeout(()=>{setOptionSelected(null)},500)
+                 
+                }}>{(optionSelected?.name)?.toUpperCase()}</p>
             </div>
 
             <div className="catalogFilterOptions">
