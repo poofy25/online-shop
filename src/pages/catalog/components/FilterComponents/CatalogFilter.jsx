@@ -1,6 +1,6 @@
 
 import "/src/pages/catalog/styles/FilterStyles/catalogFilter.css"
-import { useState , useEffect , useRef } from "react"
+import { useState , useEffect , useRef , useInsertionEffect , cloneElement} from "react"
 
 import CatalogFilterOption from "./CatalogFilterBtn"
 import CatalogFilterViewItemsBtn from "./CatalogFilterViewItemsBtn"
@@ -12,12 +12,14 @@ import CatalogFilterCategory from "./CatalogFilterCategory"
 import CatalogFilterPrice from "./CatalogFilterPrice"
 import CatalogFilterSize from "./CatalogFilterSize"
 
-const FilterOptions = [
-  {name:'Brand', element:<CatalogFilterBrand/>},
-  {name:'Category', element:<CatalogFilterCategory/>},
-  {name:'Color', element:<CatalogFilterColor/>},
-  {name:'Size', element:<CatalogFilterSize/>},
-  {name:'Price', element:<CatalogFilterPrice/>}
+let FilterOptions = [
+
+    {name:'Brand', element:<CatalogFilterBrand/>},
+    {name:'Category', element:<CatalogFilterCategory/>},
+    {name:'Color', element:<CatalogFilterColor/>},
+    {name:'Size', element:<CatalogFilterSize/>},
+    {name:'Price', element:<CatalogFilterPrice/>}
+    
 ]
 
 function CatalogFilter(props) {
@@ -26,6 +28,7 @@ function CatalogFilter(props) {
      const catalogFilterElement = useRef(null)
      const [filterSwich , setFilterSwich] = useState(false)
      const [optionSelected , setOptionSelected] = useState(null)
+     const [selectedFilters , setSelectedFilters] = useState({})
 
      FilterBtn && (FilterBtn.onclick = () =>{
      setFilterSwich(!filterSwich)
@@ -53,6 +56,7 @@ function CatalogFilter(props) {
       }
 
      },[optionSelected])
+
 
 
 
@@ -97,7 +101,11 @@ function CatalogFilter(props) {
             </div>
 
             <div className="catalogFilterOptions">
-              {optionSelected?.element}
+              {optionSelected?.element && cloneElement(
+                optionSelected?.element,
+                {setFilters:setSelectedFilters , filters:selectedFilters}
+              )
+}
             </div>
 
         
@@ -112,38 +120,3 @@ function CatalogFilter(props) {
 
 export default CatalogFilter
 
-
-/*
-    <div className="catalogFiltersFirst">
-           <div className="catalogFilterHeader">
-            <p>FILTER</p>
-           </div>
-         
-  
-          <div className="catalogFilterOptions">
-            {FilterOptions.map((option , index)=>{
-              return(
-                <CatalogFilterOption key={index} name={option.name} element={option.element} setOptionSelected={setOptionSelected}/>
-              )
-            })}
-           </div>
-    
-           <CatalogFilterViewItemsBtn closeFilterMenu={setFilterSwich}/>
-         </div>
-
-          <div className="catalogFiltersSecond">
-              <div className="catalogFilterHeader">
-
-            <button onClick={()=>setOptionSelected(null)}>
-              <div></div>
-              <div></div>
-            </button>
-              <p onClick={()=>setOptionSelected(null)}>{(optionSelected?.name)?.toUpperCase()}</p>
-              </div>
-              <div className="catalogFilterOptions">
-              {optionSelected?.element}
-              </div>
-
-        
-          <CatalogFilterViewItemsBtn closeFilterMenu={setFilterSwich}/>
-        </div>*/
