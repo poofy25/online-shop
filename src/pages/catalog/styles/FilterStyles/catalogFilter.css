@@ -40,7 +40,7 @@
     width: 80vw;
     height: 100%;
     position: absolute;
-    transform: translate(-80vw);
+    right: 80vw;
     z-index: 99;
     transition: 0.5s;
     box-sizing: border-box;
@@ -48,7 +48,7 @@
     flex-direction: column;
 }
 .catalogFiltersFirst.Active{
-    transform: translate(0);
+   right: 0;
 }
 
 .catalogFiltersSecond{
@@ -58,7 +58,7 @@
     height: 100%;
     position: absolute;
     top: 0;
-    transform: translate(80vw);
+    right: -80vw;
     z-index: 99;
     transition: 0.5s ;
     box-sizing: border-box;
@@ -67,7 +67,7 @@
     position: absolute;
 }
 .catalogFiltersSecond.Active{
-    transform: translate(0);
+    right: 0;
 }
 
 
