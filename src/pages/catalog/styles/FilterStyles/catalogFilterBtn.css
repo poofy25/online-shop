@@ -10,26 +10,37 @@
     display: flex;
     justify-content: end;
     padding-left: 5%;
+    max-height: 12.5vh;
+
 }
 .catalogFilterBtnContainer{
-
+    flex: 1;
     padding-right: 5%;
     display: flex;
     align-items: center;
     justify-content: start;
+    flex-direction: column;
     position: relative;
     right: 0;
     width:95%;
-    height: 7.5vh;
+    min-height: 7.5vh;
+    position: relative;
+ 
+
     border-bottom:1px solid rgba(0, 0, 0 , 0.125);
 }
-.catalogFilterBtnContainer > p {
+.catalogFilterBtnContainerWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+    height: 100%;
+    min-height: 7.5vh;
+    max-height: 7.5vh;
+}
+.catalogFilterBtnContainerWrapper > p{
     margin: 0;
     font-size: clamp(1rem , 4vw , 1.5rem);
-
-}
-.catalogFilterBtnContainer.active > p{
-    font-weight: 600;
  }
 
 .filterArrowBtn{
@@ -62,4 +73,15 @@
 
     transform: rotate(45deg);
     left: 0;
+}
+
+.selectedDataContainer{
+    white-space: nowrap;
+    text-align: start;
+    overflow: hidden;
+    font-size: clamp(0.75rem , 3vw,1.25rem);
+    width: 100%;
+    margin: 0;
+    display: flex;
+    margin-bottom: 1vh;
 }

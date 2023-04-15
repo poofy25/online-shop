@@ -38,8 +38,8 @@ function CatalogFilterColor(props) {
             let isSelected = false
             if(filters?.color?.indexOf(color.name) !== -1 && filters.color) isSelected = true
             return(
-              <div className={`catalogFilterBtn ${isSelected && 'selected'} `} key={index} onClick={(e)=>{clickHandler(e , color.name)}}>
-                <div className="catalogFilterBtnContainer">
+              <div className={`filterOptionBtn ${isSelected && 'selected'} `} key={index} onClick={(e)=>{clickHandler(e , color.name)}}>
+                <div className="filterOptionBtnContainer">
                   <div style={{backgroundColor:color.value}} className="colorDiv"></div>
                   <p>{color.name}</p>
                   <div class="check"></div>

@@ -12,14 +12,14 @@ import CatalogFilterCategory from "./CatalogFilterCategory"
 import CatalogFilterPrice from "./CatalogFilterPrice"
 import CatalogFilterSize from "./CatalogFilterSize"
 
-import { availableColors } from "../../filterData"
+import { availableColors , availableCategories , availableSizes } from "../../filterData"
 
 let FilterOptions = [
 
-    {name:'Brand', element:<CatalogFilterBrand/>},
-    {name:'Category', element:<CatalogFilterCategory/>},
+   // {name:'Brand', element:<CatalogFilterBrand/>},
+    {name:'Category', element:<CatalogFilterCategory/> , data:availableCategories},
     {name:'Color', element:<CatalogFilterColor/> , data:availableColors},
-    {name:'Size', element:<CatalogFilterSize/>},
+    {name:'Size', element:<CatalogFilterSize/> , data:availableSizes},
     {name:'Price', element:<CatalogFilterPrice/>}
     
 ]
@@ -78,7 +78,7 @@ useEffect(()=>{
           <div className="catalogFilterOptions">
             {FilterOptions.map((option , index)=>{
               return(
-                <CatalogFilterOption key={index} option={{...option}} setOptionSelected={setOptionSelected}/>
+                <CatalogFilterOption key={index} option={{...option}} setOptionSelected={setOptionSelected} data={selectedFilters}/>
               )
             })}
            </div>

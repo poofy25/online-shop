@@ -14,4 +14,24 @@ export const availableColors = [
     {name:'Gray' , value:'rgb(128, 128, 128)'},
     {name:'Beige' , value:'rgb(245, 245, 220)'},
     {name:'White' , value:'rgb(255,255,255)'},
- ]
+ ];
+ export const availableCategories = [
+    {name:'Shirts'},
+    {name:'Dresses'},
+    {name:'Jeans'},
+    {name:'Sportswear'},
+    {name:'Coats'},
+    {name:'Tops'},
+    {name:'Hoodies'},
+    {name:'Leggings'},
+    {name:'Trousers'},
+];
+export const availableSizes = [
+    {name:'XXS'},
+    {name:'XS'},
+    {name:'S'},
+    {name:'M'},
+    {name:'L'},
+    {name:'XL'},
+    {name:'XXL'},
+];
