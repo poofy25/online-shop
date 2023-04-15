@@ -42,7 +42,7 @@
     position: absolute;
     transform: translate(-80vw);
     z-index: 99;
-    transition: 0.35s ease-in-out;
+    transition: 0.5s ease-in-out;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -60,7 +60,7 @@
     top: 0;
     transform: translate(80vw);
     z-index: 99;
-    transition: 0.35s ease-in-out;
+    transition: 0.5s ease-in-out;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -143,6 +143,7 @@ left: 25%;
     margin-bottom: auto;
     margin-top: calc(7.5vh);
     margin-bottom: 10vh;
+    background-color: rgb(245, 245, 220);
 }
 
 

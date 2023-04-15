@@ -53,7 +53,6 @@ function CatalogFilterColor(props) {
             e.currentTarget.classList.remove('selected')
             setFilters(filters=>{
               // if there arent any colors selected then removes the color filter
-              console.log()
               if ((filters.colors.filter(e => e !== color)).length === 0){
                 const {colors , ...restFilter} = filters
                 return restFilter
