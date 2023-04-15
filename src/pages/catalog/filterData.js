@@ -1,0 +1,17 @@
+export const availableColors = [
+    {name:'Red' , value:'rgb(255,0,0)'},
+    {name:'Brown' , value:'rgb(165, 42, 42)'},
+    {name:'Khaki' , value:'rgb(240, 230, 140)'},
+    {name:'Yellow' , value:'rgb(255,255,0)'},
+    {name:'Olive' , value:'rgb(128,128,0)'},
+    {name:'Green' , value:'rgb(0,255,0)'},
+    {name:'Light blue' , value:'rgb(173, 216, 230)'},
+    {name:'Blue' , value:'rgb(0, 0, 255)'},
+    {name:'Navy' , value:'rgb(0, 0, 128)'},
+    {name:'Purple' , value:'rgb(128, 0, 128)'},
+    {name:'Pink' , value:'rgb(255, 192, 203)'},
+    {name:'Black' , value:'rgb(0,0,0)'},
+    {name:'Gray' , value:'rgb(128, 128, 128)'},
+    {name:'Beige' , value:'rgb(245, 245, 220)'},
+    {name:'White' , value:'rgb(255,255,255)'},
+ ]

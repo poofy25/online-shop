@@ -1,6 +1,6 @@
 
 import "/src/pages/catalog/styles/FilterStyles/catalogFilter.css"
-import { useState , useEffect , useRef , useInsertionEffect , cloneElement} from "react"
+import { useState , useEffect , useRef , cloneElement} from "react"
 
 import CatalogFilterOption from "./CatalogFilterBtn"
 import CatalogFilterViewItemsBtn from "./CatalogFilterViewItemsBtn"
@@ -12,11 +12,13 @@ import CatalogFilterCategory from "./CatalogFilterCategory"
 import CatalogFilterPrice from "./CatalogFilterPrice"
 import CatalogFilterSize from "./CatalogFilterSize"
 
+import { availableColors } from "../../filterData"
+
 let FilterOptions = [
 
     {name:'Brand', element:<CatalogFilterBrand/>},
     {name:'Category', element:<CatalogFilterCategory/>},
-    {name:'Color', element:<CatalogFilterColor/>},
+    {name:'Color', element:<CatalogFilterColor/> , data:availableColors},
     {name:'Size', element:<CatalogFilterSize/>},
     {name:'Price', element:<CatalogFilterPrice/>}
     
@@ -33,6 +35,11 @@ function CatalogFilter(props) {
      FilterBtn && (FilterBtn.onclick = () =>{
      setFilterSwich(!filterSwich)
      })
+
+
+useEffect(()=>{
+  console.log(selectedFilters)
+},[selectedFilters])
 
      useEffect(()=>{
        if(filterSwich){
@@ -54,13 +61,10 @@ function CatalogFilter(props) {
         document.querySelector('.catalogFiltersSecond').classList.remove('Active')
         document.querySelector('.catalogFiltersFirst').classList.add('Active')
       }
-
+      
      },[optionSelected])
 
-
-
-
-
+    
 
     return (
       <div className="catalogFilterMenu"  ref={catalogFilterElement}>
@@ -74,7 +78,7 @@ function CatalogFilter(props) {
           <div className="catalogFilterOptions">
             {FilterOptions.map((option , index)=>{
               return(
-                <CatalogFilterOption key={index} name={option.name} element={option.element} setOptionSelected={setOptionSelected}/>
+                <CatalogFilterOption key={index} option={{...option}} setOptionSelected={setOptionSelected}/>
               )
             })}
            </div>
@@ -97,13 +101,40 @@ function CatalogFilter(props) {
                  document.querySelector('.catalogFiltersFirst').classList.add('Active')
                setTimeout(()=>{setOptionSelected(null)},500)
                  
-                }}>{(optionSelected?.name)?.toUpperCase()}</p>
+              }}>{(optionSelected?.name)?.toUpperCase()}</p>
+
+               {optionSelected?.name !== 'Price' && <button className="selectionBtn" onClick={()=>{
+                                     
+                  if(selectedFilters[(optionSelected?.name)?.toLowerCase()]) {
+                    console.log('damn')
+                      const newFilters = {...selectedFilters}
+                      delete newFilters[(optionSelected?.name)?.toLowerCase()]
+                      setSelectedFilters(newFilters)
+                    }
+                    else{
+                      const filtersCopy = {...selectedFilters}
+                      const filterName = (data)=>{
+                        const nameArray = []
+                           data.forEach(item=>{
+                            nameArray.push(item.name)
+                           })
+                           return nameArray
+                      }
+                      filtersCopy[(optionSelected?.name)?.toLowerCase()] = filterName(optionSelected?.data)
+                      console.log(filtersCopy)
+                      setSelectedFilters(filtersCopy)
+                    }
+
+
+                }}>
+                  {selectedFilters[(optionSelected?.name)?.toLowerCase()]? (<p>CLEAR</p>): (<><p>ALL</p>  <div class="selectionBtnCheck"></div></>)}
+                </button>}
             </div>
 
             <div className="catalogFilterOptions">
               {optionSelected?.element && cloneElement(
                 optionSelected?.element,
-                {setFilters:setSelectedFilters , filters:selectedFilters}
+                {setFilters:setSelectedFilters , filters:selectedFilters , data:optionSelected?.data}
               )
 }
             </div>

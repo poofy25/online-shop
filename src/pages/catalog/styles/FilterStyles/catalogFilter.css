@@ -104,7 +104,7 @@
     font-weight: 600;
 }
 
-.catalogFilterHeader > button {
+.catalogFilterHeader > button:first-child  {
     height: 40%;
     aspect-ratio: 1/1;
     background-color: transparent;
@@ -115,25 +115,42 @@
 
     overflow: hidden;
 }
-.catalogFilterHeader > button  > div{
+.catalogFilterHeader > button:first-child   > div{
 width: 1px;
 height: 50%;
 background-color: black;
 position: absolute;
 }
-.catalogFilterHeader > button  > div:first-child{
+.catalogFilterHeader > button:first-child   > div:first-child{
 transform: rotate(45deg) ;
 top: 0%;
 left: 25%;
 transform-origin: 0% 100%;
 }
 
-.catalogFilterHeader > button > div:last-child{
+.catalogFilterHeader > button:first-child > div:last-child{
     transform-origin: 0% 0%;
 transform: rotate(-45deg);
 bottom:0%;
 left: 25%;
 
+}
+.selectionBtn{
+    font-size: clamp(1rem , 4vw , 1.5rem);
+    background-color: transparent;
+    height: 100%;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    margin-left: auto;
+
+}
+.selectionBtn > p {
+    margin: 0;
+    margin-right: 10%;
 }
 
 .catalogFilterOptions {
@@ -145,7 +162,36 @@ left: 25%;
     margin-bottom: 10vh;
     background-color: rgb(223,223,223);
 }
+.selectionBtnCheck{
+    position: relative;
+    height:  35%;
+    aspect-ratio: 1;
+    margin: 0;
+    margin-left:auto ;
+    display: flex;
+ }
+ .selectionBtnCheck::before {
+    content: "";
+    position: absolute;
+    width: 15%;
+    top: 30%;
+    height: 50%;
 
+    background-color:  rgb(128, 128, 128);
+    transform: translateX(6px) rotate(-45deg);
+    transform-origin: left bottom;
+    z-index: +1;
+ }
+ .selectionBtnCheck::after {
+    content: "";
+    position: absolute;
+    bottom: 17.5%;
+    height: 15%;
+    width: 100%;
+    background-color:  rgb(128, 128, 128);
+    transform: translateX(6px) rotate(-45deg);
+    transform-origin: left bottom;
+ }
 
 
 
