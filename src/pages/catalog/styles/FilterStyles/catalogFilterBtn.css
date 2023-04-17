@@ -40,7 +40,7 @@
 }
 .catalogFilterBtnContainerWrapper > p{
     margin: 0;
-    font-size: clamp(1rem , 4vw , 1.5rem);
+    font-size: clamp(0.75rem , 4vw , 1.5rem);
  }
 
 .filterArrowBtn{
@@ -79,7 +79,7 @@
     white-space: nowrap;
     text-align: start;
     overflow: hidden;
-    font-size: clamp(0.75rem , 3vw,1.25rem);
+    font-size: clamp(0.5rem , 3vw,1.25rem);
     width: 100%;
     margin: 0;
     display: flex;

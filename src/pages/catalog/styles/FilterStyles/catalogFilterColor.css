@@ -12,7 +12,7 @@
     display: flex;
     justify-content: end;
     padding-left: 5%;
-    height: 7.5vh;
+    min-height: 7.5vh;
 }
 
 .filterOptionBtnContainer{
@@ -23,9 +23,9 @@
     flex-direction: row;
     right: 0;
     width:100%;
-    height: 100%;
+    height: 7.5vh;
     position: relative;
-    font-size: clamp(1rem , 4vw , 1.5rem);
+    font-size: clamp(0.75rem , 4vw , 1.5rem);
     z-index: 2;
     box-sizing: border-box;
     border-bottom:1px solid rgba(0, 0, 0 , 0.125);
@@ -92,13 +92,42 @@
  }
 
 .priceBtn{
-  height: 100%;
+  height:75%;
+  aspect-ratio: 1/0.65;
+  border-radius: 2px;
   background-color: transparent;
   border: none;
-  font-size: clamp(1rem , 4vw , 1.5rem);
+  color: rgba(0, 0, 0 , 0.85);
+  font-size: clamp(0.75rem , 4vw , 1.5rem);
   padding: 0;
-  opacity: 0.85;
-  margin-right: 2.5%;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.priceBtn.active {
+  font-weight: 600;
+  color: white;
+  background-color: rgba(0, 0, 0 , 0.75);
+}
+.filterOptionBtnContainer.price {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 15vh;
+}
+.priceWrapper{
+  width: 100%;
+  height: 7.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.priceWrapper > p {
+  font-weight: 600;
+  font-size: clamp(1rem , 5vw , 1.5rem);
+  margin: 0;
 }
 
 
@@ -108,31 +137,29 @@
 
 
 
-
-
  .inputWrapper{
-    width: 50%;
+    width: 100%;
     margin: 0;
     margin-left: auto;
     display: flex;
     flex-direction:column ;
     align-items: center;
-    justify-content: center;
-    height: 100%;
+    justify-content: start;
+    height: 50%;
     position: relative;
    
  }   
  #priceInput{
     height: 50%;
-    position: absolute;
-    top: 25%;
+    width: 80%;
+    top: 0%;
     
  }
   input[type=range]:focus {
     outline: none;
   }
   input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
+    width: 80%;
     height: 8px;
     cursor: pointer;
     box-shadow: 1px 1px 3px #B5B5B5;
@@ -156,15 +183,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
+    width: 80%;
   }
   
   option {
     padding: 0;
     display: flex;
     opacity: 0.75;
+    font-size: clamp(0.5rem ,3.5vw , 1.5rem);
   }
   
   input[type="range"] {

@@ -1,7 +1,7 @@
 
 import "/src/pages/catalog/styles/FilterStyles/catalogFilterColor.css"
 
-import { useRef , useEffect} from "react";
+import { useState , useRef, useEffect} from "react";
 
 function CatalogFilterPrice(props) {
 
@@ -9,6 +9,7 @@ function CatalogFilterPrice(props) {
   const filters = props.filters;
   const setFilters = props.setFilters;
   const priceNumberElement = useRef(null)
+  const [priceFilter , setPriceFilter] = useState(filters.price ?  {dir:filters.price.dir ,amount:filters.price.amount} : {dir:'over' , amount:'5'})
 
   const clickHandler = (e , sale)=>{
 
@@ -25,15 +26,24 @@ function CatalogFilterPrice(props) {
     } 
 }
 
+const selectDirHander = (e, dir)=>{
+
+ document.querySelector('.priceBtn.active').classList.remove('active')
+ e.currentTarget.classList.add('active')
+
+  setPriceFilter({...priceFilter , dir:dir})
+}
+
+
 useEffect(()=>{
-  document.getElementById('priceInput').value = '5'
-  const setPriceValue = ()=>{
-    priceNumberElement.current.textContent = `${document.getElementById('priceInput').value}$`
+  if(priceFilter.amount !== '5' || priceFilter.dir !== 'over'){
+  priceNumberElement.current.textContent = `${priceFilter.amount}$`
+  setFilters(currentFilters=>({...currentFilters , price:priceFilter}))
   }
-  document.getElementById('priceInput').addEventListener('input',setPriceValue)
-  return ()=>{
-    document?.getElementById('priceInput')?.removeEventListener('input', setPriceValue)
-  }
+},[priceFilter])
+
+useEffect(()=>{
+  document.getElementById('priceInput').value = filters?.price ? filters?.price.amount  : '5'
 },[])
 
 
@@ -50,12 +60,17 @@ useEffect(()=>{
              </div>
           }
           {
-            <div className={`filterOptionBtn  `} onClick={(e)=>{}}>
-            <div className="filterOptionBtnContainer">
-              <button className="priceBtn">Over</button>
-              <p ref={priceNumberElement}>5$</p>
+            <div className='filterOptionBtn'>
+            <div className="filterOptionBtnContainer price">
+              <div className="priceWrapper">
+                <button className={`priceBtn ${filters?.price ? (filters?.price?.dir === 'over' && 'active') : 'active'}`} onClick={(e)=>{selectDirHander(e , 'over')}}>Over</button>
+                <p ref={priceNumberElement}>{filters?.price ? filters?.price.amount  : priceFilter.amount}$</p>
+                <button className={`priceBtn ${filters?.price?.dir === 'under' && 'active'}` }onClick={(e)=>{selectDirHander(e, 'under')}}>Under</button>
+              </div>
               <div className="inputWrapper">
-                <input type="range" id='priceInput' defaultValue={5} min="5" max="250" step='5' list="tickmarks"></input>
+                <input type="range" id='priceInput' min="5" max="250" step='5' list="tickmarks"
+                onChange={()=>{ setPriceFilter(currentFiter=>({...currentFiter , amount:document.getElementById('priceInput').value}))}}
+                ></input>
                 <datalist id="tickmarks">
                   <option value="5" label="5$"/>
                   <option value="250" label="250$"/>
