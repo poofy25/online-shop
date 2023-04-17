@@ -90,3 +90,84 @@
     transform: translateX(12px) rotate(-45deg);
     transform-origin: left bottom;
  }
+
+.priceBtn{
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  font-size: clamp(1rem , 4vw , 1.5rem);
+  padding: 0;
+  opacity: 0.85;
+  margin-right: 2.5%;
+}
+
+
+
+
+
+
+
+
+
+
+ .inputWrapper{
+    width: 50%;
+    margin: 0;
+    margin-left: auto;
+    display: flex;
+    flex-direction:column ;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+   
+ }   
+ #priceInput{
+    height: 50%;
+    position: absolute;
+    top: 25%;
+    
+ }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    box-shadow: 1px 1px 3px #B5B5B5;
+    background: #DBDBDB;
+    border-radius: 37px;
+    border: 0px solid #18D501;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    box-shadow:inset 0px 0px 0px 99px #48484A;
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: -4px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #DBDBDB;
+  }
+
+ datalist {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  option {
+    padding: 0;
+    display: flex;
+    opacity: 0.75;
+  }
+  
+  input[type="range"] {
+    width: 100%;
+    margin: 0;
+  }

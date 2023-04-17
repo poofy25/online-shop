@@ -38,6 +38,7 @@ function CatalogFilter(props) {
 
 
 useEffect(()=>{
+
   console.log(selectedFilters)
 },[selectedFilters])
 
@@ -49,6 +50,7 @@ useEffect(()=>{
        }else{
         catalogFilterElement.current.classList.remove('on')
         document.body.style.overflow = "auto"
+      console.log(  new URLSearchParams(selectedFilters).toString())
        }
      },[filterSwich])
      useEffect(()=>{
@@ -127,7 +129,7 @@ useEffect(()=>{
 
 
                 }}>
-                  {selectedFilters[(optionSelected?.name)?.toLowerCase()]? (<p>CLEAR</p>): (<><p>ALL</p>  <div class="selectionBtnCheck"></div></>)}
+                  {selectedFilters[(optionSelected?.name)?.toLowerCase()]? (<p>CLEAR</p>): (<><p>ALL</p>  <div className="selectionBtnCheck"></div></>)}
                 </button>}
             </div>
 

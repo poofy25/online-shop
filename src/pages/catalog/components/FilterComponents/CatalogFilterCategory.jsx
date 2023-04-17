@@ -5,7 +5,6 @@ function CatalogFilterCategory(props) {
   const filters = props.filters;
   const setFilters = props.setFilters;
   const availableCategories = props.data
-  console.log('rerender')
 
   const clickHandler = (e , category)=>{
         // if any category has been selected previously
@@ -40,7 +39,7 @@ function CatalogFilterCategory(props) {
               <div className={`filterOptionBtn ${isSelected && 'selected'} `} key={index} onClick={(e)=>{clickHandler(e , category.name)}}>
                 <div className="filterOptionBtnContainer">
                   <p>{category.name}</p>
-                  <div class="check"></div>
+                  <div className="check"></div>
                 </div>
              </div>
             )

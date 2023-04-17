@@ -6,7 +6,6 @@ function CatalogFilterColor(props) {
   const filters = props.filters;
   const setFilters = props.setFilters;
   const availableColors = props.data
-  console.log('rerender')
 
   const clickHandler = (e , color)=>{
         // if any color has been selected previously
@@ -42,7 +41,7 @@ function CatalogFilterColor(props) {
                 <div className="filterOptionBtnContainer">
                   <div style={{backgroundColor:color.value}} className="colorDiv"></div>
                   <p>{color.name}</p>
-                  <div class="check"></div>
+                  <div className="check"></div>
                 </div>
              </div>
             )

@@ -6,7 +6,6 @@ function CatalogFilterSize(props) {
   const filters = props.filters;
   const setFilters = props.setFilters;
   const availableSizes = props.data
-  console.log('rerender')
 
   const clickHandler = (e , size)=>{
         // if any categosizery has been selected previously
@@ -41,7 +40,7 @@ function CatalogFilterSize(props) {
               <div className={`filterOptionBtn ${isSelected && 'selected'} `} key={index} onClick={(e)=>{clickHandler(e , size.name)}}>
                 <div className="filterOptionBtnContainer">
                   <p>{size.name}</p>
-                  <div class="check"></div>
+                  <div className="check"></div>
                 </div>
              </div>
             )

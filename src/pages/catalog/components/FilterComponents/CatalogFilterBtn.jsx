@@ -5,7 +5,6 @@ import "/src/pages/catalog/styles/FilterStyles/catalogFilterBtn.css"
 function CatalogFilterBtn(props) {
     const optionData = props.option
     const filters = props.data
-    console.log(filters[(optionData.name).toLowerCase()] )
     const clickHandler = ()=>{
     props.setOptionSelected({name:optionData.name , element:optionData.element , data:optionData?.data})
     }
