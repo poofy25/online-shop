@@ -9,50 +9,55 @@ function CatalogFilterPrice(props) {
   const filters = props.filters;
   const setFilters = props.setFilters;
   const priceNumberElement = useRef(null)
-  const [priceFilter , setPriceFilter] = useState(filters.price ?  {dir:filters.price.dir ,amount:filters.price.amount} : {dir:'over' , amount:'5'})
+  const firstRender = useRef(false)
+  const [priceFilter , setPriceFilter] = useState(filters?.price?.range ?  {dir:filters.price.range.dir ,amount:filters.price.range.amount} : {dir:'>=' , amount:'5'})
+  const clickHandler = (e)=>{
 
-  const clickHandler = (e , sale)=>{
-
-    if(filters.sale){
+    if(filters?.price?.sale){
         e.currentTarget.classList.remove('selected')
         setFilters(filters=>{
-            const {sale , ...restFilter} = filters
-            return restFilter
-        })
+            
+           const {price , ...restFilter} = filters
+            const {sale , ...restPriceFilter} = price 
+            const newFilters = Object.keys(restPriceFilter).length === 0 ? {...restFilter} : {...restFilter , price:{...restPriceFilter}}
+           return {...newFilters}
+      })
     }
     else{
       e.currentTarget.classList.add('selected')
-      setFilters(filters=>({...filters , sale:true}))
+      setFilters(filters=>({...filters , price:{...filters?.price , sale:true}}))
     } 
 }
 
 const selectDirHander = (e, dir)=>{
-
  document.querySelector('.priceBtn.active').classList.remove('active')
  e.currentTarget.classList.add('active')
-
   setPriceFilter({...priceFilter , dir:dir})
 }
 
 
 useEffect(()=>{
-  if(priceFilter.amount !== '5' || priceFilter.dir !== 'over'){
+  //IF statement so the useEffect dosent run on mount
+ if(firstRender.current === true){
   priceNumberElement.current.textContent = `${priceFilter.amount}$`
-  setFilters(currentFilters=>({...currentFilters , price:priceFilter}))
-  }
+  setFilters(currentFilters=>{{
+    return{...currentFilters , price:{...currentFilters?.price, range:priceFilter}}}}
+    )
+  }else firstRender.current = true
 },[priceFilter])
 
 useEffect(()=>{
-  document.getElementById('priceInput').value = filters?.price ? filters?.price.amount  : '5'
+  // sets the range input value to the filters value
+   document.getElementById('priceInput').value = filters?.price?.range ? filters?.price?.range?.amount  : '5'
 },[])
 
 
 
     return (
-         <div className="filterOptionContaianer">
+      <div className="filterOptionContaianer">
           {
 
-            <div className={`filterOptionBtn ${filters?.sale !== false && filters.sale && 'selected'} `} onClick={(e)=>{clickHandler(e , filters.sale)}}>
+            <div className={`filterOptionBtn ${filters?.price?.sale !== false && filters?.price?.sale && 'selected'} `} onClick={(e)=>{clickHandler(e , filters.sale)}}>
                 <div className="filterOptionBtnContainer">
                   <p>Sale</p>
                   <div className="check"></div>
@@ -62,11 +67,13 @@ useEffect(()=>{
           {
             <div className='filterOptionBtn'>
             <div className="filterOptionBtnContainer price">
+
               <div className="priceWrapper">
-                <button className={`priceBtn ${filters?.price ? (filters?.price?.dir === 'over' && 'active') : 'active'}`} onClick={(e)=>{selectDirHander(e , 'over')}}>Over</button>
-                <p ref={priceNumberElement}>{filters?.price ? filters?.price.amount  : priceFilter.amount}$</p>
-                <button className={`priceBtn ${filters?.price?.dir === 'under' && 'active'}` }onClick={(e)=>{selectDirHander(e, 'under')}}>Under</button>
+                <button className={`priceBtn ${filters?.price?.range ? (filters?.price?.range?.dir === '>=' && 'active') : 'active'}`} onClick={(e)=>{selectDirHander(e , '>=')}}>Over</button>
+                <p ref={priceNumberElement}>{filters?.price?.range ? filters.price.range.amount  : priceFilter.amount}$</p>
+                <button className={`priceBtn ${filters?.price?.range?.dir === '<=' && 'active'}` }onClick={(e)=>{selectDirHander(e, '<=')}}>Under</button>
               </div>
+
               <div className="inputWrapper">
                 <input type="range" id='priceInput' min="5" max="250" step='5' list="tickmarks"
                 onChange={()=>{ setPriceFilter(currentFiter=>({...currentFiter , amount:document.getElementById('priceInput').value}))}}
@@ -79,7 +86,7 @@ useEffect(()=>{
             </div>
          </div>
           }
-         </div>
+      </div>
     )
  
 }

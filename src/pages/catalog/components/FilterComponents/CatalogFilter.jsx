@@ -80,7 +80,7 @@ useEffect(()=>{
           <div className="catalogFilterOptions">
             {FilterOptions.map((option , index)=>{
               return(
-                <CatalogFilterOption key={index} option={{...option}} setOptionSelected={setOptionSelected} data={selectedFilters}/>
+                <CatalogFilterOption key={index} option={{...option}} setOptionSelected={setOptionSelected} filters={selectedFilters}/>
               )
             })}
            </div>
@@ -88,6 +88,7 @@ useEffect(()=>{
            <CatalogFilterViewItemsBtn closeFilterMenu={setFilterSwich}/>
          </div>
           <div className="catalogFiltersSecond">
+
             <div className="catalogFilterHeader">
               <button onClick={()=>{
                  document.querySelector('.catalogFiltersSecond').classList.remove('Active')
