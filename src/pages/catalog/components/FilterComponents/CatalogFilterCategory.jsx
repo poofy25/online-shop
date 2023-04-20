@@ -12,7 +12,7 @@ function CatalogFilterCategory(props) {
           //if category is already selected or not
           if(filters.category.indexOf(category) === -1){ 
             e.currentTarget.classList.add('selected')
-            setFilters(filters=>({...filters , category:[category , ...filters.category]}))
+            setFilters(filters=>({...filters , category:[category]}))
           }else{ 
             e.currentTarget.classList.remove('selected')
             setFilters(filters=>{

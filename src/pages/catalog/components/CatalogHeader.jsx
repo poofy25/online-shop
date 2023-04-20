@@ -6,6 +6,7 @@ import { useEffect , useRef } from 'react';
 import useParamsNavigate from '../../../hooks/useParamsNavigate';
 import { useLocation} from 'react-router-dom';
 import CatalogFilter from './FilterComponents/CatalogFilter';
+import getObjFromUrl from '../../../functions/getObjFromUrl';
 const categories = [
     'All Categories',
     'Shirts',
@@ -17,6 +18,7 @@ const categories = [
     'Hoodies',
     "Leggings",
     "Trousers"
+    
 ]
 let prevClickedCategoryBtn = null
 
@@ -35,17 +37,21 @@ function CatalogHeader(props) {
     const catalogData = props.catalogData;
     const useNavParams = useParamsNavigate();
     const location = useLocation();
-    const params = Object.fromEntries(new URLSearchParams(location.search));
+    const params = getObjFromUrl(location)
     let newParams;
     let categorySelected;
     const filtersBtn = useRef(null)
-
-
+    console.log('OFFFFFFFFFFf' , catalogData , params?.category)
    
     const categorySelector = (e)=>{
         if(prevClickedCategoryBtn !== e.target){
             categorySelected = e.target.textContent === 'All Categories'? '*' : e.target.textContent;
-            newParams = {category:categorySelected};
+            if(categorySelected !== '*'){
+              newParams = {...params , category:[categorySelected]};
+            }else{
+                const {category , ...copyParams} = params
+              newParams={...copyParams}
+            }
             prevClickedCategoryBtn !== null ? prevClickedCategoryBtn.classList.remove('selectedCategoryBtn') : null
             e.target.classList.add('selectedCategoryBtn')
             prevClickedCategoryBtn = e.target
@@ -55,28 +61,36 @@ function CatalogHeader(props) {
    
 
     useEffect(()=>{
-        prevClickedCategoryBtn = document.querySelector('.selectedCategoryBtn');
+        const categoryBtns = document.querySelector('.catalogCategories').childNodes
+        prevClickedCategoryBtn = searchCategoryBtn('All Categories'  , categoryBtns);
+        prevClickedCategoryBtn.classList.add('selectedCategoryBtn');
     },[])
+    useEffect(()=>{
+        if(prevClickedCategoryBtn &&  document.querySelector('.selectedCategoryBtn')){
+        document.querySelector('.selectedCategoryBtn').classList.remove('selectedCategoryBtn')
+        prevClickedCategoryBtn.classList.add('selectedCategoryBtn')
+        }
+    },[prevClickedCategoryBtn])
     useEffect(()=>{
         //UPDATES prevClickedCategoryBtn WHEN URL SEARCH PARAMS CHANGE
         const categoryBtns = document.querySelector('.catalogCategories').childNodes
-        if(params.category){
-           prevClickedCategoryBtn = searchCategoryBtn(params.category !== '*' ? params.category : 'All Categories'  , categoryBtns);
+        if(params?.category){
+           prevClickedCategoryBtn = searchCategoryBtn(params.category[0] !== '*' ? params.category[0] : 'All Categories'  , categoryBtns);
         }else{
             prevClickedCategoryBtn = searchCategoryBtn('All Categories'  , categoryBtns)
         }
+        
     },[params])
 
     return (
          <div className="catalogHeader">
             <div className="catalogCategoryName">
-                <p>Women {catalogData.filters.category === '*'? 'Clothing' : catalogData.filters.category}</p>
+                <p>Women {catalogData.filters.category[0] === '*'? 'Clothing' : catalogData.filters.category}</p>
                 {!catalogData.filters.name ? '' : <p className='catalogHeaderSearchValue'>Search result for: {catalogData.filters.name}</p>}
             </div>
             <div className="catalogCategories">
                {categories.map((category , index)=>{
-                if (index === 0 && !params.category) return <button className="selectedCategoryBtn" key={index} onClick={categorySelector}>{category}</button>
-                if(category === params.category) return <button className="selectedCategoryBtn" key={index} onClick={categorySelector}>{category}</button>
+                if(category === params?.category) return <button className="selectedCategoryBtn" key={index} onClick={categorySelector}>{category}</button>
                 return  <button key={index} onClick={categorySelector}>{category}</button>
                })}
             </div>
@@ -88,7 +102,7 @@ function CatalogHeader(props) {
                       Filter
                     </button>
             </div>
-           <CatalogFilter filtersBtn={filtersBtn}/>
+           <CatalogFilter filtersBtn={filtersBtn} urlParams={params}/>
          </div>
     )
  

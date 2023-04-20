@@ -1,7 +1,9 @@
 
 import "/src/pages/catalog/styles/FilterStyles/catalogFilter.css"
 import { useState , useEffect , useRef , cloneElement} from "react"
-
+import { useLocation } from "react-router-dom"
+import useParamsNavigate from "../../../../hooks/useParamsNavigate"
+import getObjFromUrl from "../../../../functions/getObjFromUrl"
 import CatalogFilterOption from "./CatalogFilterBtn"
 import CatalogFilterViewItemsBtn from "./CatalogFilterViewItemsBtn"
 
@@ -13,6 +15,7 @@ import CatalogFilterPrice from "./CatalogFilterPrice"
 import CatalogFilterSize from "./CatalogFilterSize"
 
 import { availableColors , availableCategories , availableSizes } from "../../filterData"
+import { useSearchParams } from "react-router-dom"
 
 let FilterOptions = [
 
@@ -27,32 +30,48 @@ let FilterOptions = [
 function CatalogFilter(props) {
  
      const FilterBtn = props.filtersBtn.current
+     const useNavParams = useParamsNavigate();
      const catalogFilterElement = useRef(null)
+     const location = useLocation()
+     const firstRender = useRef(false)
+     const urlParams = getObjFromUrl(location)
      const [filterSwich , setFilterSwich] = useState(false)
      const [optionSelected , setOptionSelected] = useState(null)
-     const [selectedFilters , setSelectedFilters] = useState({})
-
+     const [selectedFilters , setSelectedFilters] = useState({...urlParams})
+     console.log('rerender')
      FilterBtn && (FilterBtn.onclick = () =>{
      setFilterSwich(!filterSwich)
      })
 
-
-useEffect(()=>{
-
-  console.log(selectedFilters)
-},[selectedFilters])
+     useEffect(()=>{
+      console.log(selectedFilters)
+     },[selectedFilters])
+      
+     useEffect(()=>{
+      if(props.urlParams && selectedFilters !== props.urlParams ){
+        console.log(selectedFilters , {...urlParams} , props.urlParams)
+        setSelectedFilters(props.urlParams)
+      }
+     },[props.urlParams]) 
 
      useEffect(()=>{
-       if(filterSwich){
-         catalogFilterElement.current.classList.add('on')
-         document.body.style.overflow = "hidden"
-         setOptionSelected(null)
-       }else{
-        catalogFilterElement.current.classList.remove('on')
-        document.body.style.overflow = "auto"
-      console.log(  new URLSearchParams(selectedFilters).toString())
-       }
+      if(firstRender.current){
+        if(filterSwich){
+          catalogFilterElement.current.classList.add('on')
+          document.body.style.overflow = "hidden"
+          setOptionSelected(null)
+        }else{
+         catalogFilterElement.current.classList.remove('on')
+         document.body.style.overflow = "auto"
+         if(selectedFilters) useNavParams(selectedFilters)
+        
+        }
+      
+      }else{
+        firstRender.current = true
+      }
      },[filterSwich])
+
      useEffect(()=>{
       if(optionSelected !== null){
         document.querySelector('.catalogFiltersSecond').classList.add('Active')
@@ -106,16 +125,15 @@ useEffect(()=>{
                  
               }}>{(optionSelected?.name)?.toUpperCase()}</p>
 
-               {optionSelected?.name !== 'Price' && <button className="selectionBtn" onClick={()=>{
+               {optionSelected?.name !== 'Price'  ? <button className="selectionBtn" onClick={()=>{
                                      
                   if(selectedFilters[(optionSelected?.name)?.toLowerCase()]) {
-                    console.log('damn')
                       const newFilters = {...selectedFilters}
                       delete newFilters[(optionSelected?.name)?.toLowerCase()]
                       setSelectedFilters(newFilters)
                     }
                     else{
-                      const filtersCopy = {...selectedFilters}
+                      /*const filtersCopy = {...selectedFilters}
                       const filterName = (data)=>{
                         const nameArray = []
                            data.forEach(item=>{
@@ -124,14 +142,28 @@ useEffect(()=>{
                            return nameArray
                       }
                       filtersCopy[(optionSelected?.name)?.toLowerCase()] = filterName(optionSelected?.data)
-                      console.log(filtersCopy)
                       setSelectedFilters(filtersCopy)
+                      */
                     }
 
 
                 }}>
-                  {selectedFilters[(optionSelected?.name)?.toLowerCase()]? (<p>CLEAR</p>): (<><p>ALL</p>  <div className="selectionBtnCheck"></div></>)}
-                </button>}
+                  {selectedFilters[(optionSelected?.name)?.toLowerCase()]? (<p>CLEAR</p>): ''/*(<><p>ALL</p>  <div className="selectionBtnCheck"></div></>)*/}
+                </button>
+                :
+                <button className="selectionBtn" onClick={()=>{
+                                     
+                  if(selectedFilters.sale || selectedFilters.range) {
+                      const newFilters = {...selectedFilters}
+                      delete newFilters['range']
+                      delete newFilters['sale']
+                      setSelectedFilters(newFilters)
+                    }
+          
+                }}>
+                  {selectedFilters.sale && (<p>CLEAR</p>) || selectedFilters.range && (<p>CLEAR</p>)}
+                </button>
+                     }
             </div>
 
             <div className="catalogFilterOptions">

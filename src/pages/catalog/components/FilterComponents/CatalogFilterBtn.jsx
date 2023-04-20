@@ -7,11 +7,11 @@ function CatalogFilterBtn(props) {
     const filters = props.filters
     const [selectedOptionDataElement , setSelectedOptionDataElement] = useState()
     const clickHandler = ()=>{
-     console.log(filters?.price)
     props.setOptionSelected({name:optionData.name , element:optionData.element , data:optionData?.data})
     }
     useEffect(()=>{
       if(filters[(optionData.name).toLowerCase()]){
+
         if(optionData.name === 'Price'){
              
           if(filters.price.range){
@@ -31,8 +31,9 @@ function CatalogFilterBtn(props) {
         else{
         setSelectedOptionDataElement(filters[(optionData.name).toLowerCase()].toString().replaceAll(',' , ' , '))
         }
+      }else {
+        setSelectedOptionDataElement(null)
       }
-      console.log(selectedOptionDataElement)
     },[filters])
     
     return (

@@ -13,41 +13,44 @@
                         }
                  }
                  if (key === "category"){
-                    if(product[key] === filters[key] || filters[key] === '*'){
-                         isGood = true
-                        }
+                    filters[key].forEach((category)=>{
+                     if(product[key] === category || category === '*'){
+                        isGood = true
+                       }
+                       
+                    })
+                 
                  }
-                 if(key === "discount"){
-                    if(product[key] !== filters[key]){
+                 if(key === "sale"){
+                    if(product['discount'] !== null || filters[key][0] === true){
                         isGood = true
                     }
                  }
-                 if(key === "price"){
-                    if(filters[key][1] === "<="){
-  
-                       if(product[key] <= filters[key][0]){
+                 if(key === "range"){
+                    if(filters[key][0] === "<="){
+                       if(product['price'] <= Number(filters[key][1])){
                         isGood = true
                        }
                          
                     }
                     else 
-                    if(filters[key][1] === ">="){
-                        if(product[key] >= filters[key][0]){
+                    if(filters[key][0] === ">="){
+                        if(product['price'] >= Number(filters[key][1]) ){
                             isGood = true
                            }
                     }
                  }
-                 if (key === "sizes"){
-                    filters[key].every((size)=>{
-                        if(product[key].includes(size)){
+                 if (key === "size"){
+                    filters[key].forEach((size)=>{
+                        if(product['sizes'].includes(size)){
                            isGood = true
                         }
                        
                     })
                  }
-                 if (key === "colors"){
-                    filters[key].every((size)=>{
-                        if(product[key].includes(size)){
+                 if (key === "color"){
+                    filters[key].forEach((size)=>{
+                        if(product['colors'].includes(size)){
                            isGood = true
                         }
                        
@@ -56,7 +59,7 @@
                  if (key === "name"){
                   
                     if(filters[key]){
-                     if((product[key].toLowerCase()).indexOf((filters[key].toLowerCase())) !=-1? true: false){
+                     if((product[key].toLowerCase()).indexOf((filters[key][0].toLowerCase())) !=-1? true: false){
                         isGood = true
                      }
                   }
