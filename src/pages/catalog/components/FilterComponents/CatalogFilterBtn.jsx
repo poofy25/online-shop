@@ -11,26 +11,21 @@ function CatalogFilterBtn(props) {
     }
     useEffect(()=>{
       if(filters[(optionData.name).toLowerCase()]){
-
-        if(optionData.name === 'Price'){
-             
-          if(filters.price.range){
-
-              filters.price.range.dir === '>=' ?
-              setSelectedOptionDataElement(`Over ${filters.price?.range.amount}$`)
-                        :
-              setSelectedOptionDataElement(`Under ${filters.price?.range.amount}$`)
-             
-          }
-          if(filters.price.sale){
-            if(selectedOptionDataElement) setSelectedOptionDataElement(currentData =>`${currentData} , On sale`)
-            else setSelectedOptionDataElement(`On sale`)
-
-          }
-        }
-        else{
         setSelectedOptionDataElement(filters[(optionData.name).toLowerCase()].toString().replaceAll(',' , ' , '))
-        }
+      }else if((filters.range || filters.sale) && optionData.name === 'Price'){
+        if(filters.range){
+
+          filters.range[0] === '>=' ?
+          setSelectedOptionDataElement(`Over ${filters.range[1]}$`)
+                    :
+          setSelectedOptionDataElement(`Under ${filters.range[1]}$`)
+         
+      }
+      if(filters.sale){
+        if(selectedOptionDataElement) setSelectedOptionDataElement(currentData =>`${currentData} , On sale`)
+        else setSelectedOptionDataElement(`On sale`)
+
+      }
       }else {
         setSelectedOptionDataElement(null)
       }

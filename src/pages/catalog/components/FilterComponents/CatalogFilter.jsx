@@ -38,19 +38,13 @@ function CatalogFilter(props) {
      const [filterSwich , setFilterSwich] = useState(false)
      const [optionSelected , setOptionSelected] = useState(null)
      const [selectedFilters , setSelectedFilters] = useState({...urlParams})
-     console.log('rerender')
      FilterBtn && (FilterBtn.onclick = () =>{
      setFilterSwich(!filterSwich)
      })
 
      useEffect(()=>{
-      console.log(selectedFilters)
-     },[selectedFilters])
-      
-     useEffect(()=>{
-      if(props.urlParams && selectedFilters !== props.urlParams ){
-        console.log(selectedFilters , {...urlParams} , props.urlParams)
-        setSelectedFilters(props.urlParams)
+      if(selectedFilters !== props.urlParams ){
+        setSelectedFilters({...props.urlParams})
       }
      },[props.urlParams]) 
 
@@ -132,23 +126,10 @@ function CatalogFilter(props) {
                       delete newFilters[(optionSelected?.name)?.toLowerCase()]
                       setSelectedFilters(newFilters)
                     }
-                    else{
-                      /*const filtersCopy = {...selectedFilters}
-                      const filterName = (data)=>{
-                        const nameArray = []
-                           data.forEach(item=>{
-                            nameArray.push(item.name)
-                           })
-                           return nameArray
-                      }
-                      filtersCopy[(optionSelected?.name)?.toLowerCase()] = filterName(optionSelected?.data)
-                      setSelectedFilters(filtersCopy)
-                      */
-                    }
 
 
                 }}>
-                  {selectedFilters[(optionSelected?.name)?.toLowerCase()]? (<p>CLEAR</p>): ''/*(<><p>ALL</p>  <div className="selectionBtnCheck"></div></>)*/}
+                  {selectedFilters[(optionSelected?.name)?.toLowerCase()] && (<p>CLEAR</p>)}
                 </button>
                 :
                 <button className="selectionBtn" onClick={()=>{
@@ -181,8 +162,5 @@ function CatalogFilter(props) {
         <div className="catalogFiltersShadow" onClick={()=>{setFilterSwich(false)}} ></div>
         </div>
     )
- 
 }
-
 export default CatalogFilter
-

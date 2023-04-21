@@ -41,7 +41,6 @@ function CatalogHeader(props) {
     let newParams;
     let categorySelected;
     const filtersBtn = useRef(null)
-    console.log('OFFFFFFFFFFf' , catalogData , params?.category)
    
     const categorySelector = (e)=>{
         if(prevClickedCategoryBtn !== e.target){
