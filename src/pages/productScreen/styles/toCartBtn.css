@@ -4,7 +4,7 @@
     font-weight: 600;
     font-size: clamp(10px , 4vw , 30px);
     width: 100%;
-    aspect-ratio: 1/0.125;
+    aspect-ratio: 1/0.15;
     margin-top: 1rem;
     margin-bottom: 25vh;
     box-sizing: border-box;

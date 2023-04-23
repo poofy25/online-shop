@@ -7,6 +7,7 @@
     align-items: start;
     justify-content: space-between;
     position: relative;
+
 }
 .productContainer > img {
     width: 100%;
@@ -35,8 +36,8 @@
 .productContainer > p {
     z-index: 2;
     margin: 0;
-
-    white-space: normal;
+    overflow: hidden;
+    white-space: nowrap;
     margin-bottom: 0;
     font-size: clamp(0.6rem,4vw,1.5rem);
 }

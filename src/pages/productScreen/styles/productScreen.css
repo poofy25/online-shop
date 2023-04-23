@@ -6,12 +6,38 @@
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    position: relative;
 }
-.productScreen > img {
+
+.productScreenImgWrapper{
     width: 100%;
     aspect-ratio: 1/1.25;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    box-sizing: border-box;
+}
+.productScreenImgWrapper::after{
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(50,50,125,0) 50%);
+}
+.productImg {
+    width: 100%;
+    height: 100%;
+    filter:sepia(0.125) , saturate() , contrast(0.85) ;
     object-fit: cover;
-    object-position: center;
+}
+.productScreenImgWrapper > p {
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    color: white;
+    z-index: 2;
 }
 .productContent {
     width: 100%;

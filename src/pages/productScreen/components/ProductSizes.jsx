@@ -22,6 +22,7 @@ document.querySelector(".productSizesContainer").classList.remove("open")
     return (
       <div className="productSizesContainer">
        <p>Size</p>
+       <div className="productSizesWrapper">
        <button className="sizesBtn" onClick={handleDropdown}>
           {selectedSize}
           <div className="btnarrow">
@@ -36,7 +37,8 @@ document.querySelector(".productSizesContainer").classList.remove("open")
                     <button key={size} onClick={handleSelectSize}>{size}</button>
                 )
             })}
-          </div>
+        </div>
+        </div>
       </div>
     )
  

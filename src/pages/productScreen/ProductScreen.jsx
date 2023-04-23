@@ -54,9 +54,11 @@ function ProductPage() {
     return (
         <div className="websiteContent">
         <div className="productScreen">
-            <img src={productData[0]?.image}/>
-            <div className="productContent">
+           <div className="productScreenImgWrapper">
+              <img className='productImg'src={productData[0]?.image}/>
               <p className="productName">{productData[0]?.name}</p>
+            </div> 
+            <div className="productContent">
               <ProductPrice productData={productData[0]}/>
               <ProductColors productData={productData[0]} productCartData={setProductCartData}/>
               <ProductSizes productData={productData[0]} productCartData={setProductCartData}/>

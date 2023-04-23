@@ -7,7 +7,7 @@ import searchFilter from "../../../functions/filter"
 
 var filterBy = {
     id:[4,30,23,1,9,44],
-    discount:null,
+    sale:[true],
 }
 
 

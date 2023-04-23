@@ -5,16 +5,22 @@
     justify-content: center;
     flex-direction: column;
     position: relative;
+    margin-bottom: 1rem;
 }
 .productSizesContainer > p {
     margin: 0;
     font-size: clamp(10px , 4vw , 30px);
 }
+.productSizesWrapper{
+    margin-top: 1rem;
+    width: 100%;
+    height: max-content;
+    position: relative;
+}
 .sizesBtn {
     width: 100%;
-    aspect-ratio: 1/0.125;
-    margin-top: 1rem;
-    background-color: transparent;
+    aspect-ratio: 1/0.15;
+    background-color: white;
     border: 1px solid rgba(0,0,0,0.75);
     display: flex;
     align-items: center;
@@ -26,6 +32,7 @@
     z-index: 5;
     padding-left: 5%;
     color: rgba(0,0,0,0.75);
+    z-index: 1;
 }
 .btnarrow{
     height: 50%;
@@ -62,14 +69,15 @@
 }
 
 .sizesdropdownMenu{
+    z-index: -1;
     width: 100%;
     background-color: white;
-    position: absolute;
-    max-height: 0;
+    /*transform: translateY(-125%);*/
+    max-height: 0px;
     z-index: 5;
     left: 0px;
-    top: calc(100% - 2px);
     display: flex;
+    height: fit-content;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -77,20 +85,19 @@
     border: 1px solid rgb(64,64,64);
     overflow: hidden;
     box-sizing: border-box;
-    transition: 0.5s ease-in-out;
+    transition: 0.25s ease-in-out;
 }
-.productSizesContainer.open .sizesdropdownMenu {
-    max-height: max-content;
-    border-top: none;
-    display: flex;
+.productSizesContainer.open .productSizesWrapper .sizesdropdownMenu  {
+    transform: translateY(0%);
+    max-height:400px;
     opacity: 1;
-    
+    transition: 0.25s ease-in-out;
 }
 .sizesdropdownMenu > button {
     width: 100%;
     text-align: start;
     padding-left: 5%;
-    aspect-ratio: 1/0.125;
+    aspect-ratio: 1/0.15;
     background-color: transparent;
     border: none;
     font-size: clamp(10px , 4vw , 30px);
