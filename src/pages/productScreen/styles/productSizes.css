@@ -38,60 +38,50 @@
     height: 50%;
     aspect-ratio: 1;
     position: relative;
-    transition: 0.5s ease-in-out;
+    transition: 0.25s ease-in-out;
     z-index: 4;
+    transform: rotate(180deg);
 }
 .leftarrow{
-    background-color: rgba(0,0,0,0.75);
-    width: 62.5%;
-    height: 10%;
+    background-color:rgb(64,64,64);
+    width: 60%;
+    height: 1px;
+    top:45%;
     position: absolute;
     left: 0;
-    top: 35%;
-    transform: rotate(45deg);
-    transition: 0.25s ease-in-out;
-}
-.productSizesContainer.open .leftarrow{
-    transform: rotate(-45deg); 
-}
-.productSizesContainer.open .rightarrow{
-    transform: rotate(45deg); 
+    transform: rotate(-45deg);
 }
 .rightarrow{
-    background-color: rgba(0,0,0,0.75);
-    width: 62.5%;
-    height: 10%;
+    background-color: rgb(64,64,64);
+    top:45%;
+    width: 60%;
+    height: 1px;
     position: absolute;
+    transform: rotate(45deg); 
     right: 0;
-    top: 35%;
-    transform: rotate(-45deg);
-    transition: 0.25s ease-in-out;
 }
-
+.productSizesContainer.open .productSizesWrapper .btnarrow{
+    transform: rotate(0deg);
+}
 .sizesdropdownMenu{
-    z-index: -1;
     width: 100%;
     background-color: white;
-    /*transform: translateY(-125%);*/
     max-height: 0px;
-    z-index: 5;
     left: 0px;
     display: flex;
-    height: fit-content;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     opacity: 0;
     border: 1px solid rgb(64,64,64);
+    border-top:none;
     overflow: hidden;
     box-sizing: border-box;
     transition: 0.25s ease-in-out;
 }
 .productSizesContainer.open .productSizesWrapper .sizesdropdownMenu  {
-    transform: translateY(0%);
     max-height:400px;
     opacity: 1;
-    transition: 0.25s ease-in-out;
 }
 .sizesdropdownMenu > button {
     width: 100%;

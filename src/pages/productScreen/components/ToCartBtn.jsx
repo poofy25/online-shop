@@ -14,7 +14,7 @@ function ToCartBtn(props) {
   const clickHandler = (e)=>{
     if(props.productCartData.size === ''){
         if(document.querySelector(".productSizesContainer").classList.contains("open")){
-            document.querySelector(".productSizesContainer").classList.remove("open")
+          //  document.querySelector(".productSizesContainer").classList.remove("open")
         }else {
             document.querySelector(".productSizesContainer").classList.add("open")
         }
