@@ -15,8 +15,10 @@ const handleDropdown = (e)=>{
 }
 
 const handleSelectSize = (e)=>{
-    setProductColor(e.target.textContent)
-    props.productCartData(prev=>({...prev , color:e.target.textContent}))
+
+    const colorChosen = e.currentTarget.textContent
+    setProductColor(colorChosen)
+    props.productCartData(prev=>({...prev , color:e.colorChosen}))
     document.querySelector(".productColorsContainer").classList.remove("open")
     }
 
