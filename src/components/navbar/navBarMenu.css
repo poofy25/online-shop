@@ -40,13 +40,21 @@
     width: 100vw;
 }
 
+.menuCompanyLogo{
+    position: absolute;
+    height: 7.5vh;
+    right: 5%;
+
+    top: 0;
+}
+
 
 
 
 .menuBigBtn{
     width: 90%;
     font-size: clamp(0.75rem , 6vw , 1.5rem);
-    font-weight: 500;
+    font-weight:800;
     display: flex;
     align-items: center;
     padding-top: 1rem;
@@ -54,7 +62,7 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     letter-spacing: 0.25vw;
-    color:rgba(0, 0, 0 , 0.85);
+    color:rgba(0, 0, 0 , 0.75);
     margin-bottom: 1rem;
     background-color: rgb(223,223,223);
     border: none;
