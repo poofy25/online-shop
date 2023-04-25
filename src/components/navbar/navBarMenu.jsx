@@ -8,6 +8,9 @@ import contactUsIcon from '/src/assets/Icons/contactUsIcon.png'
 import shoppingWoman from '/src/assets/Clothing/womanShopping.png'
 import womanLooking from '/src/assets/Clothing/womanLooking.png'
 import companyLogo from '/src/assets/Icons/companyLogo.png'
+import facebookLogo from '/src/assets/Icons/facebookLogo.png'
+import instagramLogo from '/src/assets/Icons/instagramLogo.png'
+
 
 const NavBarMenu = (props)=>{
     const menuBtnHandler = props.closeMenu
@@ -36,9 +39,13 @@ const NavBarMenu = (props)=>{
         </div>
         <button className="menuHomeBtn menuSmallBtn" onClick={()=>navigateTo('/account')}><img src={logedOutIcon}/>Account</button>
         <button className="menuCartBtn menuSmallBtn" onClick={()=>navigateTo('/cart')}><img src={cartIcon}/>Cart</button>
-        <button className="menuContactBtn menuSmallBtn"><img src={contactUsIcon}/>Contact Us</button>
-        <div className="menuCompanyInfoBtn">About dilVin</div>
-        <div className="menuSocialsContainer">Insta , Facebook , Snap</div>
+        <button className="menuContactBtn menuSmallBtn" onClick={()=>navigateTo('/contact')}><img src={contactUsIcon}/>Contact Us</button>
+
+        <div className="menuSocialsContainer">
+          <img src={facebookLogo}/>
+          <img src={instagramLogo}/>
+        </div>
+        <button className="menuCompanyInfoBtn" onClick={()=>navigateTo('/about')}>About dilVin</button>
       </div>
     </div>
     )
