@@ -46,18 +46,36 @@
 .menuBigBtn{
     width: 90%;
     font-size: clamp(0.75rem , 6vw , 1.5rem);
-    font-weight: 600;
+    font-weight: 500;
     display: flex;
     align-items: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    letter-spacing: 0.5vw;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    letter-spacing: 0.25vw;
     color:rgba(0, 0, 0 , 0.85);
     margin-bottom: 1rem;
     background-color: rgb(223,223,223);
     border: none;
     justify-content: start;
+    position: relative;
+    overflow: hidden;
 
+}
+.menuBigBtn > img{
+   height: 100%;
+   right: 0;
+   bottom: 0;
+   object-fit: cover;
+   object-position: 0% 0%;
+    position: absolute;
+    aspect-ratio: 1.5/1;
+}
+.menuBigBtn:first-child > img{
+    aspect-ratio: 2/1;
+    right: -7.5%;
+    object-position: 100% 0%;
 }
 
 .menuSignInContainer{
@@ -66,8 +84,8 @@
     box-sizing: border-box;
     font-size: clamp(0.75rem , 4vw , 1.5rem);
     color:rgba(0, 0, 0 , 0.85);
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
     padding-left: 5%;
 }
 .menuSignInContainer > a {
@@ -81,10 +99,26 @@
     justify-content: start;
     padding-left: 5%;
     box-sizing: border-box;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
     font-size: clamp(0.75rem , 4vw , 1.5rem);
     color:rgba(0, 0, 0 , 0.85);
     background-color: white;
     border: none;
+    position: relative;
+}
+.menuSmallBtn::after{
+    content: '';
+    width: 95%;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color:  rgb(223,223,223);
+}
+
+.menuSmallBtn > img{
+    width:10%;
+    aspect-ratio: 1;
+    margin-right: 2.5%;
 }
