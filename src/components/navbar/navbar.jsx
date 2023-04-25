@@ -10,6 +10,7 @@ import companyLogo from '/src/assets/Icons/companyLogo.png'
 import cartIcon from '/src/assets/Icons/cartIcon.png'
 
 import SearchBar from "./SearchBar";
+import NavBarMenu from "./navBarMenu";
 let hasOpened = false;
 
 function Navbar() {
@@ -26,21 +27,21 @@ const accountBtnHandler = ()=>{
    if(!user) navigate("/login")
    if(user) navigate("/account")
 }
-
 const menuBtnHandler = ()=>{
 
-    if (!hasOpened){
-      hasOpened = true;
-      document.querySelector(".menuContainer").classList.add("open")
-      document.querySelector(".menuButton").classList.add("active")
-      document.body.style.overflow = "hidden"
-    } else {
-      hasOpened = false;
-      document.querySelector(".menuContainer").classList.remove("open")
-      document.querySelector(".menuButton").classList.remove("active")
-      document.body.style.overflow = "auto"
-    }
+  if (!hasOpened){
+    hasOpened = true;
+    document.querySelector(".menuContainer").classList.add("open")
+    document.querySelector(".menuButton").classList.add("active")
+    document.body.style.overflow = "hidden"
+  } else {
+    hasOpened = false;
+    document.querySelector(".menuContainer").classList.remove("open")
+    document.querySelector(".menuButton").classList.remove("active")
+    document.body.style.overflow = "auto"
+  }
 }
+
 
 useEffect(()=>{
   if (localStorage.getItem('cartNotification') === 'true') 
@@ -80,10 +81,7 @@ useEffect(()=>{
         <div className="menuButtonRow2"></div>
         <div className="menuButtonRow3"></div>
         </button>
-    <div className="menuContainer">
-      <div className="menuContainerShadow" onClick={menuBtnHandler}></div>
-      <div className="menuContainerContent"></div>
-    </div>
+      <NavBarMenu closeMenu={menuBtnHandler}/>
 
         <div className="companyLogo">
           <button onClick={()=>{navigate('/')}}>

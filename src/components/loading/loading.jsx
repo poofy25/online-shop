@@ -24,7 +24,7 @@ return()=>{
 return(
     <div className="loadingContainer">
 
-      <div class="loadingText">Loading</div>
+      <div className="loadingText">Loading</div>
      <LoadingSpinner/>
 
     </div>
