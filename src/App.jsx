@@ -23,7 +23,8 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={ <React.Suspense fallback={<Loading/>}><HomePage/></React.Suspense> } />
-        <Route path="/login" element={ <React.Suspense fallback={<Loading/>}><LoginPage/> </React.Suspense>} />
+        <Route path="/signup" element={ <React.Suspense fallback={<Loading/>}><LoginPage path='signup'/> </React.Suspense>} />
+        <Route path="/signin" element={ <React.Suspense fallback={<Loading/>}><LoginPage path='signin'/> </React.Suspense>} />
         <Route path="/account" element={ <React.Suspense fallback={<Loading/>}><AccountPage/></React.Suspense> } />
         <Route path="/cart" element={ <React.Suspense fallback={<Loading/>}><CartPage/></React.Suspense> } />
         <Route path="/product/:id" element={<React.Suspense fallback={<Loading/>}><ProductPage /></React.Suspense>} />

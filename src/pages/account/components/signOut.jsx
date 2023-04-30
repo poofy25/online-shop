@@ -11,7 +11,7 @@ const onSignOut = ()=>{
        console.log('Signout Succesfull')
        
        localStorage.setItem("userName", "")
-       navigate('/login')
+       navigate('/signin')
     }, function(error) {
        console.log('Signout Failed')  
     });

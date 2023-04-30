@@ -4,11 +4,22 @@ import LoginMenu from "./components/loginMenu"
 import { serverTimestamp } from "firebase/firestore"
 import { getDoc , doc , setDoc } from "firebase/firestore";
 import { db , auth } from "../../firebase/firebase";
-import { useNavigate } from "react-router-dom";
-
-function LoginPage() {
+import { useNavigate , useLocation } from "react-router-dom";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useEffect } from "react";
+function LoginPage(props) {
     const navigateTo = useNavigate()
-    auth.onAuthStateChanged(user =>{
+    const [user] = useAuthState(auth);
+
+    useEffect(()=>{
+      if(user !== null) navigateTo('/account')
+    },[user])
+  
+ 
+    
+    useEffect(()=>{
+       //This sets the user data when a user connects and syncs the cart content
+      const onAuth =  auth.onAuthStateChanged(user =>{
         if (user && user.displayName !== localStorage.getItem('userName')){
 
          async function onLogIn (){
@@ -43,7 +54,7 @@ function LoginPage() {
                localStorage.setItem('cartProducts' , JSON.stringify(cartDataFromDb.cartItems))
               
            }
-           navigateTo('/account')
+         //  navigateTo('/account')
           }
           setCartDataFromDb()
         
@@ -56,10 +67,14 @@ function LoginPage() {
       }
       })
     
+      //removes the event listener
+      return onAuth
+    },[])
+
     return (
         <>
             <div className="websiteContent">
-            <LoginMenu/>
+            <LoginMenu path={props.path}/>
             </div>
         </>
     )

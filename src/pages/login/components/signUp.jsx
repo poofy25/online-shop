@@ -1,6 +1,6 @@
 
 import { auth , provider } from "../../../firebase/firebase"
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup , getAdditionalUserInfo} from "firebase/auth";
 
 import { useNavigate } from "react-router-dom";
 import googleIcon from '/src/assets/Icons/googleIcon.png'
@@ -12,6 +12,9 @@ function SignUp() {
 
   const onSingIn = ()=>{
       signInWithPopup(auth , provider).then((result) => {
+        if(getAdditionalUserInfo(result).isNewUser){
+        console.log('Creating New Account')
+        
           let email = result.user.email
           let name = result.user.displayName
     
@@ -23,6 +26,11 @@ function SignUp() {
           localStorage.setItem("userName" , name)
           navigate('/account')
           return console.log(userData)
+        }else{
+          auth.signOut()
+          throw new Error ('Account Already Exists')
+          
+        }
          }).catch((error) => {
           console.log(error)
          })

@@ -8,10 +8,10 @@ import AccountMenu from "./components/accountMenu";
 function AccountPage() {
  
   const navigate = useNavigate()
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
+if(user === null)  navigate("/signin")
+else{
 
-
-        if (user){
             return(
             <div>
                 <div className="websiteContent">
@@ -20,11 +20,8 @@ function AccountPage() {
                 </div>
             </div>
             )
-        } else {
-          navigate("/login")
-        }
-
-
+}
+      
    
 }
 

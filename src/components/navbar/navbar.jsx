@@ -16,7 +16,7 @@ let hasOpened = false;
 function Navbar() {
 let navigate = useNavigate()
 const [user] = useAuthState(auth)
-
+console.log(user)
 
 let accountIcon = logedOutIcon;
 if(user){
@@ -24,7 +24,7 @@ if(user){
 }
 
 const accountBtnHandler = ()=>{
-   if(!user) navigate("/login")
+   if(!user) navigate("/signin")
    if(user) navigate("/account")
 }
 const menuBtnHandler = ()=>{
@@ -81,7 +81,7 @@ useEffect(()=>{
         <div className="menuButtonRow2"></div>
         <div className="menuButtonRow3"></div>
         </button>
-      <NavBarMenu closeMenu={menuBtnHandler}/>
+      <NavBarMenu closeMenu={menuBtnHandler} user={user} />
 
         <div className="companyLogo">
           <button onClick={()=>{navigate('/')}}>

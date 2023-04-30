@@ -3,6 +3,7 @@ import './navBarMenu.css'
 import { useNavigate , useLocation} from 'react-router-dom'
 import { useEffect } from 'react'
 import logedOutIcon from '/src/assets/Icons/logedOutProfileIcon.png'
+import logedInIcon from '/src/assets/Icons/logedInProfileIcon.png'
 import cartIcon from '/src/assets/Icons/cartIcon.png'
 import contactUsIcon from '/src/assets/Icons/contactUsIcon.png'
 import shoppingWoman from '/src/assets/Clothing/womanShopping.png'
@@ -16,6 +17,7 @@ const NavBarMenu = (props)=>{
     const menuBtnHandler = props.closeMenu
     const navigateTo = useNavigate()
     const location = useLocation()
+    const user = props.user
 
     useEffect(()=>{
       
@@ -35,9 +37,9 @@ const NavBarMenu = (props)=>{
 
 
         <div className="menuSignInContainer">
-          <a onClick={()=>navigateTo('/login')}>Sign In</a>&nbsp; | &nbsp;<a onClick={()=>navigateTo('/login')}>SignUp</a>
+          <a onClick={()=>navigateTo('/signin')}>Sign In</a>&nbsp; | &nbsp;<a onClick={()=>navigateTo('/signup')}>SignUp</a>
         </div>
-        <button className="menuHomeBtn menuSmallBtn" onClick={()=>navigateTo('/account')}><img src={logedOutIcon}/>Account</button>
+        <button className="menuHomeBtn menuSmallBtn" onClick={()=>navigateTo('/account')}><img src={user!==null ? logedInIcon : logedOutIcon}/>Account</button>
         <button className="menuCartBtn menuSmallBtn" onClick={()=>navigateTo('/cart')}><img src={cartIcon}/>Cart</button>
         <button className="menuContactBtn menuSmallBtn" onClick={()=>navigateTo('/contact')}><img src={contactUsIcon}/>Contact Us</button>
 

@@ -57,7 +57,7 @@ function ToCartBtn(props) {
        try {
         await setDoc(userRef , docData , {merge:true})
        } catch (e) {
-         console.error("Error adding document: ", e);
+         console.error("Error adding document: ", e , docData );
        }
       
      }

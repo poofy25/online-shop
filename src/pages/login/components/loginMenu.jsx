@@ -1,32 +1,32 @@
-import SignIn from "./signIn"
-import SignUp from "./signUp"
-import "../styles/login.css"
-import { useState } from "react"
 
+
+import "../styles/login.css"
+import { useNavigate } from "react-router-dom"
+import { lazy } from "react"
+const SignIn = lazy(()=> import("./signIn"))
+const SignUp = lazy(()=> import("./signUp"))
 const LoginComponents = {
-    SignIn:<SignIn/>,
-    SignUp:<SignUp/>
+    signin:<SignIn/>,
+    signup:<SignUp/>
 }
 
-function LoginMenu() {
+function LoginMenu(props) {
+  const navigateTo = useNavigate()
 
-   const [currentLoginBtn , setLoginBtn] = useState(LoginComponents.SignIn)
-
+     const currentContainerElement = LoginComponents[props.path]
   const loginBtnsHandler = (e)=>{
-     document.querySelector(".activeBtn").classList.remove("activeBtn")
-     e.target.classList.add("activeBtn")
-     setLoginBtn(LoginComponents[e.target.attributes.container.value])
+     navigateTo(`/${(e.target.attributes.container.value).toLowerCase()}`)
   }
 
   return (
     <div className="loginMenu">
         <div className="loginBtns">
-            <button className="activeBtn" onClick={loginBtnsHandler} container={'SignIn'}>SIGN IN</button>
-            <button onClick={loginBtnsHandler} container={'SignUp'}>SIGN UP</button>
+            <button className={`${props.path == 'signin' && 'activeBtn'}`} onClick={loginBtnsHandler} container={'SignIn'}>SIGN IN</button>
+            <button className={`${props.path == 'signup' && 'activeBtn'}`}  onClick={loginBtnsHandler} container={'SignUp'}>SIGN UP</button>
         </div>
         
         <div className="loginMenuContent">
-   {currentLoginBtn}
+   {currentContainerElement}
         </div>
     </div>
   )
