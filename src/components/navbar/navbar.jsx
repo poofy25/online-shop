@@ -16,7 +16,7 @@ let hasOpened = false;
 function Navbar() {
 let navigate = useNavigate()
 const [user] = useAuthState(auth)
-console.log(user)
+const MobileUser = window.innerWidth <= 767
 
 let accountIcon = logedOutIcon;
 if(user){
@@ -88,6 +88,15 @@ useEffect(()=>{
             <img src={companyLogo}/>
           </button>
         </div>
+        {!MobileUser && (<>
+          <button className="desktopNavBtns" onClick={()=>{navigate('/catalog')}}>
+          CATALOG          
+        </button>
+        <button className="desktopNavBtns" onClick={()=>{navigate('/contact')}} >
+          CONTACT US         
+        </button>
+        </>)}
+        {!MobileUser && <SearchBar/>}
 
         <div className="navBtns">
         <div className="accountBtn">
@@ -105,7 +114,7 @@ useEffect(()=>{
 
         </div>
       </div>
-        <SearchBar/>
+        {MobileUser && <SearchBar/>}
     </div>
   )
 }

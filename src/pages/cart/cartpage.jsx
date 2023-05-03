@@ -3,20 +3,20 @@ import EmptyCart from "./components/emptyCart"
 import CartProduct from "./components/cartProduct"
 import { useState , useEffect } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
-import { auth } from "../../firebase/firebase"
-import {doc , setDoc } from "firebase/firestore";
-import { serverTimestamp } from "firebase/firestore"
-import { db } from "../../firebase/firebase"
+import { auth , db } from "../../firebase/firebase"
+import {doc , setDoc ,  serverTimestamp } from "firebase/firestore";
+import { useNavigate } from "react-router-dom"
 import './styles/cartPage.css'
 
 function CartPage() {
     const [user] = useAuthState(auth)
+    const navigateTo = useNavigate()
 
     const [LSData , setLSData ] = useState(JSON.parse(localStorage.getItem('cartProducts')))
 
 
     
-    //Calcuates total product price
+    //Calcuates total products price
     const cartTotalPrice = ()=>{
         let totalAmount = 0
         for(const productIndex in LSData){
@@ -90,7 +90,7 @@ return (
                 <div className="checkoutContainer">
                     <p className="checkoutItemsAmount">Items: <span>{cartTotalItems()}</span></p>
                     <p className="checkoutAmount">Subtotal: <span>${cartTotalPrice()}</span></p>
-                    <button className="checkoutBtn">CHECKOUT</button>
+                    <button className="checkoutBtn" onClick={()=>{if(user){navigateTo('/checkout')}else navigateTo('/signin')}}>CHECKOUT</button>
                 </div>
             {LSData.map((productData , index)=>{
                 return(

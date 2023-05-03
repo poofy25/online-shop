@@ -31,7 +31,7 @@ const NavBarMenu = (props)=>{
     <div className="menuContainer">
       <div className="menuContainerShadow" onClick={menuBtnHandler}></div>
       <div className="menuContainerContent">
-        <img className='menuCompanyLogo' src={companyLogo}/>
+        <img className='menuCompanyLogo' src={companyLogo} onClick={()=>navigateTo('/')}/>
         <button className="menuHomeBtn menuBigBtn" onClick={()=>navigateTo('/')}>HOME <img src={womanLooking}/></button>
         <button className="menuCatalogBtn menuBigBtn" onClick={()=>navigateTo('/catalog')}>CATALOG <img src={shoppingWoman}/></button>
 

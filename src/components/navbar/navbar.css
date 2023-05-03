@@ -1,4 +1,4 @@
-
+@media screen and (max-width: 767px) {
 .Navbar{
     display: flex;
     position:fixed;
@@ -148,3 +148,138 @@ height: 100%;
 .navCartNotification.active{
     display: flex;
 }
+}
+
+
+@media screen and (min-width: 768px) {
+    .Navbar{
+        display: flex;
+        position:fixed;
+        top: 0;
+        flex-direction: column;
+        align-items: center;
+    
+        box-sizing: border-box;
+        width: 100%;
+    
+        background-color: #FFF;
+        z-index: 10;
+        transition: 0.25s ease-in-out;
+    }
+    .NavbarActive{
+        top: -10vh;
+    }
+    .navBarTop{
+        display: flex;
+        width: 100%;
+        position: relative;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        height: 100%;
+        padding-left: 2.5vw;
+        padding-right: 2.5vw;
+        height: 10vh;
+    }
+    
+    .menuButton{
+     display: none;
+
+    }
+   
+    
+    .companyLogo{
+        margin: 0;
+        margin-right: auto;
+        height: 100%;
+    }
+    .companyLogo > button {
+        background-color: transparent;
+        border: none;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        padding-right: 1.25vw;
+        margin: 0;
+        cursor: pointer;
+    }
+    .companyLogo > button > img {
+         height: 100%;
+    }
+    
+    .desktopNavBtns{
+        height: 100%;
+        padding: 0;
+        padding-left: 1.25vw;
+        padding-right: 1.25vw;
+        font-size: clamp(1rem , 1.25vw , 1.5rem);
+        font-weight: 500;
+        color:black;
+        font-style:italic;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+
+  
+    }
+    
+    .navBtns{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        aspect-ratio: 1.25/1;
+        height: 100%;
+        gap: 0%;
+    }
+    
+    
+    .navBtns > div {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    
+    .navBtns > div > button{
+        background-color: transparent;
+        border: none;
+        height: 50%;
+        aspect-ratio: 1;
+        padding: 0;
+        cursor: pointer;
+        position: relative;
+
+    }
+    
+    .navBtns > div > button > img {
+    height: 100%;
+        aspect-ratio: 1;
+    
+    }
+    .navCartNotification {
+        position: absolute;
+        background-color: rgb(255, 25, 25);
+        width: 50%;
+        padding: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        right: -30%;
+        top: -20%;
+        color: white;
+        aspect-ratio: 1;
+        align-items: center;
+        margin: 0;
+        border-radius: 100%;
+        font-size: clamp(0.5rem , 3.5vw , 1rem);
+        box-shadow: 2px 2px 6px 0px rgba(0, 0, 0,0.125);
+    }
+    .navCartNotification.active{
+        display: flex;
+    }
+    }
