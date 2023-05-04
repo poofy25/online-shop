@@ -1,3 +1,5 @@
+
+@media screen and (max-width: 767px) {
 .catalogHeader{
     width: 100%;
     height: fit-content;
@@ -100,3 +102,108 @@
     height: 100%;
     aspect-ratio: 1;
 }
+}
+
+
+
+
+
+@media screen and (min-width: 768px) {
+    .catalogHeader{
+        width: 25%;
+      flex: 1;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        padding-left: 2.5vw;
+        padding-right: 2.5vw;
+        box-sizing: border-box;
+        align-items: start;
+        color: rgba(0,0,0,0.85);
+        overflow: hidden;
+        position: relative;
+        border-right: 1px solid rgba(0,0,0,0.125);
+    }
+    .catalogCategoryName {
+    
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+
+        width: 100%;
+        overflow: hidden;
+    
+    }
+    
+    .catalogCategoryName > p {
+        font-size: clamp(1rem , 6vw , 1.5rem);
+        width: 100%;
+        margin: 0;
+        text-align: left;
+    }
+    .catalogHeaderSearchValue{
+        font-size: clamp(1rem , 4vw , 1.5rem) !important;
+        color: rgba(0,0,0,0.5) ;
+        margin-top: 0.5rem !important;
+    }
+    .catalogCategories{
+       display: none;
+    }
+    .catalogCategories > button {
+        height: 100%;
+        padding: 0.5rem 2rem 0.5rem 2rem;
+        background-color: transparent;
+        border: none;
+        box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.25) inset;
+        color: rgba(0,0,0,0.85);
+        font-size: clamp(1rem , 4vw , 1.5rem);
+        box-sizing: border-box;
+        white-space: nowrap;
+    }
+    .catalogCategories::-webkit-scrollbar{
+        display: none;
+    }
+    .selectedCategoryBtn{
+        box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.5) inset !important;
+        font-weight: 600;
+    }
+    .catalogCategories > button:first-child{
+        margin-left: 5vw;
+    }
+    .catalogCategories > button:last-child{
+        margin-right: 5vw;
+    }
+    
+    .catalogFilterAndAmountContainer{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 5vh;
+        overflow: hidden;
+        justify-content: space-between;
+        box-sizing: border-box;
+        margin: 0.5rem 0px 0.5rem 0px;
+        align-items: center;
+    }
+    .catalogProductAmount > p {
+     margin: 0;
+    }
+    .catalogFilter{
+        overflow: hidden;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        width: max-content;
+        padding: 0;
+        justify-content: space-between;
+        background-color: transparent;
+        border: none;
+        font-size: 1rem;
+        font-weight: 600;
+        color: rgba(0,0,0,0.85);
+        overflow: hidden;
+    }
+    .catalogFilter > img {
+        height: 100%;
+        aspect-ratio: 1;
+    }
+    }

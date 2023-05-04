@@ -21,7 +21,7 @@ function PromotionsList() {
 
     return (
         <div className="promotionsContainer">
-            <p>Promotions</p>
+            <p>PROMOTIONS</p>
             <div className="promotionProductList">
 
             {promotionProductsList.map

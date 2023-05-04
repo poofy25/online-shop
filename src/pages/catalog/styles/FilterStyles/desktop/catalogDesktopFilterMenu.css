@@ -1,0 +1,30 @@
+.catalogDesktopFilterMenuContainer{
+    position: absolute;
+    background-color: red;
+    width: 50%;
+    height: 75%;
+
+}
+
+.catalogDesktopFilterMenuShadow{
+    background-color: rgba(0,0,0,0.5);
+    width: 75%;
+    height: 90%;
+    position: fixed;
+    z-index: 10;
+    bottom: 0;
+    left: 25%;
+    max-width: 0px;
+    transition: 0.5s ease-in-out;
+    opacity: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.catalogDesktopFilterMenuShadow.open{
+   max-width: 75vw;
+   max-height: 90vw;
+   opacity: 1;
+}

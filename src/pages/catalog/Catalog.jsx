@@ -112,9 +112,11 @@ function CatalogPage() {
     return (
         <>
         <div className="websiteContent">
-          <CatalogHeader catalogData={catalogData} setCatalogData={setCatalogData} searchValue={params?.searchValue}/>
-          <CatalogProducts catalogData={catalogData} setCatalogData={setCatalogData} searchValue={params?.searchValue} />
-          <CatalogPagesNavigator catalogData={catalogData} setCatalogData={setCatalogData}/>
+          <div className="catalogContainer">
+            <CatalogHeader catalogData={catalogData} setCatalogData={setCatalogData} searchValue={params?.searchValue}/>
+            <CatalogProducts catalogData={catalogData} setCatalogData={setCatalogData} searchValue={params?.searchValue} />
+            <CatalogPagesNavigator catalogData={catalogData} setCatalogData={setCatalogData}/>
+          </div>
         </div>
         </>
     )

@@ -19,7 +19,7 @@ const featuredProductsList = searchFilter(filterBy , JsonData);
 
     return (
         <div className="featuredContainer">
-            <p>Featured right now</p>
+            <p>FEATURED RIGHT NOW</p>
             <div className="productList">
             {featuredProductsList.map
             ((item , index) =>{ 

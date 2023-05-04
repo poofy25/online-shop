@@ -187,6 +187,9 @@ height: 100%;
      display: none;
 
     }
+    .menuContainer{
+        display: none;
+    }
    
     
     .companyLogo{
@@ -215,7 +218,7 @@ height: 100%;
         padding: 0;
         padding-left: 1.25vw;
         padding-right: 1.25vw;
-        font-size: clamp(1rem , 1.25vw , 1.5rem);
+        font-size: clamp(1rem , 1.5vw , 1.5rem);
         font-weight: 500;
         color:black;
         font-style:italic;

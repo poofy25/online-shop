@@ -1,0 +1,80 @@
+.catalogDesktopFiltersContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.catalogDesktopFiltersContainer > button {
+    height: 7.5vh;
+    width: 100%;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    justify-content: start;
+    color: rgba(0,0,0,0.75);
+    font-size: clamp(1rem,1.25vw,1.5rem);
+    border: none;
+    border-top: 1px solid rgba(0,0,0,0.5);
+    background-color: transparent;
+    cursor: pointer;
+}
+.catalogDesktopFiltersContainer > button:last-child{
+    border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+
+.catalogDesktopFiltersContainer > button:hover{
+   color: rgba(0,0,255,0.75);
+   font-weight: 600;
+}
+
+.catalogDesktopFiltersContainer > button:hover > div > div{
+    background-color: blue;
+    height: 2px;
+}
+
+
+.catalogDesktopFiltersContainer > button.open > div{
+    transform: rotate(-90deg);
+}
+.catalogDesktopFiltersContainer > button.open > div > div{
+   height: 2px;
+}
+
+.catalogDesktopFiltersContainer > button.open{
+    font-weight: 600;
+}
+
+.filterDesktopArrowBtn{
+    height: 50%;
+    aspect-ratio: 1;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    padding: 0;
+    transition: 0.5s ease-in-out;
+    margin: 0;
+    margin-left: auto;
+
+}
+.filterDesktopArrowBtn > div{
+    width: 60%;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+}
+.filterDesktopArrowBtn > div:first-child{
+
+    transform: rotate(-45deg);
+    right: 0;
+    top: 50%;
+
+
+}
+.filterDesktopArrowBtn > div:last-child{
+
+    transform: rotate(45deg);
+    left: 0;
+    top: 50%;
+}

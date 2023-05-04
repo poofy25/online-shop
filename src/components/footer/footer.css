@@ -1,3 +1,6 @@
+
+
+@media screen and (max-width: 767px) {
 footer {
     width: 100%;
     background-color: white;
@@ -10,3 +13,18 @@ footer {
     margin-bottom: 0;
     margin-top: auto;
 }
+}
+@media screen and (min-width: 768px) {
+    footer {
+        width: 100%;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+        box-sizing: border-box;
+        font-size: clamp(0.6rem , 1.25vw , 1.25rem);
+        top: 100%;
+        margin-bottom: 0;
+        margin-top: auto;
+    }
+    }

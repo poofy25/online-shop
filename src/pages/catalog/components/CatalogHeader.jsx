@@ -2,11 +2,12 @@
 
 import filterIcon from '/src/assets/Icons/filterIcon.png'
 import "../styles/catalogHeader.css"
-import { useEffect , useRef } from 'react';
+import { useEffect , useRef , lazy} from 'react';
 import useParamsNavigate from '../../../hooks/useParamsNavigate';
 import { useLocation} from 'react-router-dom';
 import CatalogFilter from './FilterComponents/CatalogFilter';
 import getObjFromUrl from '../../../functions/getObjFromUrl';
+const CatalogDesktopFilter = lazy(()=> import('./FilterComponents/desktop/CatalogDesktopFilter'))
 const categories = [
     'All Categories',
     'Shirts',
@@ -41,6 +42,7 @@ function CatalogHeader(props) {
     let newParams;
     let categorySelected;
     const filtersBtn = useRef(null)
+    const MobileUser = window.innerWidth <= 767
    
     const categorySelector = (e)=>{
         if(prevClickedCategoryBtn !== e.target){
@@ -96,12 +98,14 @@ function CatalogHeader(props) {
             <div className="catalogFilterAndAmountContainer">
                 <div className="catalogProductAmount">
                     <p>{catalogData.rawSearchData.length} Products</p></div>
-                <button className="catalogFilter" ref={filtersBtn}>
+               {MobileUser && <button className="catalogFilter" ref={filtersBtn}>
                     <img src={filterIcon} />
                       Filter
                     </button>
+               }
             </div>
-           <CatalogFilter filtersBtn={filtersBtn} urlParams={params}/>
+           {MobileUser &&<CatalogFilter filtersBtn={filtersBtn} urlParams={params}/>}
+           {!MobileUser && <CatalogDesktopFilter/>}
          </div>
     )
  

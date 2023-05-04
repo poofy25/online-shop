@@ -61,15 +61,16 @@
     .featuredContainer > p {
        font-weight: 600;
        margin: 1rem;
-       font-size: clamp(10px , 5vw , 30px);
+       font-size: clamp(1rem , 1.5vw , 3rem);
        color: rgba(0, 0, 0 , 0.85);
        
     }
     .productList{
-    
-        padding-left: 2vw;
-        padding-right: 2vw;
+        padding-left: 2.5vw;
+        padding-right: 2.5vw;
         box-sizing: border-box;
+        display: flex;
+        gap: 1vw;
         width: 100vw;
         margin-bottom: 1rem;
         overflow: scroll;
@@ -86,13 +87,14 @@
         display: inline-block;
         scroll-snap-align: center;
     }
+    .twoProductsContainer > div:first-child{
+        margin-right: 1vw;
+    }
     .product {
         display: inline-block;
-        margin-left: 2vw;
-        margin-right: 2vw;
-        width: 20vw;
-        
-        aspect-ratio: 9/16;
-        
+        width: 15vw;
+        aspect-ratio: 3/5;
+        cursor: pointer;
+        overflow: hidden;
     }
     }

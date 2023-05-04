@@ -12,7 +12,7 @@ function WhyUs() {
 
     return (
         <div className="whyUsContainer">
-            <p>Why chose dilVin</p>
+            <p>WHY CHOSE dilVin</p>
             <div className="whyUsList">
 
               <div className="reason">
