@@ -112,7 +112,7 @@ function CatalogPage() {
     return (
         <>
         <div className="websiteContent">
-          <div className="catalogContainer">
+          <div className="catalogContainer" style={{width:'100vw'}}>
             <CatalogHeader catalogData={catalogData} setCatalogData={setCatalogData} searchValue={params?.searchValue}/>
             <CatalogProducts catalogData={catalogData} setCatalogData={setCatalogData} searchValue={params?.searchValue} />
             <CatalogPagesNavigator catalogData={catalogData} setCatalogData={setCatalogData}/>

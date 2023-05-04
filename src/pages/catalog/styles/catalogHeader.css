@@ -2,7 +2,6 @@
 @media screen and (max-width: 767px) {
 .catalogHeader{
     width: 100%;
-    height: fit-content;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -111,7 +110,7 @@
 @media screen and (min-width: 768px) {
     .catalogHeader{
         width: 25%;
-      flex: 1;
+        flex: 1;
         background-color: white;
         display: flex;
         flex-direction: column;
