@@ -1,6 +1,6 @@
 
 
-import "/src/pages/catalog/styles/FilterStyles/catalogFilterColor.css"
+import "/src/pages/catalog/styles/FilterStyles/catalogFilterOptionBtn.css"
 function CatalogFilterSize(props) {
 
   const filters = props.filters;
@@ -37,12 +37,12 @@ function CatalogFilterSize(props) {
             let isSelected = false
             if(filters?.size?.indexOf(size.name) !== -1 && filters.size) isSelected = true
             return(
-              <div className={`filterOptionBtn ${isSelected && 'selected'} `} key={index} onClick={(e)=>{clickHandler(e , size.name)}}>
+              <button className={`filterOptionBtn ${isSelected && 'selected'} `} key={index} onClick={(e)=>{clickHandler(e , size.name)}}>
                 <div className="filterOptionBtnContainer">
                   <p>{size.name}</p>
                   <div className="check"></div>
                 </div>
-             </div>
+             </button>
             )
            })}
          </div>

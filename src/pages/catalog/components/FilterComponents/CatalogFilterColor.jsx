@@ -1,5 +1,5 @@
 
-import "/src/pages/catalog/styles/FilterStyles/catalogFilterColor.css"
+import "/src/pages/catalog/styles/FilterStyles/catalogFilterOptionBtn.css"
 import { useEffect } from "react";
 function CatalogFilterColor(props) {
 
@@ -37,13 +37,13 @@ function CatalogFilterColor(props) {
             let isSelected = false
             if(filters?.color?.indexOf(color.name) !== -1 && filters.color) isSelected = true
             return(
-              <div className={`filterOptionBtn ${isSelected && 'selected'} `} key={index} onClick={(e)=>{clickHandler(e , color.name)}}>
+              <button className={`filterOptionBtn ${isSelected && 'selected'} `} key={index} onClick={(e)=>{clickHandler(e , color.name)}}>
                 <div className="filterOptionBtnContainer">
                   <div style={{backgroundColor:color.value}} className="colorDiv"></div>
                   <p>{color.name}</p>
                   <div className="check"></div>
                 </div>
-             </div>
+             </button>
             )
            })}
          </div>

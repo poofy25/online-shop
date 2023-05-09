@@ -1,4 +1,4 @@
-
+@media screen and (max-width: 767px) {
 .accountMenu{
     width: 100%;
     box-sizing: border-box;
@@ -69,7 +69,7 @@
 .signOutOption{
     width: 100%;
     height: 7.5vh;
-    margin-top: 1.5vh;
+    margin-top: 1rem;
     background-color: #FFF;
 }
 .signOutBtn{
@@ -94,3 +94,110 @@
     font-size:  clamp(10px , 4.5vw ,20px);
     font-weight: 600;
 }
+
+
+}
+
+
+@media screen and (min-width: 768px) {
+    .accountMenu{
+        width: 100%;
+        padding-left: 30%;
+        padding-right: 30%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 90vh;
+    
+    }
+    
+    .accountHeader{
+        background-color: white;
+        width: 100%;
+        height: 50vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .backgroundPfp{
+        width: 100%;
+        height: 45%;
+    }
+    .backgroundPfp > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.5;
+    }
+    
+    
+    
+    .pfp{
+        border-radius: 100%;
+        overflow: hidden;
+        height: 45%;
+        top: 22.5%;
+        aspect-ratio: 1;
+        border: 2px solid white;
+        position: absolute;
+    }
+    .pfp > img {
+        width: 100%;
+        aspect-ratio: 1;
+    }
+    
+    .pfpName{
+        width: 100%;
+        height: 55%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: end;
+        font-size: clamp(1rem , 1.5vw ,1.5rem);
+        color: rgba(0, 0, 0,0.85);
+    }
+    .pfpName > p {
+        text-align: center;
+    
+    }
+    .pfpName > p > span {
+        font-weight: 700;
+        font-size: clamp(1rem , 1.5vw ,1.5rem);
+    
+    }
+    
+    .signOutOption{
+        width: 100%;
+        height: 7.5vh;
+        margin-top: 1rem;
+        background-color: #FFF;
+    }
+    .signOutBtn{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction:row;
+        align-items: center;
+        justify-content: start;
+        background-color: transparent;
+        border: none;
+        color: rgba(0, 0, 0,0.75);
+    }
+    .signOutBtn > img {
+        margin-left: 1rem;
+        height: 50%;
+        transform: rotate(180deg);
+        filter:opacity(0.75);
+    }
+    .signOutBtn > p {
+        margin-left: 1rem;
+        font-size: clamp(0.75rem , 1.25vw ,1.5rem);
+        font-weight: 600;
+    }
+    
+    
+    }

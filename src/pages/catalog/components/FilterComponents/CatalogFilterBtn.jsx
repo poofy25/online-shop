@@ -7,7 +7,11 @@ function CatalogFilterBtn(props) {
     const filters = props.filters
     const [selectedOptionDataElement , setSelectedOptionDataElement] = useState()
     const clickHandler = ()=>{
-    props.setOptionSelected({name:optionData.name , element:optionData.element , data:optionData?.data})
+      console.log(props.optionSelected , optionData)
+      //If the selected btn is already opened then it closes it 
+      if(props.optionSelected?.name === optionData.name)return props.setOptionSelected(null)
+      //Sets selected filter btn
+      props.setOptionSelected({name:optionData.name , element:optionData.element , data:optionData?.data})
     }
     useEffect(()=>{
       if(filters[(optionData.name).toLowerCase()]){
@@ -22,7 +26,7 @@ function CatalogFilterBtn(props) {
          
       }
       if(filters.sale){
-        if(selectedOptionDataElement) setSelectedOptionDataElement(currentData =>`${currentData} , On sale`)
+        if(selectedOptionDataElement && !selectedOptionDataElement.includes('On sale') ) setSelectedOptionDataElement(currentData =>`${currentData} , On sale`)
         else setSelectedOptionDataElement(`On sale`)
 
       }

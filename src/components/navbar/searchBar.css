@@ -38,6 +38,7 @@
     align-items: center;
     justify-content: end;
     background-color: transparent;
+    cursor: pointer;
 }
 .searchBarContainer > div > button > img {
     width: 50%;
@@ -91,6 +92,7 @@
         align-items: center;
         justify-content: center;
         background-color: transparent;
+        cursor: pointer;
     }
     .searchBarContainer > div > button > img {
         width: 50%;

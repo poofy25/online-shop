@@ -63,7 +63,7 @@ background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(50,50,125,0) 100%);
     }
     .homeIMG {
         width: 50%;
-
+        height: 100%;
         position: absolute;
         top: 0;
         left: 0;

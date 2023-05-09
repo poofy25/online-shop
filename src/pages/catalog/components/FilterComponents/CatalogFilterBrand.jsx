@@ -1,11 +1,11 @@
 
-import "/src/pages/catalog/styles/FilterStyles/catalogFilterColor.css"
+import "/src/pages/catalog/styles/FilterStyles/catalogFilterOptionBtn.css"
 function CatalogFilterBrand(props) {
   
     return (
-         <div className="filterOptionContaianer">
+         <button className="filterOptionContaianer">
            Brand
-         </div>
+         </button>
     )
  
 }

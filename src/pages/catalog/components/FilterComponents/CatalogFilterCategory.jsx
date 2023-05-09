@@ -1,5 +1,5 @@
 
-import "/src/pages/catalog/styles/FilterStyles/catalogFilterColor.css"
+import "/src/pages/catalog/styles/FilterStyles/catalogFilterOptionBtn.css"
 function CatalogFilterCategory(props) {
 
   const filters = props.filters;
@@ -36,12 +36,12 @@ function CatalogFilterCategory(props) {
             let isSelected = false
             if(filters?.category?.indexOf(category.name) !== -1 && filters.category) isSelected = true
             return(
-              <div className={`filterOptionBtn ${isSelected && 'selected'} `} key={index} onClick={(e)=>{clickHandler(e , category.name)}}>
+              <button className={`filterOptionBtn ${isSelected && 'selected'} `} key={index} onClick={(e)=>{clickHandler(e , category.name)}}>
                 <div className="filterOptionBtnContainer">
                   <p>{category.name}</p>
                   <div className="check"></div>
                 </div>
-             </div>
+             </button>
             )
            })}
          </div>

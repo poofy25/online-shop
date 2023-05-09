@@ -28,7 +28,7 @@ let FilterOptions = [
 ]
 
 function CatalogFilter(props) {
- 
+     const MobileUser = window.innerWidth <= 767
      const FilterBtn = props.filtersBtn.current
      const useNavParams = useParamsNavigate();
      const catalogFilterElement = useRef(null)
@@ -67,14 +67,18 @@ function CatalogFilter(props) {
      },[filterSwich])
 
      useEffect(()=>{
+      console.log(optionSelected)
       if(optionSelected !== null){
         document.querySelector('.catalogFiltersSecond').classList.add('Active')
         document.querySelector('.catalogFiltersFirst').classList.remove('Active')
+        document.body.style.overflow = "hidden"
       }
 
       if(optionSelected === null){
         document.querySelector('.catalogFiltersSecond').classList.remove('Active')
         document.querySelector('.catalogFiltersFirst').classList.add('Active')
+        document.body.style.overflow = "auto"
+        if(!MobileUser)  useNavParams(selectedFilters)
       }
       
      },[optionSelected])
@@ -85,23 +89,26 @@ function CatalogFilter(props) {
       <div className="catalogFilterMenu"  ref={catalogFilterElement}>
         <div className="catalogFiltersContainer">
          <div className="catalogFiltersFirst">
-           <div className="catalogFilterHeader">
+          {MobileUser && <div className="catalogFilterHeader">
             <p>FILTER</p>
            </div>
-         
+          }
   
           <div className="catalogFilterOptions">
             {FilterOptions.map((option , index)=>{
               return(
-                <CatalogFilterOption key={index} option={{...option}} setOptionSelected={setOptionSelected} filters={selectedFilters}/>
+                <CatalogFilterOption key={index} option={{...option}} setOptionSelected={setOptionSelected} optionSelected={optionSelected} filters={selectedFilters}/>
               )
             })}
            </div>
     
-           <CatalogFilterViewItemsBtn closeFilterMenu={setFilterSwich}/>
+           <CatalogFilterViewItemsBtn closeFilterMenu={setFilterSwich} setOptionSelected={setOptionSelected}/>
          </div>
-          <div className="catalogFiltersSecond">
-
+          <div className="catalogFiltersSecond" onClick={(e)=>{if(!MobileUser)
+            {if(e.target === document.querySelector('.catalogFiltersSecond'))setOptionSelected(null)
+            }}}>
+             {MobileUser ?
+             <> 
             <div className="catalogFilterHeader">
               <button onClick={()=>{
                  document.querySelector('.catalogFiltersSecond').classList.remove('Active')
@@ -154,9 +161,51 @@ function CatalogFilter(props) {
               )
 }
             </div>
+            </>
+            :
+            
+            <div className="catalogDesktopFilterOptions">
+             <div className="catalogFilterHeader">
+
+              <p>{(optionSelected?.name)?.toUpperCase()}</p>
+
+               {optionSelected?.name !== 'Price' ? <button className="selectionBtn" onClick={()=>{
+                                     
+                  if(selectedFilters[(optionSelected?.name)?.toLowerCase()]) {
+                      const newFilters = {...selectedFilters}
+                      delete newFilters[(optionSelected?.name)?.toLowerCase()]
+                      setSelectedFilters(newFilters)
+                    }
+
+
+                }}>
+                  {selectedFilters[(optionSelected?.name)?.toLowerCase()] && (<p>CLEAR</p>)}
+                </button>
+                :
+                <button className="selectionBtn" onClick={()=>{
+                                     
+                  if(selectedFilters.sale || selectedFilters.range) {
+                      const newFilters = {...selectedFilters}
+                      delete newFilters['range']
+                      delete newFilters['sale']
+                      setSelectedFilters(newFilters)
+                    }
+          
+                }}>
+                  {selectedFilters.sale && (<p>CLEAR</p>) || selectedFilters.range && (<p>CLEAR</p>)}
+                </button>
+                     }
+            </div>
+            {optionSelected?.element && cloneElement(
+              optionSelected?.element,
+              {setFilters:setSelectedFilters , filters:selectedFilters , data:optionSelected?.data}
+            )
+            }
+          </div>
+            }
 
         
-            <CatalogFilterViewItemsBtn closeFilterMenu={setFilterSwich}/>
+            {MobileUser &&<CatalogFilterViewItemsBtn closeFilterMenu={setFilterSwich}/>}
           </div>
         </div>
         <div className="catalogFiltersShadow" onClick={()=>{setFilterSwich(false)}} ></div>

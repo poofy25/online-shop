@@ -1,16 +1,20 @@
+
+
+@media screen and (max-width: 767px) {
+
 .productCartContainer{
-    width: 90%;
-    aspect-ratio: 1/0.375;
+    width: 100%;
+    aspect-ratio: 1/0.5;
     display: flex;
     flex-direction: row;
     align-items:start;
     justify-content: start;
+    box-sizing: border-box;
     overflow: hidden;
     background-color: white;
     color:rgba(0,0,0,0.75);
-    padding-top: 1rem;
-    margin-bottom: 1rem;
-    border-top: 1px solid rgba(0,0,0,0.25);
+    padding: 1rem 5vw 1rem 5vw;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
     position: relative;
 }
 .productCartContainer > img {
@@ -22,7 +26,7 @@
    object-position: top;
 }
 .cartProductDetails{
-    padding-left: 1rem;
+    padding-left: 5vw;
     height: 100%;
     width: 70%;
     display: flex;
@@ -48,8 +52,8 @@
     background-color: transparent;
     border: none;
     padding: 0;
-    right: 0;
-    bottom: 0;
+    right: 5vw;
+    bottom: 1rem;
     position: absolute;
 }
 .cartProductTrashBtn > img {
@@ -140,3 +144,158 @@
     font-size: clamp(0.6rem , 3.5vw , 1.75rem);
     color: rgba(0,0,0,0.75);
 }
+
+
+}
+
+
+
+
+
+
+@media screen and (min-width: 768px) {
+
+    .productCartContainer{
+        width: 100%;
+        aspect-ratio: 1/0.35;
+        display: flex;
+        flex-direction: row;
+        align-items:start;
+        justify-content: start;
+        box-sizing: border-box;
+        overflow: hidden;
+        background-color: white;
+        color:rgba(0,0,0,0.75);
+        padding: 1rem;
+        border-bottom: 1px solid rgba(0,0,0,0.125);
+        position: relative;
+    }
+    .productCartContainer > img {
+       display: flex;
+       height: 100%;
+       aspect-ratio: 0.75/1;
+       min-width:0%;
+       object-fit: cover;
+       object-position: top;
+       cursor:pointer;
+    }
+    .cartProductDetails{
+        padding-left: 1rem;
+        height: 100%;
+        width: 70%;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        flex-direction: column;
+    }
+    .cartProductName{
+        white-space: nowrap;
+        margin: 0;
+        
+        font-weight: 500;
+        font-size: clamp(0.6rem , 1.25vw , 1.75rem);
+        margin-bottom: 0.5rem;
+    }
+    .cartProductTrashBtn{
+        height: 15%;
+        aspect-ratio: 1;
+        overflow: hidden;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        right: 1rem;
+        bottom: 1rem;
+        position: absolute;
+        cursor: pointer;
+    }
+    .cartProductTrashBtn > img {
+        width: 90%;
+        height: 90%;
+        aspect-ratio: 1;
+        filter:opacity(0.5);
+      
+    }
+    .cartProductPrice{
+        margin: 0;
+        font-weight: 600;
+        font-size: clamp(0.6rem , 1vw , 1.75rem);
+    }
+    .cartProductPrice > span {
+        font-weight: 400;
+        font-size: clamp(0.6rem , 1vw , 1.75rem);
+        color:rgba(0,0,0,0.5);
+    }
+    .sizeAndColorContainer {
+        display: flex;
+        width: 100%;
+        justify-content: start;
+        color:rgba(0,0,0,0.5);
+        
+    }
+    .cartProductSize{
+        display: flex;
+        margin-right: 7.5%;
+    }
+    .cartProductSize > p {
+        font-size: clamp(0.5rem , 1vw , 1rem);
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+    .cartProductSize > p:last-child {
+        font-weight: 600;
+    }
+    .cartProductColor{
+        display: flex;
+    }
+    .cartProductColor> p {
+        font-size: clamp(0.5rem , 1vw , 1rem);
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+    .cartProductColor > p:last-child {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    
+    .productCountContainer{
+        width: 35%;
+        aspect-ratio: 1/.25;
+        display: flex;
+        align-items: center;
+        justify-content:start;
+        margin-top: auto;
+       
+    }
+    .productCountContainer > button {
+        cursor: pointer;
+        aspect-ratio: 1;
+        height: 100%;
+        border: 1px solid rgb(128,128,128);
+        background-color: transparent;
+        font-weight: 500;
+        font-size: clamp(0.6rem , 1vw , 1.75rem);
+        transition: 0.25s ease-in-out;
+        color: rgba(0,0,0,0.75);
+        padding: 0;
+    }
+    .productCountContainer > button:active{
+        background-color: rgba(128,128,128,0.25);
+        transition: 0s;
+    }
+    .productCountContainer > div {
+        width: 35%;
+        box-sizing: border-box;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(128,128,128);
+        border-left:none ;
+        border-right:none ;
+        font-weight: 500;
+        font-size: clamp(0.6rem , 1vw , 1.75rem);
+        color: rgba(0,0,0,0.75);
+    }
+    
+    
+    }

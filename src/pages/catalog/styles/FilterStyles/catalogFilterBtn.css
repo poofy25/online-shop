@@ -1,4 +1,4 @@
-
+@media screen and (max-width: 767px) {
 .catalogFilterBtn{
     width: 100%;
     right: 0;
@@ -85,3 +85,94 @@
     display: flex;
     margin-bottom: 1vh;
 }
+}
+
+
+
+
+
+@media screen and (min-width: 768px) {
+    .catalogFilterBtn{
+        cursor: pointer;
+        width: 20vw;
+        position: relative;
+        overflow: hidden;
+        background-color: white;
+        display: flex;
+        justify-content: end;
+        max-height: 12.5vh;
+    
+    }
+    .catalogFilterBtnContainer{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+        position: relative;
+        right: 0;
+        width:100%;
+        min-height: 7.5vh;
+        position: relative;
+     
+    
+        border-bottom:1px solid rgba(0, 0, 0 , 0.125);
+    }
+    .catalogFilterBtnContainerWrapper{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        width: 100%;
+        height: 100%;
+        min-height: 7.5vh;
+        max-height: 7.5vh;
+    }
+    .catalogFilterBtnContainerWrapper > p{
+        margin: 0;
+        font-size: clamp(1rem , 1.25vw , 1.5rem);
+     }
+    
+    .filterArrowBtn{
+        height: 30%;
+        aspect-ratio: 1;
+        background-color: transparent;
+        border: none;
+        position: relative;
+        padding: 0;
+        transition: 0.5s ease-in-out;
+        margin: 0;
+        margin-left: auto;
+        margin-right: 2.5%;
+        transform: rotate(-90deg);
+    
+    }
+    .filterArrowBtn > div{
+        width: 60%;
+        height: 1px;
+        background-color: black;
+        position: absolute;
+    }
+    .filterArrowBtn > div:first-child{
+    
+        transform: rotate(-45deg);
+        right: 0;
+    
+    
+    }
+    .filterArrowBtn > div:last-child{
+    
+        transform: rotate(45deg);
+        left: 0;
+    }
+    
+    .selectedDataContainer{
+        white-space: nowrap;
+        text-align: start;
+        overflow: hidden;
+        font-size: clamp(0.75rem , 1vw,1rem);
+        width: 100%;
+        margin: 0;
+        display: flex;
+        margin-bottom: 1vh;
+    }
+    }

@@ -1,3 +1,6 @@
+
+@media screen and (max-width: 767px) {
+
 .catalogPagesNavigatorContainer{
     display: flex;
     width: 100%;
@@ -33,3 +36,56 @@
 .deactivateNumberedBtn{
     opacity: 0.25;
 }
+
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+
+    .catalogPagesNavigatorContainer{
+        display: flex;
+        padding: 0 !important;
+        width: 100%;
+        padding-left:25% ;
+        padding-right:25% ;
+        position: relative;
+        margin-top: auto;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        justify-content: center;
+        background-color: white;
+
+    }
+    .catalogPagesNavigatorContainer > button {
+        padding: 0.75vw;
+        margin-left:0.5vw;
+        margin-right: 0.5vw;
+        color: black;
+        background-color: transparent;
+        border: none;
+        font-size: 1rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+    }
+    .catalogPagesNavigatorContainer > button:first-child , .catalogPagesNavigatorContainer > button:last-child {
+        font-size: 1.25rem;
+        color: white;
+        background-color: rgba(0,0,0,0.85);
+        border-radius: 2px;
+    
+    }
+    .deactivateMovingBtn{
+        opacity: 0.25;
+    }
+    .deactivateNumberedBtn{
+        opacity: 0.25;
+    }
+    
+    }

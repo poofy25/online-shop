@@ -1,6 +1,6 @@
 
 
-
+@media screen and (max-width: 767px) {
 .catalogFilterMenu{
     width: 100vw;
     height: 100%;
@@ -69,17 +69,6 @@
 .catalogFiltersSecond.Active{
     right: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 .catalogFilterHeader{
@@ -192,3 +181,151 @@ left: 25%;
     transform: translateX(6px) rotate(-45deg);
     transform-origin: left bottom;
  }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 768px) {
+    .catalogFilterMenu{
+        width: 100%;
+        height: fit-content;
+        position: relative;
+        top: 0;
+        overflow: hidden;
+        transition: 0.5s ease-in-out;
+        z-index: 9;
+    }
+    .catalogFiltersContainer{
+        width: 100%;
+        background-color: white;
+        height: 100%;
+        right: 0;
+        position: relative;
+        top: 0;
+        overflow: hidden;
+    }
+    
+    .catalogFiltersFirst{
+        width: 100%;
+        height: 100%;
+  
+        position: relative;
+        z-index: 99;
+        transition: 0.5s;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .catalogFiltersFirst.Active{
+       right: 0;
+    }
+    
+    .catalogFiltersSecond{
+        background-color: rgba(0,0,0,0.125);
+        width: 75vw;
+        height: 100vh;
+        position: fixed;
+        z-index:1;
+        bottom: 0;
+        right: 0;
+        transition: 0.5s ;
+        box-sizing: border-box;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .catalogFiltersSecond.Active{
+        display: flex;
+    }
+    
+    
+    .catalogFilterHeader{
+      height: 7.5vh;
+      display: flex;
+      background-color: white;
+      z-index: 99;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      justify-content: space-between;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .catalogFilterHeader > p {
+        font-size: clamp(0.75rem , 1.25vw , 1.5rem);
+        font-weight: 600;
+    }
+    
+    .selectionBtn{
+        font-size: clamp(0.75rem , 1.25vw , 1.5rem);
+        background-color: transparent;
+        height: 100%;
+        border: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+        margin-left: auto;
+        cursor: pointer;
+    
+    }
+    .selectionBtn > p {
+
+        margin: 0;
+        margin-right: 10%;
+    }
+    
+
+    .catalogDesktopFilterOptions{
+        width: 50%;
+        max-height: 65vh;
+        padding-bottom : 1rem;
+        box-sizing: border-box;
+        border: 1px solid rgba(0,0,0,0.5);
+        border-radius: 5px;
+        overflow:auto;
+     
+        background-color: white;
+    }
+    .selectionBtnCheck{
+        position: relative;
+        height:  35%;
+        aspect-ratio: 1;
+        margin: 0;
+        margin-left:auto ;
+        display: flex;
+     }
+     .selectionBtnCheck::before {
+        content: "";
+        position: absolute;
+        width: 15%;
+        top: 30%;
+        height: 50%;
+    
+        background-color:  rgb(128, 128, 128);
+        transform: translateX(6px) rotate(-45deg);
+        transform-origin: left bottom;
+        z-index: +1;
+     }
+     .selectionBtnCheck::after {
+        content: "";
+        position: absolute;
+        bottom: 17.5%;
+        height: 15%;
+        width: 100%;
+        background-color:  rgb(128, 128, 128);
+        transform: translateX(6px) rotate(-45deg);
+        transform-origin: left bottom;
+     }
+    }

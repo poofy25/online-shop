@@ -1,3 +1,5 @@
+@media screen and (max-width: 767px) {
+
 .loginMenu{
     width: 90%;
     margin-top: 5vh;
@@ -74,3 +76,94 @@ height: 50%;
 top: 25%;
 left: 5%;
 }
+
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .loginMenu{
+        width: 40%;
+        margin-left: 30%;
+        margin-right: 30%;
+        box-sizing: border-box;
+        background-color: white;
+        margin-top: 1rem;
+        border-radius: 2px;
+        overflow: hidden;
+    }
+    
+    .loginBtns{
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .loginBtns > button {
+        cursor: pointer;
+        width: 50%;
+        height: 100%;
+        background-color: transparent;
+        box-sizing: border-box;
+        border: none;
+        border-bottom:2px solid rgba(0, 0, 0,.25);
+        color: rgba(0, 0, 0,.5);
+        font-weight: 800;
+        font-size:clamp(1rem,1.5vw,1.5rem) ;
+        position: relative;
+    }
+    .loginBtns > button:first-child{
+        border-right:none ;
+    }
+    .loginBtns > button:first-child::after{
+        content: "";
+        right: -1px;
+        top: 25%;
+        color: white;
+        background-color: rgba(0, 0, 0,.25);
+        position: absolute;
+        width: 2px;
+        height: 50%;
+    }
+    
+    .loginBtns > button.activeBtn {
+        border-bottom: 2px solid blue;
+        color: rgba(0, 0, 0,.75);
+    }
+    .loginMenuContent{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        aspect-ratio: 1/0.4;
+        
+    }
+    
+    
+    .googleBtn{
+        width: 50%;
+        cursor: pointer;
+        aspect-ratio: 1/0.2;
+        background-color: transparent;
+        border: 2px solid rgba(0, 0, 0,.5);
+        box-sizing: border-box;
+        border-radius: 1px;
+        color: rgba(0, 0, 0,.75);
+        font-weight: 800;
+        font-size:clamp(1rem,1.5vw,1.5rem) ;
+        position: relative;
+    }
+    .googleBtn:active {
+        border-color: rgba(0, 0, 0,.75);
+        background-color:rgba(0, 0, 0,.05) ;
+    }
+    .googleBtn > img{
+    position: absolute;
+    height: 50%;
+    top: 25%;
+    left: 5%;
+    }
+    
+    }

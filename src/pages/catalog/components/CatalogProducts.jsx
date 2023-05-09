@@ -1,6 +1,7 @@
 
 
 import Product from "../../../components/product/Product"
+import CatalogPagesNavigator from "./CatalogPagesNavigator"
 import "../styles/catalogProducts.css"
 function CatalogProducts(props) {
 
@@ -22,6 +23,7 @@ function CatalogProducts(props) {
         })) :
         <p>NO PRODUCTS WERE FOUND</p>
         }
+       <CatalogPagesNavigator catalogData={props.catalogData} setCatalogData={props.setCatalogData}/>
         </div>
         </>
     )

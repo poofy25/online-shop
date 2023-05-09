@@ -1,3 +1,6 @@
+
+
+@media screen and (max-width: 767px) {
 .productPercentOff{
     width: 100%;
     font-weight: 400;
@@ -30,3 +33,51 @@
     color: rgba(255, 0, 0,0.85);
     margin: 0; 
 }
+
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+    .productPercentOff{
+        width: 100%;
+        font-weight: 400;
+        font-size: clamp(0.75rem , 1vw , 1rem);
+        margin: 0;
+        color: rgba(255, 0, 0,0.85);
+    }
+    .productPriceContainer{
+        display: flex;
+    }
+    .productPrice{
+        font-weight: 600;
+        font-size: clamp(1rem, 1.5vw , 1.5rem);
+        color: rgba(0, 0, 0 , 0.85);
+        margin: 0; 
+    }
+    .productPriceBeforeDiscount{
+        font-weight: 400;
+        text-decoration: line-through;
+        color: rgba(0, 0, 0 , 0.85);
+        font-size: clamp(1rem, 1.5vw , 1.5rem);
+        opacity: 0.75;
+        margin: 0;
+        margin-left: 5%;
+    }
+    .productPriceAfterDiscount{
+        font-weight: 600;
+        font-size: clamp(1rem, 1.5vw , 1.5rem);
+        color: rgba(255, 0, 0,0.85);
+        margin: 0; 
+    }
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    

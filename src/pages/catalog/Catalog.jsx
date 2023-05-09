@@ -20,19 +20,19 @@ const availableFilters = [
     'size'
 ]
 //Returns an array with multiple arrays as pages content
-function getPagination(rawData){
+function getPagination(rawData , pagesNr){
     let pagesNumber;
     const searchData = []
-    if (rawData.length > 10){
-        pagesNumber = Math.ceil(rawData.length / 10)
+    if (rawData.length > pagesNr){
+        pagesNumber = Math.ceil(rawData.length / pagesNr)
         for(let i = 0; i < pagesNumber; i++ ){
            
            let pageArray = []
            let currentLoopPage=(i === 0 ? 1 : i+1)
-           let productIndex = i * 10;
+           let productIndex = i * pagesNr;
             //Creating an array for a single page
-           for(productIndex ; productIndex <= currentLoopPage * 10 ; productIndex++){
-            if (productIndex >= currentLoopPage*10 || productIndex+1 > rawData.length) break;
+           for(productIndex ; productIndex <= currentLoopPage * pagesNr ; productIndex++){
+            if (productIndex >= currentLoopPage*pagesNr || productIndex+1 > rawData.length) break;
         
             pageArray.push(rawData[productIndex])
            }
@@ -47,8 +47,8 @@ function getPagination(rawData){
     } else {
         let pageArray = []
         let currentLoopPage= 1
-        for(let i = 0 ; i <= currentLoopPage * 10 ; i++){
-         if (i >= currentLoopPage*10 || i+1 > rawData.length) break;
+        for(let i = 0 ; i <= currentLoopPage * pagesNr ; i++){
+         if (i >= currentLoopPage*pagesNr || i+1 > rawData.length) break;
      
          pageArray.push(rawData[i])
         }
@@ -59,16 +59,19 @@ function getPagination(rawData){
 }
 
 function CatalogPage() {
+   const MobileUser = window.innerWidth <= 767
    const navigateTo = useNavigate()
    const location = useLocation()
    const params = getObjFromUrl(location);
+   let paginationPagesNr = MobileUser ? 10 : 15
+   console.log(paginationPagesNr)
    const [catalogData , setCatalogData] = useState({
        filters:{
          name:params?.searchValue ,
          category:[['*']]
        },
        rawSearchData:searchFilter({name:params?.searchValue , category:['*']}, JsonData),
-       searchData:getPagination(searchFilter({name:params?.searchValue , category:[['*']]}, JsonData)),
+       searchData:getPagination(searchFilter({name:params?.searchValue , category:[['*']]}, JsonData) , paginationPagesNr),
        catalogPage:1
    })
 
@@ -91,7 +94,7 @@ function CatalogPage() {
            ...catalogData,
            filters: searchFilters.category ? {...searchFilters} : {...searchFilters , category:['*']} ,
            rawSearchData:searchFilter({...searchFilters},JsonData),
-            searchData:getPagination(searchFilter({...searchFilters}, JsonData)),
+            searchData:getPagination(searchFilter({...searchFilters}, JsonData) , paginationPagesNr),
             catalogPage:1,
         })
     } else {
@@ -102,7 +105,7 @@ function CatalogPage() {
               category:['*']
             },
             rawSearchData:searchFilter({name:params?.searchValue , category:['*']}, JsonData),
-            searchData:getPagination(searchFilter({name:params?.searchValue , category:['*']}, JsonData)),
+            searchData:getPagination(searchFilter({name:params?.searchValue , category:['*']}, JsonData) , paginationPagesNr),
             catalogPage:1
          })
         navigateTo('/catalog')
@@ -115,7 +118,7 @@ function CatalogPage() {
           <div className="catalogContainer" style={{width:'100vw'}}>
             <CatalogHeader catalogData={catalogData} setCatalogData={setCatalogData} searchValue={params?.searchValue}/>
             <CatalogProducts catalogData={catalogData} setCatalogData={setCatalogData} searchValue={params?.searchValue} />
-            <CatalogPagesNavigator catalogData={catalogData} setCatalogData={setCatalogData}/>
+            
           </div>
         </div>
         </>

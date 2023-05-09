@@ -1,5 +1,5 @@
 
-import "/src/pages/catalog/styles/FilterStyles/catalogFilterColor.css"
+import "/src/pages/catalog/styles/FilterStyles/catalogFilterOptionBtn.css"
 
 import { useState , useRef, useEffect} from "react";
 
@@ -60,15 +60,15 @@ useEffect(()=>{
       <div className="filterOptionContaianer">
           {
 
-            <div className={`filterOptionBtn ${filters?.sale !== false && filters?.sale && 'selected'} `} onClick={(e)=>{clickHandler(e , filters.sale)}}>
+            <button className={`filterOptionBtn ${filters?.sale !== false && filters?.sale && 'selected'} `} onClick={(e)=>{clickHandler(e , filters.sale)}}>
                 <div className="filterOptionBtnContainer">
                   <p>Sale</p>
                   <div className="check"></div>
                 </div>
-             </div>
+             </button>
           }
           {
-            <div className='filterOptionBtn'>
+            <button className='filterOptionBtn'>
             <div className="filterOptionBtnContainer price">
 
               <div className="priceWrapper">
@@ -91,7 +91,7 @@ useEffect(()=>{
                 </datalist>
               </div>
             </div>
-         </div>
+         </button>
           }
       </div>
     )

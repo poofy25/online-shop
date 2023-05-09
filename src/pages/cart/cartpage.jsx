@@ -86,16 +86,20 @@ return (
         <>
         <div className="websiteContent">
             <div className="cartPage">
-                <p className="cartPageHeader">Your shopping cart</p>
-                <div className="checkoutContainer">
-                    <p className="checkoutItemsAmount">Items: <span>{cartTotalItems()}</span></p>
-                    <p className="checkoutAmount">Subtotal: <span>${cartTotalPrice()}</span></p>
-                    <button className="checkoutBtn" onClick={()=>{if(user){navigateTo('/checkout')}else navigateTo('/signin')}}>CHECKOUT</button>
-                </div>
+              <div className="cartPageItemsContainer">
+                <p className="cartPageHeader">YOUR CART</p>
+                
             {LSData.map((productData , index)=>{
                 return(
                   <CartProduct productData={productData} key={index} productIndex={index} updateLS={setLSData} LSData={LSData}/>
             )})}
+              </div>  
+            <div className="checkoutContainer">
+                    <p className="checkoutHeader">TOTAL</p>
+                    <p className="checkoutItemsAmount">Items: <span>{cartTotalItems()}</span></p>
+                    <p className="checkoutAmount">Subtotal: <span>${cartTotalPrice()}</span></p>
+                    <button className="checkoutBtn" onClick={()=>{if(user){navigateTo('/checkout')}else navigateTo('/signin')}}>CHECKOUT</button>
+                </div>
            </div>
         </div>
     </>

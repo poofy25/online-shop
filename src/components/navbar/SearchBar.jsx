@@ -30,7 +30,7 @@ useEffect(() => {
     return (
         <div className="searchBarContainer">
             <div>
-                <input className="navBarSearchInput" type="text" placeholder="Search for products..." onFocus={(e)=>{e.target.value = ''}} defaultValue={''}/>
+                <input className="navBarSearchInput" type="text" placeholder="Search for products..." onKeyPress={(e)=>{if(e.key === 'Enter')searchValue()}} defaultValue={''}/>
                 <button onClick={searchValue} type="submit"><img src={searchIcon}/></button>
              </div>
         </div>

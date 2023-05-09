@@ -10,7 +10,8 @@ import ProductSizes from "./components/ProductSizes";
 import ToCartBtn from "./components/ToCartBtn";
 
 function ProductPage() {
-     let params = useParams();
+    const MobileUser = window.innerWidth <= 767
+    let params = useParams();
     const [productID , setProductID] = useState(Number(params.id))
     const [productData , setProductData] = useState({})
     const [productCartData , setProductCartData] = useState({
@@ -56,9 +57,10 @@ function ProductPage() {
         <div className="productScreen">
            <div className="productScreenImgWrapper">
               <img className='productImg'src={productData[0]?.image}/>
-              <p className="productName">{productData[0]?.name}</p>
+            {MobileUser &&  <p className="productName">{productData[0]?.name}</p>}
             </div> 
             <div className="productContent">
+            {!MobileUser &&  <p className="productName">{productData[0]?.name}</p>}
               <ProductPrice productData={productData[0]}/>
               <ProductColors productData={productData[0]} productCartData={setProductCartData}/>
               <ProductSizes productData={productData[0]} productCartData={setProductCartData}/>

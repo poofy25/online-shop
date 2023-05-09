@@ -1,3 +1,7 @@
+
+@media screen and (max-width: 767px) {
+
+
 .productSizesContainer{
     width: 100%;
     display: flex;
@@ -99,3 +103,119 @@
 .sizesdropdownMenu > button:last-child{
     border: none;
 }
+
+
+}
+
+
+
+
+
+
+@media screen and (min-width: 768px) {
+
+
+    .productSizesContainer{
+        width: 100%;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        margin-bottom: 1rem;
+    }
+    .productSizesContainer > p {
+        margin: 0;
+        font-size: clamp(0.5rem , 1vw , 1rem);
+    }
+    .productSizesWrapper{
+        margin-top: 0.5rem;
+        width: 100%;
+        height: max-content;
+        position: relative;
+    }
+    .sizesBtn {
+        width: 100%;
+        aspect-ratio: 1/0.125;
+        background-color: white;
+        border: 1px solid rgba(0,0,0,0.75);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: clamp(0.5rem , 1vw , 1rem);
+        font-weight: 600;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 5;
+        padding-left: 5%;
+        color: rgba(0,0,0,0.75);
+        z-index: 1;
+    }
+    .btnarrow{
+        height: 50%;
+        aspect-ratio: 1;
+        position: relative;
+        transition: 0.25s ease-in-out;
+        z-index: 4;
+        transform: rotate(180deg);
+    }
+    .leftarrow{
+        background-color:rgb(64,64,64);
+        width: 60%;
+        height: 1px;
+        top:45%;
+        position: absolute;
+        left: 0;
+        transform: rotate(-45deg);
+    }
+    .rightarrow{
+        background-color: rgb(64,64,64);
+        top:45%;
+        width: 60%;
+        height: 1px;
+        position: absolute;
+        transform: rotate(45deg); 
+        right: 0;
+    }
+    .productSizesContainer.open .productSizesWrapper .btnarrow{
+        transform: rotate(0deg);
+    }
+    .sizesdropdownMenu{
+        width: 100%;
+        background-color: white;
+        max-height: 0px;
+        left: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        opacity: 0;
+        border: 1px solid rgb(64,64,64);
+        border-top:none;
+        overflow: hidden;
+        box-sizing: border-box;
+        transition: 0.25s ease-in-out;
+    }
+    .productSizesContainer.open .productSizesWrapper .sizesdropdownMenu  {
+        max-height:400px;
+        opacity: 1;
+    }
+    .sizesdropdownMenu > button {
+        width: 100%;
+        text-align: start;
+        padding-left: 5%;
+        aspect-ratio: 1/0.125;
+        background-color: transparent;
+        border: none;
+        font-size: clamp(0.5rem , 1vw , 1rem);
+        font-weight: 500;
+        color: rgba(0,0,0,0.75);
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        border-spacing: 10%;
+    }
+    .sizesdropdownMenu > button:last-child{
+        border: none;
+    }
+    
+    
+    }

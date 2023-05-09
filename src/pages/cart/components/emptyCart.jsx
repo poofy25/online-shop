@@ -14,7 +14,7 @@ return (
         <img src={emptyCartImg}/>
         <p className="emptyCartText">You have no items in cart.</p>
         <p>Dilvin has many articles that are waiting for you!</p>
-        <button onClick={goShoppingHandler} className="goShoppingBtn">Go Shopping</button>
+        <button onClick={goShoppingHandler} className="goShoppingBtn">SHOP NOW</button>
      </div>
 )
  

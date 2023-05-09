@@ -1,3 +1,7 @@
+
+@media screen and (max-width: 767px) {
+
+
 .emptyCartContainer{
     background-color: #FFF;
     width: 100%;
@@ -22,16 +26,65 @@
     margin-bottom: 0.5rem;
 }
 .goShoppingBtn{
-    width:  40vw;
-    aspect-ratio: 3/1;
-    color: rgba(0, 0, 0 , 0.75);
-    background-color: transparent;
-    border:2px solid rgba(0,0,0,0.75);
-    font-weight: 700;
-    font-size: clamp(15px , 4.5vw , 30px);
-    border-radius: 2px;
-    margin-top: 0.5rem;
+    width:  50vw;
+    aspect-ratio: 10/3;
+    color: white;
+    background-color: rgba(0,0,0,0.85);
+    border: none;
+    border-radius: 1px;
+    font-weight: 900;
+    font-size: clamp(15px , 5.5vw , 30px);
+    margin-top: 2rem;
 }
 .goShoppingBtn:active {
     background-color: rgba(0,0,0,0.05);
 }
+
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+
+
+    .emptyCartContainer{
+        background-color: #FFF;
+        width: 100%;
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-sizing:border-box;
+    }
+    .emptyCartContainer > img {
+        width: 10vw;
+        object-fit: cover;
+    }
+    
+    .emptyCartText{
+        font-weight: 700;
+        color: rgba(0, 0, 0 , 0.75);
+        font-size: clamp(1.5rem , 2vw , 2rem);
+        margin-bottom: 0.5rem;
+    }
+    .goShoppingBtn{
+        width:  15vw;
+        aspect-ratio: 1/0.3;
+        color: white;
+        background-color: rgba(0,0,0,0.85);
+        border: none;
+        border-radius: 1px;
+        cursor: pointer;
+        font-weight: 900;
+        font-size: clamp(1rem ,1.75vw , 2rem);
+        margin-top: 1rem;
+        cursor: pointer;
+    }
+    .goShoppingBtn:hover {
+        background-color: rgba(0,0,0,0.5);
+    }
+    
+    }
