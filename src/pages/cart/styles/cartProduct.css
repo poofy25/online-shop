@@ -14,6 +14,8 @@
     background-color: white;
     color:rgba(0,0,0,0.75);
     padding: 1rem 5vw 1rem 5vw;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid rgba(0,0,0,0.25);
     position: relative;
 }
