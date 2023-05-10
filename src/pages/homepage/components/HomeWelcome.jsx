@@ -16,10 +16,12 @@ const MobileUser = window.innerWidth <= 767
         <div className="homeWelcomeContainer">
           <img
           src={welcomeImg}
+          fetchpriority="high"
           className="homeIMG"
           />
           {!MobileUser &&  <img
           src={welcomeImg2}
+          fetchpriority="high"
           className="homeIMG"
           /> }
           <p>Shop the latest trends <br/> with dilVin</p>

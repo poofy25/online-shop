@@ -2,7 +2,7 @@ import "./navbar.css"
 import { useNavigate } from "react-router-dom"
 import { auth } from "../../firebase/firebase"
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useEffect } from "react";
+import { useEffect , lazy } from "react";
 
 import logedOutIcon from '/src/assets/Icons/logedOutProfileIcon.png'
 import logedInIcon from '/src/assets/Icons/logedInProfileIcon.png'
@@ -10,7 +10,7 @@ import companyLogo from '/src/assets/Icons/companyLogo.png'
 import cartIcon from '/src/assets/Icons/cartIcon.png'
 
 import SearchBar from "./SearchBar";
-import NavBarMenu from "./navBarMenu";
+const NavBarMenu = lazy(()=> import("./navBarMenu"))
 let hasOpened = false;
 
 function Navbar() {
@@ -81,7 +81,7 @@ useEffect(()=>{
         <div className="menuButtonRow2"></div>
         <div className="menuButtonRow3"></div>
         </button>
-      <NavBarMenu closeMenu={menuBtnHandler} user={user} />
+     {MobileUser && <NavBarMenu closeMenu={menuBtnHandler} user={user} /> }
 
         <div className="companyLogo">
           <button onClick={()=>{navigate('/')}}>
