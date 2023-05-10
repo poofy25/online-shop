@@ -37,7 +37,7 @@ function Product(props) {
 
   return (
     <div className='productContainer'>
-        <img src={productData.image} onClick={navigateOnClick} width='182px' height='275px' loading='lazy' fetchpriority='low'/>
+        <img src={productData.image} onClick={navigateOnClick} width='182px' height='275px' alt='' loading='lazy' fetchpriority='low'/>
         {discountElement}
         <p onClick={navigateOnClick}>{productData.name}</p>
         {priceElement}

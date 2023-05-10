@@ -18,11 +18,13 @@ const MobileUser = window.innerWidth <= 767
           src={welcomeImg}
           fetchpriority="high"
           className="homeIMG"
+          alt=''
           />
           {!MobileUser &&  <img
           src={welcomeImg2}
           fetchpriority="high"
           className="homeIMG"
+          alt=''
           /> }
           <p>Shop the latest trends <br/> with dilVin</p>
           <button onClick={clickHandler}>SHOP NOW</button>

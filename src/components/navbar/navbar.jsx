@@ -84,8 +84,8 @@ useEffect(()=>{
      {MobileUser && <NavBarMenu closeMenu={menuBtnHandler} user={user} /> }
 
         <div className="companyLogo">
-          <button onClick={()=>{navigate('/')}}>
-            <img src={companyLogo}/>
+          <button onClick={()=>{navigate('/')}} aria-label="Home">
+            <img src={companyLogo} alt=''/>
           </button>
         </div>
         {!MobileUser && (<>
@@ -100,15 +100,15 @@ useEffect(()=>{
 
         <div className="navBtns">
         <div className="accountBtn">
-            <button onClick={accountBtnHandler}>
-              <img src={accountIcon}/>
+            <button onClick={accountBtnHandler} aria-label="Account">
+              <img src={accountIcon} alt=''/>
             </button>
         </div>
 
         <div className="cartBtn">
-            <button onClick={()=>{navigate('/cart')}}>
+            <button onClick={()=>{navigate('/cart')}} aria-label="Cart">
               <div className="navCartNotification"></div>
-              <img src={cartIcon}/>
+              <img src={cartIcon} alt=''/>
             </button>
         </div>
 
